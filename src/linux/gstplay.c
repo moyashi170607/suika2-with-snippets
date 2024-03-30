@@ -7,10 +7,13 @@
 
 /*
  * [Changes]
- *  2022-10-24 Created.
+ *  - 2022-10-24 Created.
+ *  - 2024-03-31 Added avoidance for LGPL (NO_GST)
  */
 
 #include "gstplay.h"
+
+#ifndef NO_GST
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wconversion"
@@ -147,3 +150,33 @@ gstplay_loop_iteration (void)
 {
   g_main_context_iteration (g_main_context_default(), False);
 }
+
+#else /* #ifndef NO_GST */
+
+void
+gstplay_init (int argc, char *argv[])
+{
+}
+
+void
+gstplay_play (const char *fname, Window window)
+{
+}
+
+void
+gstplay_stop (void)
+{
+}
+
+int
+gstplay_is_playing (void)
+{
+  return 0;
+}
+
+void
+gstplay_loop_iteration (void)
+{
+}
+
+#endif

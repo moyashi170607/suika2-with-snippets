@@ -34,10 +34,10 @@
 #include "../suika.h"
 
 /* Suika2 HAL implementation for sound output */
-#if !defined(USE_REPLAY) && !defined(USE_CAPTURE)
 #include "asound.h"
+
+/* Suika2 HAL implementation for video playback */
 #include "gstplay.h"
-#endif
 
 /* Suika2 HAL implementation for graphics */
 #include <GL/gl.h>

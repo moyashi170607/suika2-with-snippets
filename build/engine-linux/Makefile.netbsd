@@ -15,6 +15,7 @@ CC = cc
 #
 
 CPPFLAGS = \
+	-DNO_GST \
 	-I/usr/include/freetype2 \
 	-I/usr/pkg/include \
 	-I/usr/pkg/include/freetype2 \
