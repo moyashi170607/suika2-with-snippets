@@ -79,7 +79,7 @@ static struct layer_name_map layer_name_map[] = {
 	{U8("背面キャラ"), LAYER_CHB},
 	{"chl", LAYER_CHL},
 	{U8("左キャラ"), LAYER_CHL},
-	{"chlc", LAYER_CHL},
+	{"chlc", LAYER_CHLC},
 	{U8("左中キャラ"), LAYER_CHLC},
 	{"chr", LAYER_CHR},
 	{U8("右キャラ"), LAYER_CHR},
