@@ -5,12 +5,17 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.52 2024/4/1
+  <ul>
+    <li>保存前に確認するように変更 (Thanks to 赤月さん)</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.51 2024/4/1
   <ul>
     <li>chlcレイヤーのバグ修正 (Thanks to 赤月さん)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.50 2024/4/1
   <ul>
     <li>アイコンの変更 (by Max)</li>
@@ -1981,12 +1986,17 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.52 2024/4/1
+  <ul>
+    <li>Changed to ask before save (Thanks to Akatsuki-san!)</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.51 2024/4/1
   <ul>
     <li>Fixed a bug of the chlc layer (Thanks to Akatsuki-san)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.50 2024/4/1
   <ul>
     <li>Icon changed (by Max)</li>

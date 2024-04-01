@@ -4248,6 +4248,13 @@ static VOID OnSave(void)
 {
 	HANDLE hFile;
 
+	if (MessageBox(hWndMain, bEnglish ?
+				   L"Are you sure you want to save the script?" :
+				   L"スクリプトを保存してもよろしいですか？",
+				   TITLE,
+				   MB_YESNO | MB_ICONQUESTION) == IDNO)
+		return;
+
 	if (!save_script())
 	{
 		MessageBox(hWndMain, bEnglish ?
