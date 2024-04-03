@@ -394,7 +394,7 @@ extern void (*wrap_log_info)(intptr_t s);
 extern void (*wrap_log_warn)(intptr_t s);
 extern void (*wrap_log_error)(intptr_t s);
 extern void (*wrap_make_sav_dir)(void);
-extern void (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_rt dst, int len);
+extern void (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len);
 extern void (*wrap_notify_image_update)(intptr_t img);
 extern void (*wrap_notify_image_free)(intptr_t img);
 extern void (*wrap_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
@@ -418,7 +418,7 @@ extern bool (*wrap_is_full_screen_supported)(void);
 extern bool (*wrap_is_full_screen_mode)(void);
 extern void (*wrap_enter_full_screen_mode)(void);
 extern void (*wrap_leave_full_screen_mode)(void);
-extern intptr_t (*wrap_get_system_locale)(void);
+extern void (*wrap_get_system_locale)(intptr_t dst, int len);
 extern void (*wrap_speak_text)(intptr_t text);
 extern void (*wrap_set_continuous_swipe_enabled)(bool is_enabled);
 #endif /* HAL_PTR */

@@ -19,7 +19,8 @@ public class SuikaEngine : MonoBehaviour
 			Debug.Log("NG");
 		else
 			Debug.Log("OK");
-    }
+    
+	}
 
     void Update()
     {
