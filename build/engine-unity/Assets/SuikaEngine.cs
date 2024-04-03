@@ -42,37 +42,103 @@ public class SuikaEngine : MonoBehaviour
 
     void Start()
     {
-		init_hal_func_table((IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_log_info(log_info)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_log_warn(log_warn)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_log_error(log_error)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_make_sav_dir(make_sav_dir)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_make_valid_path(make_valid_path)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_notify_image_update(notify_image_update)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_notify_image_free(notify_image_free)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_render_image_normal(render_image_normal)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_render_image_add(render_image_add)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_render_image_dim(render_image_dim)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_render_image_rule(render_image_rule)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_render_image_melt(render_image_melt)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_render_image_3d_normal(render_image_3d_normal)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_render_image_3d_add(render_image_3d_add)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_reset_lap_timer(reset_lap_timer)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_get_lap_timer_millisec(get_lap_timer_millisec)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_play_sound(play_sound)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_stop_sound(stop_sound)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_set_sound_volume(set_sound_volume)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_is_sound_finished(is_sound_finished)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_play_video(play_video)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_stop_video(stop_video)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_is_video_playing(is_video_playing)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_update_window_title(update_window_title)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_is_full_screen_supported(is_full_screen_supported)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_is_full_screen_mode(is_full_screen_mode)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_enter_full_screen_mode(enter_full_screen_mode)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_leave_full_screen_mode(leave_full_screen_mode)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_get_system_locale(get_system_locale)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_speak_text(speak_text)),
-							(IntPtr)Marshal.GetFunctionPointerForDelegate(new delegate_set_continuous_swipe_enabled(set_continuous_swipe_enabled)));
+		Debug.Log("1..");
+		delegate_log_info delegate_log_info = log_info;
+		delegate_log_warn delegate_log_warn = log_warn;
+		delegate_log_error delegate_log_error = log_error;
+		delegate_make_sav_dir delegate_make_sav_dir make_sav_dir;
+		delegate_make_valid_path delegate_valid_path = make_valid_path;
+		delegate_notify_image_update delegate_notify_image_update = notify_image_update;
+		delegate_notify_image_free delegate_notify_image_free = notify_image_free;
+		delegate_render_image_normal delegate_render_image_normal = render_image_normal;
+		delegate_render_image_add delegate_render_image_normal = render_image_normal;
+		delegate_render_image_dim delegate_render_image_dim = render_image_dim;
+		delegate_render_image_rule delegate_render_image_rule = render_image_rule;
+		delegate_render_image_melt delegate_render_image_melt = render_image_melt;
+		delegate_render_image_3d_normal delegate_render_image_3d_normal = render_image_3d_normal;
+		delegate_render_image_3d_add delegate_render_image_3d_add = render_image_3d_add;
+		delegate_reset_lap_timer delegate_reset_lap_timer = reset_lap_timer;
+		delagete d_get_lap_timer_millisec delegate_get_lap_timer_millisec = get_lap_timer_millisec;
+		delegate_play_sound delegate_play_sound = play_sound;
+		delegate_stop_sound delegate_stop_sound = stop_sound;
+		delegate_set_sound_volume delegate_set_sound_volume = set_sound_volume;
+		delegate_is_sound_finished delegate_is_sound_finished = is_sound_finished;
+		delegate_play_video = new delegate_play_video(play_video);
+		delegate_stop_video = new delegate_stop_video(stop_video);
+		delegate_is_video_playing = new delegate_is_video_playing(is_video_playing);
+		delegate_update_window_title = new delegate_update_window_title(update_window_title);
+		delegate_is_full_screen_supported = new delegate_is_full_screen_supported(is_full_screen_supported);
+		delegate_is_full_screen_mode = new delegate_is_full_screen_mode(is_full_screen_mode);
+		delegate_enter_full_screen_mode = new delegate_enter_full_screen_mode(enter_full_screen_mode);
+		delegate_leave_full_screen_mode = new delegate_leave_full_screen_mode(leave_full_screen_mode);
+		delegate_get_system_locale = new delegate_get_system_locale(get_system_locale);
+		delegate_speak_text = new delegate_speak_text(speak_text);
+		delegate_set_continuous_swipe_enabled = new delegate_set_continuous_swipe_enabled(set_continuous_swipe_enabled);
+
+		IntPtr p_log_info = Marshal.GetFunctionPointerForDelegate(d_log_info);
+		IntPtr p_log_info = Marshal.GetFunctionPointerForDelegate(d_log_info);
+		IntPtr p_log_warn = Marshal.GetFunctionPointerForDelegate(d_log_warn);
+		IntPtr p_log_error = Marshal.GetFunctionPointerForDelegate(d_log_error);
+		IntPtr p_make_sav_dir = Marshal.GetFunctionPointerForDelegate(d_make_sav_dir);
+		IntPtr p_make_valid_path = Marshal.GetFunctionPointerForDelegate(d_make_valid_path);
+		IntPtr p_notify_image_update = Marshal.GetFunctionPointerForDelegate(d_notify_image_update);
+		IntPtr p_notify_image_free = Marshal.GetFunctionPointerForDelegate(d_notify_image_free);
+		IntPtr p_render_image_normal = Marshal.GetFunctionPointerForDelegate(d_render_image_normal);
+		IntPtr p_render_image_add = Marshal.GetFunctionPointerForDelegate(d_render_image_add);
+		IntPtr p_render_image_dim = Marshal.GetFunctionPointerForDelegate(d_render_image_dim);
+		IntPtr p_render_image_rule = Marshal.GetFunctionPointerForDelegate(d_render_image_rule);
+		IntPtr p_render_image_melt = Marshal.GetFunctionPointerForDelegate(d_render_image_melt);
+		IntPtr p_render_image_3d_normal = Marshal.GetFunctionPointerForDelegate(d_render_image_3d_normal);
+		IntPtr p_render_image_3d_add = Marshal.GetFunctionPointerForDelegate(d_render_image_3d_add);
+		IntPtr p_reset_lap_timer = Marshal.GetFunctionPointerForDelegate(d_reset_lap_timer);
+		IntPtr p_get_lap_timer_millisec = Marshal.GetFunctionPointerForDelegate(d_get_lap_timer_millisec);
+		IntPtr p_play_sound = Marshal.GetFunctionPointerForDelegate(d_play_sound);
+		IntPtr p_stop_sound = Marshal.GetFunctionPointerForDelegate(d_stop_sound);
+		IntPtr p_set_sound_volume = Marshal.GetFunctionPointerForDelegate(d_set_sound_volume);
+		IntPtr p_is_sound_finished = Marshal.GetFunctionPointerForDelegate(d_is_sound_finished);
+		IntPtr p_play_video = Marshal.GetFunctionPointerForDelegate(d_play_video);
+		IntPtr p_stop_video = Marshal.GetFunctionPointerForDelegate(d_stop_video);
+		IntPtr p_is_video_playing = Marshal.GetFunctionPointerForDelegate(d_is_video_playing);
+		IntPtr p_update_window_title = Marshal.GetFunctionPointerForDelegate(d_update_window_title);
+		IntPtr p_is_full_screen_supported = Marshal.GetFunctionPointerForDelegate(d_is_full_screen_supported);
+		IntPtr p_is_full_screen_mode = Marshal.GetFunctionPointerForDelegate(d_is_full_screen_mode);
+		IntPtr p_enter_full_screen_mode = Marshal.GetFunctionPointerForDelegate(d_enter_full_screen_mode);
+		IntPtr p_leave_full_screen_mode = Marshal.GetFunctionPointerForDelegate(d_leave_full_screen_mode);
+		IntPtr p_get_system_locale = Marshal.GetFunctionPointerForDelegate(d_get_system_locale);
+		IntPtr p_speak_text = Marshal.GetFunctionPointerForDelegate(d_speak_text);
+		IntPtr p_set_continuous_swipe_enabled = Marshal.GetFunctionPointerForDelegate(d_set_continuous_swipe_enabled);
+
+		Init_hal_func_table(d_log_info,
+							d_log_warn,
+							d_log_error,
+							d_make_sav_dir,
+							d_make_valid_path,
+							d_notify_image_update,
+							d_notify_image_free,
+							d_render_image_normal,
+							d_render_image_add,
+							d_render_image_dim,
+							d_render_image_rule,
+							d_render_image_melt,
+							d_render_image_3d_normal,
+							d_render_image_3d_add,
+							d_reset_lap_timer,
+							d_get_lap_timer_millisec,
+							d_play_sound,
+							d_stop_sound,
+							d_set_sound_volume,
+							d_is_sound_finished,
+							d_play_video,
+							d_stop_video,
+							d_is_video_playing,
+							d_update_window_title,
+							d_is_full_screen_supported,
+							d_is_full_screen_mode,
+							d_enter_full_screen_mode,
+							d_leave_full_screen_mode,
+							d_get_system_locale,
+							d_speak_text,
+							d_set_continuous_swipe_enabled);
 
 		int ret = on_event_init();
 		if (ret != 0)
