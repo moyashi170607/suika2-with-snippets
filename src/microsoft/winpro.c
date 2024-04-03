@@ -1031,7 +1031,7 @@ static VOID InitMenu(HWND hWnd)
 	/* 日本語縦書きを作成する */
 	mi.fMask = MIIM_TYPE | MIIM_ID;
 	mi.wID = ID_NEW_PROJECT_NVLJPV;
-	mi.dwTypeData = bEnglish ? L"Japanese NVL Vertival" : L"日本語縦書き";
+	mi.dwTypeData = bEnglish ? L"Japanese NVL Vertical" : L"日本語縦書き";
 	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
 
 	/* 英語アドベンチャーを作成する */
