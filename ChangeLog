@@ -5,12 +5,17 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.57 2024/4/4
+  <ul>
+    <li>ウィンドウサイズの修正 (Thanks to Max)</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.56 2024/4/4
   <ul>
     <li>誤字の修正 (Thanks to Max)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.55 2024/4/4
   <ul>
     <li>GUIファイルの拡張子が.txtのとき読み込めないバグを修正 (Thanks to 鏡読みさん)</li>
@@ -2007,12 +2012,17 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.57 2024/4/4
+  <ul>
+    <li>Fix on the window size (Thanks to Max)</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.56 2024/4/4
   <ul>
     <li>Fixed a typoe (Thanks to Max)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.55 2024/4/4
   <ul>
     <li>Fixed ad bug where a GUI file has .txt extension (Thanks to Kagamiyomi-san)</li>

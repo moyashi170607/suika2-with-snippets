@@ -3,7 +3,7 @@ Suika2
 
 ## What is Suika2?
 
-Suika2 is a development suite for Visual Novels.
+Suika2 is a first-class development suite for Visual Novels.
 It has an open-source philosophy and is designed with a true cross-platform portablity including iOS and Android.
 It is equipped with features and tools of production-grade quality.
 Suika2 is perfect for both beginners and seasoned creators alike.
@@ -11,7 +11,7 @@ Suika2 is perfect for both beginners and seasoned creators alike.
 Effortlessness and efficiently are key concepts of Suika2.
 It provides that without sacrificing features or usability to enrich both the creator and user experience.
 
-We don't aim for no-code but we achieve low-code using multiple DSLs, Domain Specific Languages.
+We don't aim for no-code but we achieve low-code using multiple DSLs (Domain Specific Languages).
 Specifically, there are separate languages for scenarios, GUI, and logic.
 We are in the process of adding a little graphical support for each DSL.
 This is quite different from other engines and we call it "Visual Live Scripting" technology.
@@ -74,13 +74,21 @@ Please visit [the official Web site](https://suika2.com/en/dl/) to obtain the la
 
 ## Discord
 
-Our community is a cherished and invaluable space that embraces developers, creators, and end-users irrespective of their nationality, language, ethnicity, color, lineage, beliefs, sexuality, gender, education, age, religion, or identity.
-That's why we'd love you to join our community!
-You're definitely deserved to be a part of it.
+We have two servers.
 
-<a href="https://discord.gg/EzCxCh3f">
+### User Community
 
-We hold a grand vision for cultural growth and engage in profound discussions, but at our core, we are simply developers and creators, so we are always interested in dialogue and conversation!
+Feel free to ask anything in this server.
+
+<a href="https://discord.gg/EzCxCh3f">Join our user community</a>
+
+### Dev Server
+
+The dev server is a cherished and invaluable space that embraces developers, creators, and end-users irrespective of their nationality, language, ethnicity, color, lineage, beliefs, sexuality, gender, education, age, religion, or identity.
+That's why we'd love you to join our community! You're definitely deserved to be a part of it.
+We hold a grand vision for cultural growth and engage in profound discussions, so please try the User Community first.
+
+<a href="https://discord.gg/HZ5zKERq">Join our dev server</a>
 
 ## Suika2 Pro series
 

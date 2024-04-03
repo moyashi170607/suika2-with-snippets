@@ -573,13 +573,16 @@ static BOOL InitMainWindow(HINSTANCE hInstance, int *pnRenderWidth, int *pnRende
 {
 	wchar_t wszTitle[1024];
 	WNDCLASSEX wcex;
-	RECT rc;
+	RECT rc, rcDesktop;
+	HMONITOR monitor;
+	MONITORINFOEX minfo;
 	int nVirtualScreenWidth, nVirtualScreenHeight;
 	int nFrameAddWidth, nFrameAddHeight;
 	int nMonitors;
 	int nRenderWidth, nRenderHeight;
 	int nWinWidth, nWinHeight;
 	int nPosX, nPosY;
+	int nDpi, nMonitorWidth, nMonitorHeight;
 
 	/* ウィンドウクラスを登録する */
 	ZeroMemory(&wcex, sizeof(wcex));
@@ -623,8 +626,8 @@ static BOOL InitMainWindow(HINSTANCE hInstance, int *pnRenderWidth, int *pnRende
 	}
 
 	/* Get the display size. */
-	nVirtualScreenWidth = GetSystemMetrics(SM_CXVIRTUALSCREEN);
-	nVirtualScreenHeight = GetSystemMetrics(SM_CYVIRTUALSCREEN);
+	nVirtualScreenWidth = GetSystemMetrics(SM_CXFULLSCREEN);
+	nVirtualScreenHeight = GetSystemMetrics(SM_CYFULLSCREEN);
 
 	/* Calc the window size. */
 	nWinWidth = nRenderWidth + nFrameAddWidth + EDITOR_WIDTH;
@@ -662,12 +665,51 @@ static BOOL InitMainWindow(HINSTANCE hInstance, int *pnRenderWidth, int *pnRende
 		return FALSE;
 	}
 
+	/* HiDPI対応を行う */
+	nDpi = Win11_GetDpiForWindow(hWndMain);
+	if (conf_window_resize &&
+		conf_window_default_width > 0 &&
+		conf_window_default_height > 0)
+	{
+		nRenderWidth = MulDiv(conf_window_default_width, nDpi, 96);
+		nRenderHeight = MulDiv(conf_window_default_height, nDpi, 96);
+		log_info("%d", nRenderWidth);
+	}
+	else
+	{
+		nRenderWidth = MulDiv(conf_window_width, nDpi, 96);
+		nRenderHeight = MulDiv(conf_window_height, nDpi, 96);
+	}
+	nWinWidth = nRenderWidth + nFrameAddWidth + EDITOR_WIDTH;
+	nWinHeight = nRenderHeight + nFrameAddHeight;
+	if (nMonitors != 1)
+	{
+		monitor = MonitorFromWindow(hWndMain, MONITOR_DEFAULTTONEAREST);
+		minfo.cbSize = sizeof(MONITORINFOEX);
+		GetMonitorInfo(monitor, (LPMONITORINFO)&minfo);
+		rcDesktop = minfo.rcMonitor;
+		nMonitorWidth = minfo.rcMonitor.right - minfo.rcMonitor.left;
+		nMonitorHeight = minfo.rcMonitor.bottom - minfo.rcMonitor.top;
+	}
+	else
+	{
+		SystemParametersInfo(SPI_GETWORKAREA, 0, &rcDesktop, 0);
+		nMonitorWidth = rcDesktop.right - rcDesktop.left;
+		nMonitorHeight = rcDesktop.bottom - rcDesktop.top;
+	}
+	if (nWinWidth > nMonitorWidth || nWinHeight > nMonitorHeight)
+	{
+		nWinWidth = nMonitorWidth;
+		nWinHeight = nMonitorHeight;
+		nRenderWidth = nWinWidth - EDITOR_WIDTH;
+		nRenderHeight = nWinHeight;
+	}
+	nPosX = (nMonitorWidth - nWinWidth) / 2 + rcDesktop.left / 2;
+	nPosY = (nMonitorHeight - nWinHeight) / 2 + rcDesktop.top / 2;
+
 	/* ウィンドウのサイズを調整する */
-	SetRectEmpty(&rc);
-	rc.right = nRenderWidth;
-	rc.bottom = nRenderHeight;
 	AdjustWindowRectEx(&rc, dwStyle, TRUE, (DWORD)GetWindowLong(hWndMain, GWL_EXSTYLE));
-	SetWindowPos(hWndMain, NULL, 0, 0, rc.right - rc.left, rc.bottom - rc.top, SWP_NOZORDER | SWP_NOMOVE);
+	SetWindowPos(hWndMain, NULL, nPosX, nPosY, nWinWidth, nWinHeight, SWP_NOZORDER);
 	GetWindowRect(hWndMain, &rcWindow);
 
 	*pnRenderWidth = nRenderWidth;
@@ -712,6 +754,9 @@ static BOOL InitEditorPanel(HINSTANCE hInstance)
 	HFONT hFont, hFontFixed;
 	int nDpi;
 
+	/* DPIを取得する */
+	nDpi = Win11_GetDpiForWindow(hWndMain);
+
 	/* 領域の矩形を取得する */
 	GetClientRect(hWndMain, &rcClient);
 
@@ -734,9 +779,6 @@ static BOOL InitEditorPanel(HINSTANCE hInstance)
 								hWndMain, NULL, GetModuleHandle(NULL), NULL);
 	if(!hWndEditor)
 		return FALSE;
-
-	/* DPIを取得する */
-	nDpi = Win11_GetDpiForWindow(hWndMain);
 
 	/* フォントを作成する */
 	wcscpy(wszFontName, bEnglish ? SCRIPT_FONT_EN : SCRIPT_FONT_JP);
