@@ -6,76 +6,161 @@
  */
 
 /*
- * HAL API definition for Suika2 main engine
- *
- * [HAL]
- *  HAL (Hardware Abstraction Layer) is a thin layer to port Suika2 to
- *  various platforms. For a porting, only the functions listed in this
- *  header file need to be implemented.
- *
- * [Note]
- *  - We use the utf-8 encoding for all "const char *" and "char *" string pointers
- *  - Return values of the non-const type "char *" must be free()-ed by callers
+ * HAL Wrapper for Foreign Languages
+ *  - 2024/04/03 Created for Swift and C#.
  */
 
-#ifndef SUIKA_HAL_H
-#define SUIKA_HAL_H
-
-#include "types.h"
-
-/**************
- * Structures *
- **************/
+#include "suika.h"
 
 /*
- * Image Object:
- *  - We use "struct image *" for images
- *  - The operations to "struct image *" are common to all ports and written in image.[ch]
+ * Function Pointers
  */
-struct image;
+
+void (*wrap_log_info)(intptr_t s);
+void (*wrap_log_warn)(intptr_t s);
+void (*wrap_log_error)(intptr_t s);
+void (*wrap_make_sav_dir)(void);
+void (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_rt dst, int len);
+void (*wrap_notify_image_update)(intptr_t img);
+void (*wrap_notify_image_free)(intptr_t img);
+void (*wrap_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void (*wrap_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void (*wrap_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void (*wrap_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold);
+void (*wrap_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress);
+void (*wrap_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void (*wrap_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void (*wrap_reset_lap_timer)(intptr_t origin);
+int64_t (*wrap_get_lap_timer_millisec)(intptr_t origin);
+void (*wrap_play_sound)(int stream, intptr_t wave);
+void (*wrap_stop_sound)(int stream);
+void (*wrap_set_sound_volume)(int stream, float vol);
+bool (*wrap_is_sound_finished)(int stream);
+bool (*wrap_play_video)(intptr_t fname, bool is_skippable);
+void (*wrap_stop_video)(void);
+bool (*wrap_is_video_playing)(void);
+void (*wrap_update_window_title)(void);
+bool (*wrap_is_full_screen_supported)(void);
+bool (*wrap_is_full_screen_mode)(void);
+void (*wrap_enter_full_screen_mode)(void);
+void (*wrap_leave_full_screen_mode)(void);
+intptr_t (*wrap_get_system_locale)(void);
+void (*wrap_speak_text)(intptr_t text);
+void (*wrap_set_continuous_swipe_enabled)(bool is_enabled);
 
 /*
- * Sound Object:
- *  - We use "struct wave *" for sound streams
- *  - The operations to "struct wave *" are common to almost all ports and written in wave.[ch]
- *  - The only exception is Android NDK and ndkwave.c implements an alternative using MediaPlayer class
- *  - We will remove ndkwave.c and integrate to wave.c in the near future
+ * Initialize
  */
-struct wave;
 
-/***********
- * Logging *
- ***********/
+void init_hal_func_table(
+	void (*p_log_info)(intptr_t s),
+	void (*p_log_warn)(intptr_t s),
+	void (*p_log_error)(intptr_t s),
+	void (*p_make_sav_dir)(void),
+	void (*p_make_valid_path)(intptr_t dir, intptr_t fname, intptr_rt dst, int len),
+	void (*p_notify_image_update)(intptr_t img),
+	void (*p_notify_image_free)(intptr_t img),
+	void (*p_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void (*p_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void (*p_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void (*p_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold),
+	void (*p_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress),
+	void (*p_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void (*p_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void (*p_reset_lap_timer)(intptr_t origin),
+	int64_t (*p_get_lap_timer_millisec)(intptr_t origin),
+	void (*p_play_sound)(int stream, intptr_t wave),
+	void (*p_stop_sound)(int stream),
+	void (*p_set_sound_volume)(int stream, float vol),
+	bool (*p_is_sound_finished)(int stream),
+	bool (*p_play_video)(intptr_t fname, bool is_skippable),
+	void (*p_stop_video)(void),
+	bool (*p_is_video_playing)(void),
+	void (*p_update_window_title)(void),
+	bool (*p_is_full_screen_supported)(void),
+	bool (*p_is_full_screen_mode)(void),
+	void (*p_enter_full_screen_mode)(void),
+	void (*p_leave_full_screen_mode)(void),
+	intptr_t (*p_get_system_locale)(void),
+	void (*p_speak_text)(intptr_t text),
+	void (*p_set_continuous_swipe_enabled)(bool is_enabled))
+{
+	wrap_log_info = p_log_info;
+	wrap_log_warn = p_log_warn;
+	wrap_log_error = p_log_error;
+	wrap_make_sav_dir = p_make_sav_dir;
+	wrap_make_valid_path = p_make_valid_path;
+	wrap_notify_image_update = p_notify_image_update;
+	wrap_notify_image_free = p_notify_image_free;
+	wrap_render_image_normal = p_render_image_normal;
+	wrap_render_image_add = p_render_image_add;
+	wrap_render_image_dim = p_render_image_dim;
+	wrap_render_image_rule = p_render_image_rule;
+	wrap_render_image_melt = p_render_image_melt;
+	wrap_render_image_3d_normal = p_render_image_3d_normal;
+	wrap_render_image_3d_add = p_render_image_3d_add;
+	wrap_reset_lap_timer = p_reset_lap_timer;
+	wrap_get_lap_timer_millisec = p_get_lap_timer_millisec;
+	wrap_play_sound = p_play_sound;
+	wrap_stop_sound = p_stop_sound;
+	wrap_set_sound_volume = p_set_sound_volume;
+	wrap_is_sound_finished = p_is_sound_finished;
+	wrap_play_video = p_play_video;
+	wrap_stop_video = p_stop_video;
+	wrap_is_video_playing = p_is_video_playing;
+	wrap_update_window_title = p_update_window_title;
+	wrap_is_full_screen_supported = p_is_full_screen_supported;
+	wrap_is_full_screen_mode = p_is_full_screen_mode;
+	wrap_enter_full_screen_mode = p_enter_full_screen_mode;
+	wrap_leave_full_screen_mode = p_leave_full_screen_mode;
+	wrap_get_system_locale = p_get_system_locale;
+	wrap_speak_text = p_speak_text;
+	wrap_set_continuous_swipe_enabled = p_set_continuous_swipe_enabled;
+}
 
 /*
- * Puts a info log with printf formats.
- *  - An "info" level log will be put into log.txt file
- *  - Note that sound threads cannot use logging
+ * Wrappers
  */
-bool log_info(const char *s, ...);
 
-/*
- * Puts a warn log with printf formats.
- *  - A "warn" level log will be put into log.txt file and a dialog will be shown
- *  - Note that sound threads cannot use logging
- */
-bool log_warn(const char *s, ...);
+bool log_info(const char *s, ...)
+{
+	char buf[4096];
+	va_list ap;
 
-/*
- * Puts a error log with printf formats.
- *  - An "error" level log will be put into log.txt file and a dialog will be shown
- *  - Note that sound threads cannot use logging
- */
-bool log_error(const char *s, ...);
+	va_start(ap, s);
+	vsnprintf(buf, sizeof(buf), s, ap);
+	va_end(ap);
 
-/*********************
- * Path Manipulation *
- *********************/
+	wrap_log_info(buf);
+}
 
-/*
- * Creates a save directory if it is does not exist.
- */
-bool make_sav_dir(void);
+bool log_warn(const char *s, ...)
+{
+	char buf[4096];
+	va_list ap;
+
+	va_start(ap, s);
+	vsnprintf(buf, sizeof(buf), s, ap);
+	va_end(ap);
+
+	wrap_log_info(buf);
+}
+
+bool log_error(const char *s, ...)
+{
+	char buf[4096];
+	va_list ap;
+
+	va_start(ap, s);
+	vsnprintf(buf, sizeof(buf), s, ap);
+	va_end(ap);
+
+	wrap_log_info(buf);
+}
+
+bool make_sav_dir(void)
+{
+}
 
 /*
  * Creates an effective path string from a directory name and a file name.
@@ -372,55 +457,3 @@ const char *get_system_locale(void);
  *  - Specifying NULL stops speaking.
  */
 void speak_text(const char *text);
-
-/****************
- * Touch Screen *
- ****************/
-
-/*
- * Enable/disable message skip by touch move.
- */
-#if defined(SUIKA_TARGET_IOS) || defined(SUIKA_TARGET_ANDROID) || defined(SUIKA_TARGET_WASM)
-void set_continuous_swipe_enabled(bool is_enabled);
-#else
-static inline void set_continuous_swipe_enabled(bool is_enabled) { UNUSED_PARAMETER(is_enabled); }
-#endif
-
-/*
- * For Foreign Languages (Swift and C#)
- */
-#ifdef HAL_PTR
-extern void (*wrap_log_info)(intptr_t s);
-extern void (*wrap_log_warn)(intptr_t s);
-extern void (*wrap_log_error)(intptr_t s);
-extern void (*wrap_make_sav_dir)(void);
-extern void (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_rt dst, int len);
-extern void (*wrap_notify_image_update)(intptr_t img);
-extern void (*wrap_notify_image_free)(intptr_t img);
-extern void (*wrap_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold);
-extern void (*wrap_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress);
-extern void (*wrap_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_reset_lap_timer)(intptr_t origin);
-extern int64_t (*wrap_get_lap_timer_millisec)(intptr_t origin);
-extern void (*wrap_play_sound)(int stream, intptr_t wave);
-extern void (*wrap_stop_sound)(int stream);
-extern void (*wrap_set_sound_volume)(int stream, float vol);
-extern bool (*wrap_is_sound_finished)(int stream);
-extern bool (*wrap_play_video)(intptr_t fname, bool is_skippable);
-extern void (*wrap_stop_video)(void);
-extern bool (*wrap_is_video_playing)(void);
-extern void (*wrap_update_window_title)(void);
-extern bool (*wrap_is_full_screen_supported)(void);
-extern bool (*wrap_is_full_screen_mode)(void);
-extern void (*wrap_enter_full_screen_mode)(void);
-extern void (*wrap_leave_full_screen_mode)(void);
-extern intptr_t (*wrap_get_system_locale)(void);
-extern void (*wrap_speak_text)(intptr_t text);
-extern void (*wrap_set_continuous_swipe_enabled)(bool is_enabled);
-#endif /* HAL_PTR */
-
-#endif /* SUIKA_HAL_H */

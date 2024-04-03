@@ -433,7 +433,7 @@ static bool init_cl_effect(bool *cont)
 {
 	const char *effect;
 
-	effect = get_string_param(CIEL_PARAM_ALPHA);
+	effect = get_string_param(CIEL_PARAM_EFFECT);
 
 	ts.effect = get_fade_method(effect);
 	if (ts.effect == FADE_METHOD_INVALID) {

@@ -93,6 +93,13 @@ build/engine-android/android-src
 # Linux
 build/engine-linux/suika
 
+# Unity
+build/engine-unity/Assets/Resources
+build/engine-unity/Library
+build/engine-unity/Logs
+build/engine-unity/Packages
+build/engine-unity/Temp
+build/engine-unity/UserSettings
 #
 # Pro
 #

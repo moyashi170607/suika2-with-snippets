@@ -82,7 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		266E0DF62BBD3B8400F4CB97 /* suika2-plugin-macos.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "suika2-plugin-macos.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		266E0DF62BBD3B8400F4CB97 /* libpolaris.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "libpolaris.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		266E0DFE2BBD3C1500F4CB97 /* cmd_return.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cmd_return.c; path = ../../src/cmd_return.c; sourceTree = "<group>"; };
 		266E0DFF2BBD3C1500F4CB97 /* save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = save.h; path = ../../src/save.h; sourceTree = "<group>"; };
 		266E0E002BBD3C1500F4CB97 /* cmd_goto.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cmd_goto.c; path = ../../src/cmd_goto.c; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 		266E0DF72BBD3B8400F4CB97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				266E0DF62BBD3B8400F4CB97 /* suika2-plugin-macos.bundle */,
+				266E0DF62BBD3B8400F4CB97 /* libpolaris.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -335,9 +335,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		266E0DF52BBD3B8400F4CB97 /* suika2-plugin-macos */ = {
+		266E0DF52BBD3B8400F4CB97 /* libpolaris-macos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 266E0DFA2BBD3B8400F4CB97 /* Build configuration list for PBXNativeTarget "suika2-plugin-macos" */;
+			buildConfigurationList = 266E0DFA2BBD3B8400F4CB97 /* Build configuration list for PBXNativeTarget "libpolaris-macos" */;
 			buildPhases = (
 				266E0DF22BBD3B8400F4CB97 /* Sources */,
 				266E0DF32BBD3B8400F4CB97 /* Frameworks */,
@@ -347,9 +347,9 @@
 			);
 			dependencies = (
 			);
-			name = "suika2-plugin-macos";
-			productName = "plugin-macos";
-			productReference = 266E0DF62BBD3B8400F4CB97 /* suika2-plugin-macos.bundle */;
+			name = "libpolaris-macos";
+			productName = "libpolaris-macos";
+			productReference = 266E0DF62BBD3B8400F4CB97 /* libpolaris-macos.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -366,7 +366,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 266E0DF12BBD3B8400F4CB97 /* Build configuration list for PBXProject "plugin-macos" */;
+			buildConfigurationList = 266E0DF12BBD3B8400F4CB97 /* Build configuration list for PBXProject "libpolaris-macos" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -379,7 +379,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				266E0DF52BBD3B8400F4CB97 /* suika2-plugin-macos */,
+				266E0DF52BBD3B8400F4CB97 /* libpolaris-macos */,
 			);
 		};
 /* End PBXProject section */
@@ -598,7 +598,7 @@
 					"-I./libroot/include",
 					"-I./libroot/include/freetype2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.luxion.suika.plugin-macos";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.luxion.suika.libpolaris-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -627,7 +627,7 @@
 					"-I./libroot/include",
 					"-I./libroot/include/freetype2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.luxion.suika.plugin-macos";
+				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.luxion.suika.libpolaris-macos";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -638,7 +638,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		266E0DF12BBD3B8400F4CB97 /* Build configuration list for PBXProject "plugin-macos" */ = {
+		266E0DF12BBD3B8400F4CB97 /* Build configuration list for PBXProject "libpolaris-macos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				266E0DF82BBD3B8400F4CB97 /* Debug */,
@@ -647,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		266E0DFA2BBD3B8400F4CB97 /* Build configuration list for PBXNativeTarget "suika2-plugin-macos" */ = {
+		266E0DFA2BBD3B8400F4CB97 /* Build configuration list for PBXNativeTarget "libpolaris-macos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				266E0DFB2BBD3B8400F4CB97 /* Debug */,
