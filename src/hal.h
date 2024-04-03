@@ -43,6 +43,8 @@ struct image;
  */
 struct wave;
 
+#ifndef HAL_PTR
+
 /***********
  * Logging *
  ***********/
@@ -385,5 +387,42 @@ void set_continuous_swipe_enabled(bool is_enabled);
 #else
 static inline void set_continuous_swipe_enabled(bool is_enabled) { UNUSED_PARAMETER(is_enabled); }
 #endif
+
+#endif /* #ifndef HAL_PTR */
+
+#ifdef HAL_PTR
+extern bool (*log_info)(const char *s, ...);
+extern bool (*log_warn)(const char *s, ...);
+extern bool (*log_error)(const char *s, ...);
+extern bool (*make_sav_dir)(void);
+extern char *(*make_valid_path)(const char *dir, const char *fname);
+extern void (*notify_image_update)(struct image *img);
+extern void (*notify_image_free)(struct image *img);
+extern void (*render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, struct image *src_image, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void (*render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, struct image *src_image, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void (*render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, struct image *src_image, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void (*render_image_rule)(struct image *src_img, struct image *rule_img, int threshold);
+extern void (*render_image_melt)(struct image *src_img, struct image *rule_img, int progress);
+extern void (*render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, struct image *src_image, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void (*render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, struct image *src_image, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void (*reset_lap_timer)(uint64_t *origin);
+extern uint64_t (*get_lap_timer_millisec)(uint64_t *origin);
+extern bool (*play_sound)(int stream, struct wave *w);
+extern bool (*stop_sound)(int stream);
+extern bool (*set_sound_volume)(int stream, float vol);
+extern bool (*is_sound_finished)(int stream);
+extern bool (*play_video)(const char *fname, bool is_skippable);
+extern void (*stop_video)(void);
+extern bool (*is_video_playing)(void);
+extern void (*update_window_title)(void);
+extern bool (*is_full_screen_supported)(void);
+extern bool (*is_full_screen_mode)(void);
+extern void (*enter_full_screen_mode)(void);
+extern void (*leave_full_screen_mode)(void);
+extern const char *(*get_system_locale)(void);
+extern void (*speak_text)(const char *text);
+extern void (*set_continuous_swipe_enabled)(bool is_enabled);
+#define is_opengl_byte_order()	false
+#endif /* HAL_PTR */
 
 #endif /* SUIKA_HAL_H */
