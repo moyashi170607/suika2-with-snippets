@@ -353,29 +353,54 @@ static bool blit_process(void)
 	}
 
 	if (need_save_mode) {
-		if (!prepare_gui_mode(SAVE_GUI_FILE, true))
-			return false;
+		if (check_file_exist(GUI_DIR, SAVE_GUI_FILE)) {
+			if (!prepare_gui_mode(SAVE_GUI_FILE, true))
+				return false;
+		} else {
+			if (!prepare_gui_mode(COMPAT_SAVE_GUI_FILE, true))
+				return false;
+		}
 		set_gui_options(true, false, false);
 		start_gui_mode();
 	} else if (need_load_mode) {
-		if (!prepare_gui_mode(LOAD_GUI_FILE, true))
-			return false;
+		if (check_file_exist(GUI_DIR, LOAD_GUI_FILE)) {
+			if (!prepare_gui_mode(LOAD_GUI_FILE, true))
+				return false;
+		} else {
+			if (!prepare_gui_mode(COMPAT_LOAD_GUI_FILE, true))
+				return false;
+		}
 		set_gui_options(true, false, false);
 		start_gui_mode();
 	} else if (need_history_mode) {
-		if (!prepare_gui_mode(HISTORY_GUI_FILE, true))
-			return false;
+		if (check_file_exist(GUI_DIR, HISTORY_GUI_FILE)) {
+			if (!prepare_gui_mode(HISTORY_GUI_FILE, true))
+				return false;
+		} else {
+			if (!prepare_gui_mode(COMPAT_HISTORY_GUI_FILE, true))
+				return false;
+		}
 		set_gui_options(true, false, false);
 		start_gui_mode();
 	} else if (need_config_mode) {
-		if (!prepare_gui_mode(CONFIG_GUI_FILE, true))
-			return false;
+		if (check_file_exist(GUI_DIR, CONFIG_GUI_FILE)) {
+			if (!prepare_gui_mode(CONFIG_GUI_FILE, true))
+				return false;
+		} else {
+			if (!prepare_gui_mode(COMPAT_CONFIG_GUI_FILE, true))
+				return false;
+		}
 		set_gui_options(true, false, false);
 		start_gui_mode();
 	} else if (need_custom1_mode) {
 		if (conf_sysmenu_custom1_gosub == NULL)  {
-			if (!prepare_gui_mode(CUSTOM1_GUI_FILE, true))
-				return false;
+			if (check_file_exist(GUI_DIR, CUSTOM1_GUI_FILE)) {
+				if (!prepare_gui_mode(CUSTOM1_GUI_FILE, true))
+					return false;
+			} else {
+				if (!prepare_gui_mode(COMPAT_CUSTOM1_GUI_FILE, true))
+					return false;
+			}
 			set_gui_options(true, false, false);
 			start_gui_mode();
 		} else {
@@ -383,8 +408,13 @@ static bool blit_process(void)
 		}
 	} else if (need_custom2_mode) {
 		if (conf_sysmenu_custom2_gosub == NULL)  {
-			if (!prepare_gui_mode(CUSTOM2_GUI_FILE, true))
-				return false;
+			if (check_file_exist(GUI_DIR, CUSTOM2_GUI_FILE)) {
+				if (!prepare_gui_mode(CUSTOM2_GUI_FILE, true))
+					return false;
+			} else {
+				if (!prepare_gui_mode(COMPAT_CUSTOM2_GUI_FILE, true))
+					return false;
+			}
 			set_gui_options(true, false, false);
 			start_gui_mode();
 		} else {

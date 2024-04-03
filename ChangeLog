@@ -5,12 +5,17 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.55 2024/4/4
+  <ul>
+    <li>GUIファイルの拡張子が.txtのとき読み込めないバグを修正 (Thanks to 鏡読みさん)</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.54 2024/4/3
   <ul>
     <li>Cielのフェード指定のバグを修正 (Thanks to nakamuraさん)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.53 2024/4/3
   <ul>
     <li>Androidエクスポートでinit.s2scが認識されないバグを修正 (Thanks to 赤月さん)</li>
@@ -1997,12 +2002,17 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.55 2024/4/4
+  <ul>
+    <li>Fixed ad bug where a GUI file has .txt extension (Thanks to Kagamiyomi-san)</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.54 2024/4/3
   <ul>
     <li>Fixed a bug of Ciel fade spec (Thanks to nakamura-san)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.53 2024/4/3
   <ul>
     <li>Fixed a bug where Android exports cannot open init.s2sc (Thanks to Akatsuki-san)</li>
