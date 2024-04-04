@@ -5,12 +5,17 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.59 2024/4/4
+  <ul>
+    <li>インストーラのアイコンを変更 (Thanks to Max)</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.58 2024/4/4
   <ul>
     <li>ウィンドウサイズの修正 (Thanks to Max)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.57 2024/4/4
   <ul>
     <li>ウィンドウサイズの修正 (Thanks to Max)</li>
@@ -2017,12 +2022,17 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.59 2024/4/4
+  <ul>
+    <li>Changed the installer icon (Thanks to Max)</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.58 2024/4/4
   <ul>
     <li>Fix on the window size (Thanks to Max)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.57 2024/4/4
   <ul>
     <li>Fix on the window size (Thanks to Max)</li>

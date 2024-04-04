@@ -390,37 +390,78 @@ static inline void set_continuous_swipe_enabled(bool is_enabled) { UNUSED_PARAME
  * For Foreign Languages (Swift and C#)
  */
 #ifdef HAL_PTR
-extern void (*wrap_log_info)(intptr_t s);
-extern void (*wrap_log_warn)(intptr_t s);
-extern void (*wrap_log_error)(intptr_t s);
-extern void (*wrap_make_sav_dir)(void);
-extern void (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len);
-extern void (*wrap_notify_image_update)(intptr_t img);
-extern void (*wrap_notify_image_free)(intptr_t img);
-extern void (*wrap_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold);
-extern void (*wrap_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress);
-extern void (*wrap_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-extern void (*wrap_reset_lap_timer)(intptr_t origin);
-extern int64_t (*wrap_get_lap_timer_millisec)(intptr_t origin);
-extern void (*wrap_play_sound)(int stream, intptr_t wave);
-extern void (*wrap_stop_sound)(int stream);
-extern void (*wrap_set_sound_volume)(int stream, float vol);
-extern bool (*wrap_is_sound_finished)(int stream);
-extern bool (*wrap_play_video)(intptr_t fname, bool is_skippable);
-extern void (*wrap_stop_video)(void);
-extern bool (*wrap_is_video_playing)(void);
-extern void (*wrap_update_window_title)(void);
-extern bool (*wrap_is_full_screen_supported)(void);
-extern bool (*wrap_is_full_screen_mode)(void);
-extern void (*wrap_enter_full_screen_mode)(void);
-extern void (*wrap_leave_full_screen_mode)(void);
-extern void (*wrap_get_system_locale)(intptr_t dst, int len);
-extern void (*wrap_speak_text)(intptr_t text);
-extern void (*wrap_set_continuous_swipe_enabled)(bool is_enabled);
+
+#define POLARISAPI __cdecl
+
+extern void init_hal_func_table(
+	void POLARISAPI (*p_log_info)(intptr_t s),
+	void POLARISAPI (*p_log_warn)(intptr_t s),
+	void POLARISAPI (*p_log_error)(intptr_t s),
+	void POLARISAPI (*p_make_sav_dir)(void),
+	void POLARISAPI (*p_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len),
+	void POLARISAPI (*p_notify_image_update)(intptr_t img),
+	void POLARISAPI (*p_notify_image_free)(intptr_t img),
+	void POLARISAPI (*p_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold),
+	void POLARISAPI (*p_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress),
+	void POLARISAPI (*p_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_reset_lap_timer)(intptr_t origin),
+	int64_t POLARISAPI (*p_get_lap_timer_millisec)(intptr_t origin),
+	void POLARISAPI (*p_play_sound)(int stream, intptr_t wave),
+	void POLARISAPI (*p_stop_sound)(int stream),
+	void POLARISAPI (*p_set_sound_volume)(int stream, float vol),
+	bool POLARISAPI (*p_is_sound_finished)(int stream),
+	bool POLARISAPI (*p_play_video)(intptr_t fname, bool is_skippable),
+	void POLARISAPI (*p_stop_video)(void),
+	bool POLARISAPI (*p_is_video_playing)(void),
+	void POLARISAPI (*p_update_window_title)(void),
+	bool POLARISAPI (*p_is_full_screen_supported)(void),
+	bool POLARISAPI (*p_is_full_screen_mode)(void),
+	void POLARISAPI (*p_enter_full_screen_mode)(void),
+	void POLARISAPI (*p_leave_full_screen_mode)(void),
+	void POLARISAPI (*p_get_system_locale)(intptr_t dst, int len),
+	void POLARISAPI (*p_speak_text)(intptr_t text),
+	void POLARISAPI (*p_set_continuous_swipe_enabled)(bool is_enabled),
+	void POLARISAPI (*p_free_shared)(intptr_t p),
+	intptr_t POLARISAPI (*p_get_file_contents)(intptr_t file_name, intptr_t len),
+	void POLARISAPI (*p_open_save_file)(intptr_t file_name),
+	void POLARISAPI (*p_write_save_file)(int b),
+	void POLARISAPI (*p_close_save_file)(void));
+extern void POLARISAPI (*wrap_log_info)(intptr_t s);
+extern void POLARISAPI (*wrap_log_warn)(intptr_t s);
+extern void POLARISAPI (*wrap_log_error)(intptr_t s);
+extern void POLARISAPI (*wrap_make_sav_dir)(void);
+extern void POLARISAPI (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len);
+extern void POLARISAPI (*wrap_notify_image_update)(intptr_t img);
+extern void POLARISAPI (*wrap_notify_image_free)(intptr_t img);
+extern void POLARISAPI (*wrap_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void POLARISAPI (*wrap_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void POLARISAPI (*wrap_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void POLARISAPI (*wrap_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold);
+extern void POLARISAPI (*wrap_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress);
+extern void POLARISAPI (*wrap_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void POLARISAPI (*wrap_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+extern void POLARISAPI (*wrap_reset_lap_timer)(intptr_t origin);
+extern int64_t POLARISAPI (*wrap_get_lap_timer_millisec)(intptr_t origin);
+extern void POLARISAPI (*wrap_play_sound)(int stream, intptr_t wave);
+extern void POLARISAPI (*wrap_stop_sound)(int stream);
+extern void POLARISAPI (*wrap_set_sound_volume)(int stream, float vol);
+extern bool POLARISAPI (*wrap_is_sound_finished)(int stream);
+extern bool POLARISAPI (*wrap_play_video)(intptr_t fname, bool is_skippable);
+extern void POLARISAPI (*wrap_stop_video)(void);
+extern bool POLARISAPI (*wrap_is_video_playing)(void);
+extern void POLARISAPI (*wrap_update_window_title)(void);
+extern bool POLARISAPI (*wrap_is_full_screen_supported)(void);
+extern bool POLARISAPI (*wrap_is_full_screen_mode)(void);
+extern void POLARISAPI (*wrap_enter_full_screen_mode)(void);
+extern void POLARISAPI (*wrap_leave_full_screen_mode)(void);
+extern void POLARISAPI (*wrap_get_system_locale)(intptr_t dst, int len);
+extern void POLARISAPI (*wrap_speak_text)(intptr_t text);
+extern void POLARISAPI (*wrap_set_continuous_swipe_enabled)(bool is_enabled);
+
 #endif /* HAL_PTR */
 
 #endif /* SUIKA_HAL_H */

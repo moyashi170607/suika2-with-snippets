@@ -94,12 +94,21 @@ build/engine-android/android-src
 build/engine-linux/suika
 
 # Unity
-build/engine-unity/Assets/Resources
+build/engine-unity/Assets/StreamingAssets
+build/engine-unity/Assets/StreamingAssets.meta
 build/engine-unity/Library
 build/engine-unity/Logs
 build/engine-unity/Packages
 build/engine-unity/Temp
 build/engine-unity/UserSettings
+build/engine-unity/Assets/libpolaris.dylib
+build/engine-unity/Assets/libpolaris.dylib.meta
+build/engine-unity/Assets/libpolaris.dll
+build/engine-unity/Assets/libpolaris.dll.meta
+build/engine-unity/Assets/libpolaris.so
+build/engine-unity/Assets/libpolaris.so.meta
+build/engine-unity/engine-unity.sln
+
 #
 # Pro
 #

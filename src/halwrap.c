@@ -16,74 +16,86 @@
  * Function Pointers
  */
 
-void (*wrap_log_info)(intptr_t s);
-void (*wrap_log_warn)(intptr_t s);
-void (*wrap_log_error)(intptr_t s);
-void (*wrap_make_sav_dir)(void);
-void (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len);
-void (*wrap_notify_image_update)(intptr_t img);
-void (*wrap_notify_image_free)(intptr_t img);
-void (*wrap_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-void (*wrap_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-void (*wrap_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-void (*wrap_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold);
-void (*wrap_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress);
-void (*wrap_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-void (*wrap_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-void (*wrap_reset_lap_timer)(intptr_t origin);
-int64_t (*wrap_get_lap_timer_millisec)(intptr_t origin);
-void (*wrap_play_sound)(int stream, intptr_t wave);
-void (*wrap_stop_sound)(int stream);
-void (*wrap_set_sound_volume)(int stream, float vol);
-bool (*wrap_is_sound_finished)(int stream);
-bool (*wrap_play_video)(intptr_t fname, bool is_skippable);
-void (*wrap_stop_video)(void);
-bool (*wrap_is_video_playing)(void);
-void (*wrap_update_window_title)(void);
-bool (*wrap_is_full_screen_supported)(void);
-bool (*wrap_is_full_screen_mode)(void);
-void (*wrap_enter_full_screen_mode)(void);
-void (*wrap_leave_full_screen_mode)(void);
-void (*wrap_get_system_locale)(intptr_t dst, int len);
-void (*wrap_speak_text)(intptr_t text);
-void (*wrap_set_continuous_swipe_enabled)(bool is_enabled);
+void POLARISAPI (*wrap_log_info)(intptr_t s);
+void POLARISAPI (*wrap_log_warn)(intptr_t s);
+void POLARISAPI (*wrap_log_error)(intptr_t s);
+void POLARISAPI (*wrap_make_sav_dir)(void);
+void POLARISAPI (*wrap_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len);
+void POLARISAPI (*wrap_notify_image_update)(intptr_t img);
+void POLARISAPI (*wrap_notify_image_free)(intptr_t img);
+void POLARISAPI (*wrap_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void POLARISAPI (*wrap_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void POLARISAPI (*wrap_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void POLARISAPI (*wrap_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold);
+void POLARISAPI (*wrap_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress);
+void POLARISAPI (*wrap_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void POLARISAPI (*wrap_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+void POLARISAPI (*wrap_reset_lap_timer)(intptr_t origin);
+int64_t POLARISAPI (*wrap_get_lap_timer_millisec)(intptr_t origin);
+void POLARISAPI (*wrap_play_sound)(int stream, intptr_t wave);
+void POLARISAPI (*wrap_stop_sound)(int stream);
+void POLARISAPI (*wrap_set_sound_volume)(int stream, float vol);
+bool POLARISAPI (*wrap_is_sound_finished)(int stream);
+bool POLARISAPI (*wrap_play_video)(intptr_t fname, bool is_skippable);
+void POLARISAPI (*wrap_stop_video)(void);
+bool POLARISAPI (*wrap_is_video_playing)(void);
+void POLARISAPI (*wrap_update_window_title)(void);
+bool POLARISAPI (*wrap_is_full_screen_supported)(void);
+bool POLARISAPI (*wrap_is_full_screen_mode)(void);
+void POLARISAPI (*wrap_enter_full_screen_mode)(void);
+void POLARISAPI (*wrap_leave_full_screen_mode)(void);
+void POLARISAPI (*wrap_get_system_locale)(intptr_t dst, int len);
+void POLARISAPI (*wrap_speak_text)(intptr_t text);
+void POLARISAPI (*wrap_set_continuous_swipe_enabled)(bool is_enabled);
+void POLARISAPI (*wrap_free_shared)(intptr_t p);
+intptr_t POLARISAPI (*wrap_get_file_contents)(intptr_t file_name, intptr_t len);
+void POLARISAPI (*wrap_open_save_file)(intptr_t file_name);
+void POLARISAPI (*wrap_write_save_file)(int b);
+void POLARISAPI (*wrap_close_save_file)(void);
 
 /*
  * Initialize
  */
 
-void init_hal_func_table(
-	void (*p_log_info)(intptr_t s),
-	void (*p_log_warn)(intptr_t s),
-	void (*p_log_error)(intptr_t s),
-	void (*p_make_sav_dir)(void),
-	void (*p_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len),
-	void (*p_notify_image_update)(intptr_t img),
-	void (*p_notify_image_free)(intptr_t img),
-	void (*p_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
-	void (*p_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
-	void (*p_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
-	void (*p_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold),
-	void (*p_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress),
-	void (*p_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
-	void (*p_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
-	void (*p_reset_lap_timer)(intptr_t origin),
-	int64_t (*p_get_lap_timer_millisec)(intptr_t origin),
-	void (*p_play_sound)(int stream, intptr_t wave),
-	void (*p_stop_sound)(int stream),
-	void (*p_set_sound_volume)(int stream, float vol),
-	bool (*p_is_sound_finished)(int stream),
-	bool (*p_play_video)(intptr_t fname, bool is_skippable),
-	void (*p_stop_video)(void),
-	bool (*p_is_video_playing)(void),
-	void (*p_update_window_title)(void),
-	bool (*p_is_full_screen_supported)(void),
-	bool (*p_is_full_screen_mode)(void),
-	void (*p_enter_full_screen_mode)(void),
-	void (*p_leave_full_screen_mode)(void),
-	void (*p_get_system_locale)(intptr_t dst, int len),
-	void (*p_speak_text)(intptr_t text),
-	void (*p_set_continuous_swipe_enabled)(bool is_enabled))
+void init_hal_func_table
+(
+	void POLARISAPI (*p_log_info)(intptr_t s),
+	void POLARISAPI (*p_log_warn)(intptr_t s),
+	void POLARISAPI (*p_log_error)(intptr_t s),
+	void POLARISAPI (*p_make_sav_dir)(void),
+	void POLARISAPI (*p_make_valid_path)(intptr_t dir, intptr_t fname, intptr_t dst, int len),
+	void POLARISAPI (*p_notify_image_update)(intptr_t img),
+	void POLARISAPI (*p_notify_image_free)(intptr_t img),
+	void POLARISAPI (*p_render_image_normal)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_add)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_dim)(int dst_left, int dst_top, int dst_width, int dst_height, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_rule)(intptr_t src_img, intptr_t rule_img, int threshold),
+	void POLARISAPI (*p_render_image_melt)(intptr_t src_img, intptr_t rule_img, int progress),
+	void POLARISAPI (*p_render_image_3d_normal)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_render_image_3d_add)(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, intptr_t src_img, int src_left, int src_top, int src_width, int src_height, int alpha),
+	void POLARISAPI (*p_reset_lap_timer)(intptr_t origin),
+	int64_t POLARISAPI (*p_get_lap_timer_millisec)(intptr_t origin),
+	void POLARISAPI (*p_play_sound)(int stream, intptr_t wave),
+	void POLARISAPI (*p_stop_sound)(int stream),
+	void POLARISAPI (*p_set_sound_volume)(int stream, float vol),
+	bool POLARISAPI (*p_is_sound_finished)(int stream),
+	bool POLARISAPI (*p_play_video)(intptr_t fname, bool is_skippable),
+	void POLARISAPI (*p_stop_video)(void),
+	bool POLARISAPI (*p_is_video_playing)(void),
+	void POLARISAPI (*p_update_window_title)(void),
+	bool POLARISAPI (*p_is_full_screen_supported)(void),
+	bool POLARISAPI (*p_is_full_screen_mode)(void),
+	void POLARISAPI (*p_enter_full_screen_mode)(void),
+	void POLARISAPI (*p_leave_full_screen_mode)(void),
+	void POLARISAPI (*p_get_system_locale)(intptr_t dst, int len),
+	void POLARISAPI (*p_speak_text)(intptr_t text),
+	void POLARISAPI (*p_set_continuous_swipe_enabled)(bool is_enabled),
+	void POLARISAPI (*p_free_shared)(intptr_t p),
+	intptr_t POLARISAPI (*p_get_file_contents)(intptr_t file_name, intptr_t len),
+	void POLARISAPI (*p_open_save_file)(intptr_t file_name),
+	void POLARISAPI (*p_write_save_file)(int b),
+	void POLARISAPI (*p_close_save_file)(void)
+)
 {
 	wrap_log_info = p_log_info;
 	wrap_log_warn = p_log_warn;
@@ -116,6 +128,11 @@ void init_hal_func_table(
 	wrap_get_system_locale = p_get_system_locale;
 	wrap_speak_text = p_speak_text;
 	wrap_set_continuous_swipe_enabled = p_set_continuous_swipe_enabled;
+	wrap_free_shared = p_free_shared;
+	wrap_get_file_contents = p_get_file_contents;
+	wrap_open_save_file = p_open_save_file;
+	wrap_write_save_file = p_write_save_file;
+	wrap_close_save_file = p_close_save_file;
 }
 
 /*
@@ -175,6 +192,7 @@ char *make_valid_path(const char *dir, const char *fname)
 	char buf[4096];
 	char *ret;
 
+	memset(buf, 0, sizeof(buf));
 	wrap_make_valid_path((intptr_t)dir, (intptr_t)fname, (intptr_t)buf, sizeof(buf));
 
 	ret = strdup(buf);
@@ -319,6 +337,7 @@ const char *get_system_locale(void)
 {
 	static char buf[64];
 
+	memset(buf, 0, sizeof(buf));
 	wrap_get_system_locale((intptr_t)buf, sizeof(buf));
 
 	return buf;
@@ -335,3 +354,180 @@ void set_continuous_swipe_enabled(bool is_enabled)
 	wrap_set_continuous_swipe_enabled(is_enabled);
 }
 #endif
+
+/*
+ * File API
+ */
+
+struct rfile {
+	char *data;
+	uint64_t size;
+	uint64_t cur;
+};
+
+struct wfile {
+	int dummy;
+};
+
+bool init_file(void)
+{
+	return true;
+}
+
+void cleanup_file(void)
+{
+}
+
+bool check_file_exist(const char *dir, const char *file)
+{
+	intptr_t p;
+	char *path;
+	int len;
+
+	path = make_valid_path(dir, file);
+	if (path == NULL)
+		return false;
+
+	p = wrap_get_file_contents((intptr_t)path, (intptr_t)&len);
+	free(path);
+
+	if (p != 0) {
+		wrap_free_shared((intptr_t)p);
+		return true;
+	}
+
+	return false;
+}
+
+struct rfile *open_rfile(const char *dir, const char *file, bool save_data)
+{
+	struct rfile *rf;
+	intptr_t p;
+	char *path;
+	int len;
+
+	rf = malloc(sizeof(struct rfile));
+	if (rf == NULL) {
+		log_memory();
+		return NULL;
+	}
+
+	path = make_valid_path(dir, file);
+	if (path == NULL)
+		return false;
+
+	p = wrap_get_file_contents((intptr_t)path, (intptr_t)&len);
+	free(path);
+
+	if (p == 0) {
+		free(rf);
+		return NULL;
+	}
+
+	log_info("OK1");
+
+	rf->data = (char *)p;
+	rf->size = len;
+	rf->cur = 0;
+	return rf;
+}
+
+size_t get_rfile_size(struct rfile *rf)
+{
+	return rf->size;
+}
+
+size_t read_rfile(struct rfile *rf, void *buf, size_t size)
+{
+	size_t len;
+
+	if (size <= rf->size - rf->cur)
+		len = size;
+	else
+		len = rf->size - rf->cur;
+
+	memcpy(buf, rf->data + rf->cur, len);
+	rf->cur += len;
+
+	return len;
+}
+
+const char *gets_rfile(struct rfile *rf, char *buf, size_t size)
+{
+	char *ptr;
+	size_t len, ret;
+	char c;
+
+	ptr = buf;
+	for (len = 0; len < size - 1; len++) {
+		ret = read_rfile(rf, &c, 1);
+		if (ret != 1) {
+			*ptr = '\0';
+			return len == 0 ? NULL : buf;
+		}
+		if (c == '\n' || c == '\0') {
+			*ptr = '\0';
+			return buf;
+		}
+		if (c == '\r') {
+			if (read_rfile(rf, &c, 1) != 1) {
+				*ptr = '\0';
+				return buf;
+			}
+			if (c == '\n') {
+				*ptr = '\0';
+				return buf;
+			}
+			rf->cur--;
+			*ptr = '\0';
+			return buf;
+		}
+		*ptr++ = c;
+	}
+	*ptr = '\0';
+	if (len == 0)
+		return NULL;
+	return buf;
+}
+
+void close_rfile(struct rfile *rf)
+{
+	wrap_free_shared((intptr_t)rf->data);
+	free(rf);
+}
+
+struct wfile *open_wfile(const char *dir, const char *file)
+{
+	struct wfile *wf;
+
+	wf = malloc(sizeof(struct wfile));
+	if (wf == NULL) {
+		log_memory();
+		return NULL;
+	}
+
+	wrap_open_save_file((intptr_t)file);
+
+	return wf;
+}
+
+size_t write_wfile(struct wfile *wf, const void *buf, size_t size)
+{
+	const char *p;
+	size_t i;
+
+	p = buf;
+	for (i = 0; i < size; i++)
+		wrap_write_save_file((int)*p++);
+	return size;
+}
+
+void close_wfile(struct wfile *wf)
+{
+	wrap_close_save_file();
+}
+
+void remove_file(const char *dir, const char *file)
+{
+	// TODO
+}
