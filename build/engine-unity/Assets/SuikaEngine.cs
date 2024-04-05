@@ -10,74 +10,28 @@ using UnityEngine;
 
 public class SuikaEngine : MonoBehaviour
 {
-	// Init delegate types
-  [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	 unsafe delegate void delegate_init_hal_func_table(IntPtr log_info,
-													 IntPtr log_warn,
-													 IntPtr log_error,
-													 IntPtr make_sav_dir,
-													 IntPtr make_valid_path,
-													 IntPtr notify_image_update,
-													 IntPtr notify_image_free,
-													 IntPtr render_image_normal,
-													 IntPtr render_image_add,
-													 IntPtr render_image_dim,
-													 IntPtr render_image_rule,
-													 IntPtr render_image_melt,
-													 IntPtr render_image_3d_normal,
-													 IntPtr render_image_3d_add,
-													 IntPtr reset_lap_timer,
-													 IntPtr get_lap_timer_millisec,
-													 IntPtr play_sound,
-													 IntPtr stop_sound,
-													 IntPtr set_sound_volume,
-													 IntPtr is_sound_finished,
-													 IntPtr play_video,
-													 IntPtr stop_video,
-													 IntPtr is_video_playing,
-													 IntPtr update_window_title,
-													 IntPtr is_full_screen_supported,
-													 IntPtr is_full_screen_mode,
-													 IntPtr enter_full_screen_mode,
-													 IntPtr leave_full_screen_mode,
-													 IntPtr get_system_locale,
-													 IntPtr speak_text,
-													 IntPtr set_continuous_swipe_enabled,
-													 IntPtr free_shared,
-													 IntPtr get_file_contents,
-													 IntPtr open_save_file,
-													 IntPtr write_save_file,
-													 IntPtr close_save_file);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_init_conf();
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_init_locale_code();
-
-	// Event delegate types
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_on_event_init();
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_on_event_cleanup();
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_on_event_frame();
-
-	// HAL delegate types
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_log_info([In] IntPtr s);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_log_warn([In] IntPtr s);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_log_error([In] IntPtr s);
+	// HAL delegate types.
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_log_info(byte *s);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_log_warn(byte *s);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_log_error(byte *s);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_make_sav_dir();
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_make_valid_path([In] IntPtr dir, [In] IntPtr fname, [Out] IntPtr dst, int len);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_notify_image_update([Out] IntPtr img);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_notify_image_free([Out] IntPtr img);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_normal(int dst_left, int dst_top, int dst_width, int dst_height, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_add(int dst_left, int dst_top, int dst_width, int dst_height, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_dim(int dst_left, int dst_top, int dst_width, int dst_height, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_rule([Out] IntPtr src_img, [Out] IntPtr rule_img, int threshold);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_melt([Out] IntPtr src_img, [Out] IntPtr rule_img, int progress);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_3d_normal(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_3d_add(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_reset_lap_timer([Out] IntPtr origin);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate Int64 delegate_get_lap_timer_millisec([Out] IntPtr origin);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_play_sound(int stream, [Out] IntPtr wave);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_make_valid_path(byte *dir, byte* fname, byte *dst, int len);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_notify_image_update(IntPtr img);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_notify_image_free(IntPtr img);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_normal(int dst_left, int dst_top, int dst_width, int dst_height, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_add(int dst_left, int dst_top, int dst_width, int dst_height, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_dim(int dst_left, int dst_top, int dst_width, int dst_height, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_rule(IntPtr src_img, IntPtr rule_img, int threshold);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_melt(IntPtr src_img, IntPtr rule_img, int progress);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_3d_normal(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_render_image_3d_add(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_reset_lap_timer(IntPtr origin);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate Int64 delegate_get_lap_timer_millisec(IntPtr origin);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_play_sound(int stream, IntPtr wave);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_stop_sound(int stream);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_set_sound_volume(int stream, float vol);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_is_sound_finished(int stream);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_play_video([Out] IntPtr fname, int is_skippable);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_play_video(byte *fname, int is_skippable);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_stop_video();
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_is_video_playing();
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_update_window_title();
@@ -86,58 +40,105 @@ public class SuikaEngine : MonoBehaviour
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_enter_full_screen_mode();
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_leave_full_screen_mode();
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate IntPtr delegate_get_system_locale();
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_speak_text([In] IntPtr text);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_speak_text(byte *text);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_set_continuous_swipe_enabled(int is_enabled);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_free_shared([Out] IntPtr p);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate IntPtr delegate_get_file_contents([In] IntPtr pFileName, [Out] IntPtr len);
-	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_open_save_file([In] IntPtr pFileName);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_free_shared(IntPtr p);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate IntPtr delegate_get_file_contents(byte *pFileName, int *len);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_open_save_file(byte *pFileName);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_write_save_file(int b);
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_close_save_file();
 
-	// Delegate objects
-	static delegate_init_hal_func_table d_init_hal_func_table = new delegate_init_hal_func_table(init_hal_func_table);
-	static delegate_init_conf d_init_conf = new delegate_init_conf(init_conf);
-	static delegate_init_locale_code d_init_locale_code = new delegate_init_locale_code(init_locale_code);
-	static delegate_on_event_init d_on_event_init = new delegate_on_event_init(on_event_init);
-	static delegate_on_event_cleanup d_on_event_cleanup = new delegate_on_event_cleanup(on_event_cleanup);
-	static delegate_on_event_frame d_on_event_frame = new delegate_on_event_frame(on_event_frame);
-	static delegate_log_info d_log_info = new delegate_log_info(log_info);
-	static delegate_log_warn d_log_warn = new delegate_log_warn(log_warn);
-	static delegate_log_error d_log_error = new delegate_log_error(log_error);
-	static delegate_make_sav_dir d_make_sav_dir = new delegate_make_sav_dir(make_sav_dir);
-	static delegate_make_valid_path d_make_valid_path = new delegate_make_valid_path(make_valid_path);
-	static delegate_notify_image_update d_notify_image_update = new delegate_notify_image_update(notify_image_update);
-	static delegate_notify_image_free d_notify_image_free = new delegate_notify_image_free(notify_image_free);
-	static delegate_render_image_normal d_render_image_normal = new delegate_render_image_normal(render_image_normal);
-	static delegate_render_image_add d_render_image_add = new delegate_render_image_add(render_image_add);
-	static delegate_render_image_dim d_render_image_dim = new delegate_render_image_dim(render_image_dim);
-	static delegate_render_image_rule d_render_image_rule = new delegate_render_image_rule(render_image_rule);
-	static delegate_render_image_melt d_render_image_melt = new delegate_render_image_melt(render_image_melt);
-	static delegate_render_image_3d_normal d_render_image_3d_normal = new delegate_render_image_3d_normal(render_image_3d_normal);
-	static delegate_render_image_3d_add d_render_image_3d_add = new delegate_render_image_3d_add(render_image_3d_add);
-	static delegate_reset_lap_timer d_reset_lap_timer = new delegate_reset_lap_timer(reset_lap_timer);
-	static delegate_get_lap_timer_millisec d_get_lap_timer_millisec = new delegate_get_lap_timer_millisec(get_lap_timer_millisec);
-	static delegate_play_sound d_play_sound = new delegate_play_sound(play_sound);
-	static delegate_stop_sound d_stop_sound = new delegate_stop_sound(stop_sound);
-	static delegate_set_sound_volume d_set_sound_volume = new delegate_set_sound_volume(set_sound_volume);
-	static delegate_is_sound_finished d_is_sound_finished = new delegate_is_sound_finished(is_sound_finished);
-	static delegate_play_video d_play_video = new delegate_play_video(play_video);
-	static delegate_stop_video d_stop_video = new delegate_stop_video(stop_video);
-	static delegate_is_video_playing d_is_video_playing = new delegate_is_video_playing(is_video_playing);
-	static delegate_update_window_title d_update_window_title = new delegate_update_window_title(update_window_title);
-	static delegate_is_full_screen_supported d_is_full_screen_supported = new delegate_is_full_screen_supported(is_full_screen_supported);
-	static delegate_is_full_screen_mode d_is_full_screen_mode = new delegate_is_full_screen_mode(is_full_screen_mode);
-	static delegate_enter_full_screen_mode d_enter_full_screen_mode = new delegate_enter_full_screen_mode(enter_full_screen_mode);
-	static delegate_leave_full_screen_mode d_leave_full_screen_mode = new delegate_leave_full_screen_mode(leave_full_screen_mode);
-	static delegate_get_system_locale d_get_system_locale = new delegate_get_system_locale(get_system_locale);
-	static delegate_speak_text d_speak_text = new delegate_speak_text(speak_text);
-	static delegate_set_continuous_swipe_enabled d_set_continuous_swipe_enabled = new delegate_set_continuous_swipe_enabled(set_continuous_swipe_enabled);
-	static delegate_free_shared d_free_shared = new delegate_free_shared(free_shared);
-	static delegate_get_file_contents d_get_file_contents = new delegate_get_file_contents(get_file_contents);
-	static delegate_open_save_file d_open_save_file = new delegate_open_save_file(open_save_file);
-	static delegate_write_save_file d_write_save_file = new delegate_write_save_file(write_save_file);
-	static delegate_close_save_file d_close_save_file = new delegate_close_save_file(close_save_file);
+	// Init delegate types.
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+	unsafe delegate void delegate_init_hal_func_table(IntPtr log_info,
+													  IntPtr log_warn,
+													  IntPtr log_error,
+													  IntPtr make_sav_dir,
+													  IntPtr make_valid_path,
+													  IntPtr notify_image_update,
+													  IntPtr notify_image_free,
+													  IntPtr render_image_normal,
+													  IntPtr render_image_add,
+													  IntPtr render_image_dim,
+													  IntPtr render_image_rule,
+													  IntPtr render_image_melt,
+													  IntPtr render_image_3d_normal,
+													  IntPtr render_image_3d_add,
+													  IntPtr reset_lap_timer,
+													  IntPtr get_lap_timer_millisec,
+													  IntPtr play_sound,
+													  IntPtr stop_sound,
+													  IntPtr set_sound_volume,
+													  IntPtr is_sound_finished,
+													  IntPtr play_video,
+													  IntPtr stop_video,
+													  IntPtr is_video_playing,
+													  IntPtr update_window_title,
+													  IntPtr is_full_screen_supported,
+													  IntPtr is_full_screen_mode,
+													  IntPtr enter_full_screen_mode,
+													  IntPtr leave_full_screen_mode,
+													  IntPtr get_system_locale,
+													  IntPtr speak_text,
+													  IntPtr set_continuous_swipe_enabled,
+													  IntPtr free_shared,
+													  IntPtr get_file_contents,
+													  IntPtr open_save_file,
+													  IntPtr write_save_file,
+													  IntPtr close_save_file);
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_init_conf();
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_init_locale_code();
 
+	// Event delegate types.
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_on_event_init();
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate void delegate_on_event_cleanup();
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)] unsafe delegate int delegate_on_event_frame();
+
+	// Delegate objects.
+	static delegate_log_info d_log_info;
+	static delegate_log_warn d_log_warn;
+	static delegate_log_error d_log_error;
+	static delegate_make_sav_dir d_make_sav_dir;
+	static delegate_make_valid_path d_make_valid_path;
+	static delegate_notify_image_update d_notify_image_update;
+	static delegate_notify_image_free d_notify_image_free;
+	static delegate_render_image_normal d_render_image_normal;
+	static delegate_render_image_add d_render_image_add;
+	static delegate_render_image_dim d_render_image_dim;
+	static delegate_render_image_rule d_render_image_rule;
+	static delegate_render_image_melt d_render_image_melt;
+	static delegate_render_image_3d_normal d_render_image_3d_normal;
+	static delegate_render_image_3d_add d_render_image_3d_add;
+	static delegate_reset_lap_timer d_reset_lap_timer;
+	static delegate_get_lap_timer_millisec d_get_lap_timer_millisec;
+	static delegate_play_sound d_play_sound;
+	static delegate_stop_sound d_stop_sound;
+	static delegate_set_sound_volume d_set_sound_volume;
+	static delegate_is_sound_finished d_is_sound_finished;
+	static delegate_play_video d_play_video;
+	static delegate_stop_video d_stop_video;
+	static delegate_is_video_playing d_is_video_playing;
+	static delegate_update_window_title d_update_window_title;
+	static delegate_is_full_screen_supported d_is_full_screen_supported;
+	static delegate_is_full_screen_mode d_is_full_screen_mode;
+	static delegate_enter_full_screen_mode d_enter_full_screen_mode;
+	static delegate_leave_full_screen_mode d_leave_full_screen_mode;
+	static delegate_get_system_locale d_get_system_locale;
+	static delegate_speak_text d_speak_text;
+	static delegate_set_continuous_swipe_enabled d_set_continuous_swipe_enabled;
+	static delegate_free_shared d_free_shared;
+	static delegate_get_file_contents d_get_file_contents;
+	static delegate_open_save_file d_open_save_file;
+	static delegate_write_save_file d_write_save_file;
+	static delegate_close_save_file d_close_save_file;
+	static delegate_init_hal_func_table d_init_hal_func_table;
+	static delegate_init_conf d_init_conf;
+	static delegate_init_locale_code d_init_locale_code;
+	static delegate_on_event_init d_on_event_init;
+	static delegate_on_event_cleanup d_on_event_cleanup;
+	static delegate_on_event_frame d_on_event_frame;
+
+	// Delegate pointers.
 	static IntPtr p_log_info;
 	static IntPtr p_log_warn;
 	static IntPtr p_log_error;
@@ -174,57 +175,62 @@ public class SuikaEngine : MonoBehaviour
 	static IntPtr p_open_save_file;
 	static IntPtr p_write_save_file;
 	static IntPtr p_close_save_file;
+	static IntPtr p_init_hal_func_table;
+	static IntPtr p_init_conf;
+	static IntPtr p_init_locale_code;
+	static IntPtr p_on_event_init;
+	static IntPtr p_on_event_cleanup;
+	static IntPtr p_on_event_frame;
 
-    unsafe void Start()
-    {
+	unsafe void Start()
+	{
 		GC.KeepAlive(this);
 
-		// Lock delegate objects.
-		GCHandle.Alloc(d_init_locale_code, GCHandleType.Pinned);
-		GCHandle.Alloc(d_init_hal_func_table, GCHandleType.Pinned);
-		GCHandle.Alloc(d_init_conf = init_conf, GCHandleType.Pinned);
-		GCHandle.Alloc(d_init_locale_code, GCHandleType.Pinned);
-		GCHandle.Alloc(d_on_event_init, GCHandleType.Pinned);
-		GCHandle.Alloc(d_on_event_cleanup, GCHandleType.Pinned);
-		GCHandle.Alloc(d_on_event_frame, GCHandleType.Pinned);
-		GCHandle.Alloc(d_log_info, GCHandleType.Pinned);
-		GCHandle.Alloc(d_log_warn, GCHandleType.Pinned);
-		GCHandle.Alloc(d_log_error, GCHandleType.Pinned);
-		GCHandle.Alloc(d_make_sav_dir, GCHandleType.Pinned);
-		GCHandle.Alloc(d_make_valid_path, GCHandleType.Pinned);
-		GCHandle.Alloc(d_notify_image_update, GCHandleType.Pinned);
-		GCHandle.Alloc(d_notify_image_free, GCHandleType.Pinned);
-		GCHandle.Alloc(d_render_image_normal, GCHandleType.Pinned);
-		GCHandle.Alloc(d_render_image_add, GCHandleType.Pinned);
-		GCHandle.Alloc(d_render_image_dim, GCHandleType.Pinned);
-		GCHandle.Alloc(d_render_image_rule, GCHandleType.Pinned);
-		GCHandle.Alloc(d_render_image_melt, GCHandleType.Pinned);
-		GCHandle.Alloc(d_render_image_3d_normal, GCHandleType.Pinned);
-		GCHandle.Alloc(d_render_image_3d_add, GCHandleType.Pinned);
-		GCHandle.Alloc(d_reset_lap_timer, GCHandleType.Pinned);
-		GCHandle.Alloc(d_get_lap_timer_millisec, GCHandleType.Pinned);
-		GCHandle.Alloc(d_play_sound, GCHandleType.Pinned);
-		GCHandle.Alloc(d_stop_sound, GCHandleType.Pinned);
-		GCHandle.Alloc(d_set_sound_volume, GCHandleType.Pinned);
-		GCHandle.Alloc(d_is_sound_finished, GCHandleType.Pinned);
-		GCHandle.Alloc(d_play_video, GCHandleType.Pinned);
-		GCHandle.Alloc(d_stop_video, GCHandleType.Pinned);
-		GCHandle.Alloc(d_is_video_playing, GCHandleType.Pinned);
-		GCHandle.Alloc(d_update_window_title, GCHandleType.Pinned);
-		GCHandle.Alloc(d_is_full_screen_supported, GCHandleType.Pinned);
-		GCHandle.Alloc(d_is_full_screen_mode, GCHandleType.Pinned);
-		GCHandle.Alloc(d_enter_full_screen_mode, GCHandleType.Pinned);
-		GCHandle.Alloc(d_leave_full_screen_mode, GCHandleType.Pinned);
-		GCHandle.Alloc(d_get_system_locale, GCHandleType.Pinned);
-		GCHandle.Alloc(d_speak_text, GCHandleType.Pinned);
-		GCHandle.Alloc(d_set_continuous_swipe_enabled, GCHandleType.Pinned);
-		GCHandle.Alloc(d_free_shared, GCHandleType.Pinned);
-		GCHandle.Alloc(d_get_file_contents, GCHandleType.Pinned);
-		GCHandle.Alloc(d_open_save_file, GCHandleType.Pinned);
-		GCHandle.Alloc(d_write_save_file, GCHandleType.Pinned);
-		GCHandle.Alloc(d_close_save_file, GCHandleType.Pinned);
+		// Set delegate objects.
+		d_log_info = new delegate_log_info(log_info);
+		d_log_warn = new delegate_log_warn(log_warn);
+		d_log_error = new delegate_log_error(log_error);
+		d_make_sav_dir = new delegate_make_sav_dir(make_sav_dir);
+		d_make_valid_path = new delegate_make_valid_path(make_valid_path);
+		d_notify_image_update = new delegate_notify_image_update(notify_image_update);
+		d_notify_image_free = new delegate_notify_image_free(notify_image_free);
+		d_render_image_normal = new delegate_render_image_normal(render_image_normal);
+		d_render_image_add = new delegate_render_image_add(render_image_add);
+		d_render_image_dim = new delegate_render_image_dim(render_image_dim);
+		d_render_image_rule = new delegate_render_image_rule(render_image_rule);
+		d_render_image_melt = new delegate_render_image_melt(render_image_melt);
+		d_render_image_3d_normal = new delegate_render_image_3d_normal(render_image_3d_normal);
+		d_render_image_3d_add = new delegate_render_image_3d_add(render_image_3d_add);
+		d_reset_lap_timer = new delegate_reset_lap_timer(reset_lap_timer);
+		d_get_lap_timer_millisec = new delegate_get_lap_timer_millisec(get_lap_timer_millisec);
+		d_play_sound = new delegate_play_sound(play_sound);
+		d_stop_sound = new delegate_stop_sound(stop_sound);
+		d_set_sound_volume = new delegate_set_sound_volume(set_sound_volume);
+		d_is_sound_finished = new delegate_is_sound_finished(is_sound_finished);
+		d_play_video = new delegate_play_video(play_video);
+		d_stop_video = new delegate_stop_video(stop_video);
+		d_is_video_playing = new delegate_is_video_playing(is_video_playing);
+		d_update_window_title = new delegate_update_window_title(update_window_title);
+		d_is_full_screen_supported = new delegate_is_full_screen_supported(is_full_screen_supported);
+		d_is_full_screen_mode = new delegate_is_full_screen_mode(is_full_screen_supported);
+		d_enter_full_screen_mode = new delegate_enter_full_screen_mode(enter_full_screen_mode);
+		d_leave_full_screen_mode = new delegate_leave_full_screen_mode(leave_full_screen_mode);
+		d_get_system_locale = new delegate_get_system_locale(get_system_locale);
+		d_speak_text = new delegate_speak_text(speak_text);
+		d_set_continuous_swipe_enabled = new delegate_set_continuous_swipe_enabled(set_continuous_swipe_enabled);
+		d_free_shared = new delegate_free_shared(free_shared);
+		d_get_file_contents = new delegate_get_file_contents(get_file_contents);
+		d_open_save_file = new delegate_open_save_file(open_save_file);
+		d_write_save_file = new delegate_write_save_file(write_save_file);
+		d_close_save_file = new delegate_close_save_file(close_save_file);
+		d_init_hal_func_table = new delegate_init_hal_func_table(init_hal_func_table);
+		d_init_conf = new delegate_init_conf(init_conf);
+		d_init_locale_code = new delegate_init_locale_code(init_locale_code);
+		d_on_event_init = new delegate_on_event_init(on_event_init);
+		d_on_event_cleanup = new delegate_on_event_cleanup(on_event_cleanup);
+		d_on_event_frame = new delegate_on_event_frame(on_event_frame);
 
-		// Get function pointers.
+		// Get function pointers by resolving the native library.
 		p_log_info = Marshal.GetFunctionPointerForDelegate(d_log_info);
 		p_log_warn = Marshal.GetFunctionPointerForDelegate(d_log_warn);
 		p_log_error = Marshal.GetFunctionPointerForDelegate(d_log_error);
@@ -262,7 +268,52 @@ public class SuikaEngine : MonoBehaviour
 		p_write_save_file = Marshal.GetFunctionPointerForDelegate(d_write_save_file);
 		p_close_save_file = Marshal.GetFunctionPointerForDelegate(d_close_save_file);
 
-		// Lock function pointers.
+		// Lock function pointers by Alloc().
+		GCHandle.Alloc(p_log_info, GCHandleType.Pinned);
+		GCHandle.Alloc(p_log_warn, GCHandleType.Pinned);
+		GCHandle.Alloc(p_log_error, GCHandleType.Pinned);
+		GCHandle.Alloc(p_make_sav_dir, GCHandleType.Pinned);
+		GCHandle.Alloc(p_make_valid_path, GCHandleType.Pinned);
+		GCHandle.Alloc(p_notify_image_update, GCHandleType.Pinned);
+		GCHandle.Alloc(p_notify_image_free, GCHandleType.Pinned);
+		GCHandle.Alloc(p_render_image_normal, GCHandleType.Pinned);
+		GCHandle.Alloc(p_render_image_add, GCHandleType.Pinned);
+		GCHandle.Alloc(p_render_image_dim, GCHandleType.Pinned);
+		GCHandle.Alloc(p_render_image_rule, GCHandleType.Pinned);
+		GCHandle.Alloc(p_render_image_melt, GCHandleType.Pinned);
+		GCHandle.Alloc(p_render_image_3d_normal, GCHandleType.Pinned);
+		GCHandle.Alloc(p_render_image_3d_add, GCHandleType.Pinned);
+		GCHandle.Alloc(p_reset_lap_timer, GCHandleType.Pinned);
+		GCHandle.Alloc(p_get_lap_timer_millisec, GCHandleType.Pinned);
+		GCHandle.Alloc(p_play_sound, GCHandleType.Pinned);
+		GCHandle.Alloc(p_stop_sound, GCHandleType.Pinned);
+		GCHandle.Alloc(p_set_sound_volume, GCHandleType.Pinned);
+		GCHandle.Alloc(p_is_sound_finished, GCHandleType.Pinned);
+		GCHandle.Alloc(p_play_video, GCHandleType.Pinned);
+		GCHandle.Alloc(p_stop_video, GCHandleType.Pinned);
+		GCHandle.Alloc(p_is_video_playing, GCHandleType.Pinned);
+		GCHandle.Alloc(p_update_window_title, GCHandleType.Pinned);
+		GCHandle.Alloc(p_is_full_screen_supported, GCHandleType.Pinned);
+		GCHandle.Alloc(p_is_full_screen_mode, GCHandleType.Pinned);
+		GCHandle.Alloc(p_enter_full_screen_mode, GCHandleType.Pinned);
+		GCHandle.Alloc(p_leave_full_screen_mode, GCHandleType.Pinned);
+		GCHandle.Alloc(p_get_system_locale, GCHandleType.Pinned);
+		GCHandle.Alloc(p_speak_text, GCHandleType.Pinned);
+		GCHandle.Alloc(p_set_continuous_swipe_enabled, GCHandleType.Pinned);
+		GCHandle.Alloc(p_free_shared, GCHandleType.Pinned);
+		GCHandle.Alloc(p_get_file_contents, GCHandleType.Pinned);
+		GCHandle.Alloc(p_open_save_file, GCHandleType.Pinned);
+		GCHandle.Alloc(p_write_save_file, GCHandleType.Pinned);
+		GCHandle.Alloc(p_close_save_file, GCHandleType.Pinned);
+		GCHandle.Alloc(p_init_locale_code, GCHandleType.Pinned);
+		GCHandle.Alloc(p_init_hal_func_table, GCHandleType.Pinned);
+		GCHandle.Alloc(p_init_conf, GCHandleType.Pinned);
+		GCHandle.Alloc(p_init_locale_code, GCHandleType.Pinned);
+		GCHandle.Alloc(p_on_event_init, GCHandleType.Pinned);
+		GCHandle.Alloc(p_on_event_cleanup, GCHandleType.Pinned);
+		GCHandle.Alloc(p_on_event_frame, GCHandleType.Pinned);
+
+		// Lock function pointers by KeepAlive().
 		GC.KeepAlive(p_log_info);
 		GC.KeepAlive(p_log_warn);
 		GC.KeepAlive(p_log_error);
@@ -353,9 +404,9 @@ public class SuikaEngine : MonoBehaviour
 		GC.KeepAlive(this);
 	}
 
-    unsafe void Update()
-    {
-    }
+	unsafe void Update()
+	{
+	}
 
 	//
 	// Native
@@ -454,39 +505,24 @@ public class SuikaEngine : MonoBehaviour
 	static unsafe IntPtr locale = IntPtr.Zero;
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_log_info))]
-	static unsafe void log_info(IntPtr s)
+	static unsafe void log_info(byte *s)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(s, GCHandleType.Pinned);
-		
-		string str = IntPtrToString(s);
+		string str = BytePtrToString(s);
 		Debug.Log(str);
-
-		gcHandle.Free();
-		GC.KeepAlive(s);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_log_warn))]
-	static unsafe void log_warn(IntPtr s)
+	static unsafe void log_warn(byte *s)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(s, GCHandleType.Pinned);
-
-		string str = IntPtrToString(s);
+		string str = BytePtrToString(s);
 		Debug.Log(str);
-
-		gcHandle.Free();
-		GC.KeepAlive(s);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_log_error))]
-	static unsafe void log_error(IntPtr s)
+	static unsafe void log_error(byte *s)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(s, GCHandleType.Pinned);
-
-		string str = IntPtrToString(s);
+		string str = BytePtrToString(s);
 		Debug.Log(str);
-
-		gcHandle.Free();
-		GC.KeepAlive(s);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_make_sav_dir))]
@@ -496,194 +532,113 @@ public class SuikaEngine : MonoBehaviour
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_make_valid_path))]
-	static unsafe void make_valid_path([In] IntPtr dir, [In] IntPtr fname, [Out] IntPtr dst, int len)
+	static unsafe void make_valid_path(byte *dir, byte *fname, byte *dst, int len)
 	{
-		GCHandle gcHandleDir = GCHandle.Alloc(dir, GCHandleType.Pinned);
-		GCHandle gcHandleFile = GCHandle.Alloc(fname, GCHandleType.Pinned);
-		GCHandle gcHandleDst = GCHandle.Alloc(dst, GCHandleType.Pinned);
-		GC.KeepAlive(dst);
-		IntPtr dummy = gcHandleDst.AddrOfPinnedObject();
-		GC.KeepAlive(dummy);
-
 		string Path = "";
-		if (dir != IntPtr.Zero)
-			Path = Path + IntPtrToString(dir) + "/";
-		if (fname != IntPtr.Zero)
-			Path = Path + IntPtrToString(fname);
+		if (dir != null)
+			Path = Path + BytePtrToString(dir) + "/";
+		if (fname != null)
+			Path = Path + BytePtrToString(fname);
 
 		byte[] bytes = System.Text.Encoding.UTF8.GetBytes(Path);
-		int wrote = 0;
-		for (int i = 0; i < bytes.Length && i < len; i++, wrote++)
-			Marshal.WriteByte(dst, i, bytes[i]);
-		Marshal.WriteByte(dst, wrote, 0);
-
-		gcHandleDir.Free();
-		gcHandleFile.Free();
-		gcHandleDst.Free();
-		GC.KeepAlive(dir);
-		GC.KeepAlive(fname);
-		GC.KeepAlive(dst);
-		GC.KeepAlive(dummy);
+		for (int i = 0; i < bytes.Length && i < len; i++)
+		{
+			dst[i] = bytes[i];
+		}
+		dst[bytes.Length] = 0;
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_notify_image_update))]
-	static unsafe void notify_image_update([Out] IntPtr img)
+	static unsafe void notify_image_update(IntPtr img)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(img, GCHandleType.Pinned);
-
 		Image Image = Marshal.PtrToStructure<SuikaEngine.Image>(img);
 
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_notify_image_free))]
-	static unsafe void notify_image_free([Out] IntPtr img)
+	static unsafe void notify_image_free(IntPtr img)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(img, GCHandleType.Pinned);
-
 		Image Image = Marshal.PtrToStructure<SuikaEngine.Image>(img);
 
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_render_image_normal))]
-	static unsafe void render_image_normal(int dst_left, int dst_top, int dst_width, int dst_height, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
+	static unsafe void render_image_normal(int dst_left, int dst_top, int dst_width, int dst_height, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(src_img, GCHandleType.Pinned);
-
 		Image SrcImage = Marshal.PtrToStructure<SuikaEngine.Image>(src_img);
 
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(src_img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_render_image_add))]
-	static unsafe void render_image_add(int dst_left, int dst_top, int dst_width, int dst_height, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
+	static unsafe void render_image_add(int dst_left, int dst_top, int dst_width, int dst_height, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(src_img, GCHandleType.Pinned);
-
 		Image SrcImage = Marshal.PtrToStructure<SuikaEngine.Image>(src_img);
 
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(src_img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_render_image_dim))]
-	static unsafe void render_image_dim(int dst_left, int dst_top, int dst_width, int dst_height, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
+	static unsafe void render_image_dim(int dst_left, int dst_top, int dst_width, int dst_height, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(src_img, GCHandleType.Pinned);
-
 		Image SrcImage = Marshal.PtrToStructure<SuikaEngine.Image>(src_img);
 
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(src_img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_render_image_rule))]
-	static unsafe void render_image_rule([Out] IntPtr src_img, [Out] IntPtr rule_img, int threshold)
+	static unsafe void render_image_rule(IntPtr src_img, IntPtr rule_img, int threshold)
 	{
-		GCHandle gcHandleSrc = GCHandle.Alloc(src_img, GCHandleType.Pinned);
-		GCHandle gcHandleRule = GCHandle.Alloc(rule_img, GCHandleType.Pinned);
-
 		Image SrcImage = Marshal.PtrToStructure<SuikaEngine.Image>(src_img);
 		Image RuleImage = Marshal.PtrToStructure<SuikaEngine.Image>(rule_img);
 
 		// TODO
-
-		gcHandleSrc.Free();
-		gcHandleRule.Free();
-		GC.KeepAlive(src_img);
-		GC.KeepAlive(rule_img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_render_image_melt))]
-	static unsafe void render_image_melt([Out] IntPtr src_img, [Out] IntPtr rule_img, int progress)
+	static unsafe void render_image_melt(IntPtr src_img, IntPtr rule_img, int progress)
 	{
-		GCHandle gcHandleSrc = GCHandle.Alloc(src_img, GCHandleType.Pinned);
-		GCHandle gcHandleRule = GCHandle.Alloc(rule_img, GCHandleType.Pinned);
-
 		Image SrcImage = Marshal.PtrToStructure<SuikaEngine.Image>(src_img);
 		Image RuleImage = Marshal.PtrToStructure<SuikaEngine.Image>(rule_img);
 
 		// TODO
-
-		gcHandleSrc.Free();
-		gcHandleRule.Free();
-		GC.KeepAlive(src_img);
-		GC.KeepAlive(rule_img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_render_image_3d_normal))]
-	static unsafe void render_image_3d_normal(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
+	static unsafe void render_image_3d_normal(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(src_img, GCHandleType.Pinned);
-
 		Image SrcImage = Marshal.PtrToStructure<SuikaEngine.Image>(src_img);
 
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(src_img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_render_image_3d_add))]
-	static unsafe void render_image_3d_add(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, [Out] IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
+	static unsafe void render_image_3d_add(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, IntPtr src_img, int src_left, int src_top, int src_width, int src_height, int alpha)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(src_img, GCHandleType.Pinned);
-
 		Image SrcImage = Marshal.PtrToStructure<SuikaEngine.Image>(src_img);
 
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(src_img);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_reset_lap_timer))]
-	static unsafe void reset_lap_timer([Out] IntPtr origin)
+	static unsafe void reset_lap_timer(IntPtr origin)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(origin, GCHandleType.Pinned);
-
 		Marshal.WriteInt64(origin, Environment.TickCount);
-
-		gcHandle.Free();
-		GC.KeepAlive(origin);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_get_lap_timer_millisec))]
-	static unsafe Int64 get_lap_timer_millisec([Out] IntPtr origin)
+	static unsafe Int64 get_lap_timer_millisec(IntPtr origin)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(origin, GCHandleType.Pinned);
-
 		Int64 ret = Environment.TickCount - Marshal.ReadInt64(origin);
-
-		gcHandle.Free();
-		GC.KeepAlive(origin);
-
 		return ret;
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_play_sound))]
-	static unsafe void play_sound(int stream, [Out] IntPtr wave)
+	static unsafe void play_sound(int stream, IntPtr wave)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(wave, GCHandleType.Pinned);
-
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(wave);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_stop_sound))]
@@ -705,14 +660,9 @@ public class SuikaEngine : MonoBehaviour
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_play_video))]
-	static unsafe int play_video([Out] IntPtr fname, int is_skippable)
+	static unsafe int play_video(byte *fname, int is_skippable)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(fname, GCHandleType.Pinned);
-
 		// TODO
-		gcHandle.Free();
-		GC.KeepAlive(fname);
-
 		return 1;
 	}
 
@@ -765,25 +715,19 @@ public class SuikaEngine : MonoBehaviour
 	static unsafe IntPtr get_system_locale()
 	{
 		// TODO
-		if (locale == IntPtr.Zero)
+		if (locale == null)
 		{
 			locale = Marshal.StringToCoTaskMemUTF8("ja");
 			GCHandle.Alloc(locale, GCHandleType.Pinned);
 			GC.KeepAlive(locale);
 		}
-
 		return locale;
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_speak_text))]
-	static unsafe void speak_text([In] IntPtr text)
+	static unsafe void speak_text(byte *text)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(text, GCHandleType.Pinned);
-
 		// TODO
-
-		gcHandle.Free();
-		GC.KeepAlive(text);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_set_continuous_swipe_enabled))]
@@ -800,63 +744,48 @@ public class SuikaEngine : MonoBehaviour
 	static unsafe string SaveData;
 
     [AOT.MonoPInvokeCallback(typeof(delegate_free_shared))]
-	static unsafe void free_shared([Out] IntPtr p)
+	static unsafe void free_shared(IntPtr p)
 	{
-		GCHandle gcHandle = GCHandle.Alloc(p, GCHandleType.Pinned);
-
 		Marshal.FreeCoTaskMem(p);
-
-		gcHandle.Free();
-		GC.KeepAlive(p);
 	}
 
     [AOT.MonoPInvokeCallback(typeof(delegate_get_file_contents))]
-    static unsafe IntPtr get_file_contents([In] IntPtr pFileName, [In] IntPtr len)
+    static unsafe IntPtr get_file_contents(byte *pFileName, int *len)
 	{
-		GCHandle gcHandleFile = GCHandle.Alloc(pFileName, GCHandleType.Pinned);
-		GCHandle gcHandleLen = GCHandle.Alloc(len, GCHandleType.Pinned);
-		GC.KeepAlive(pFileName);
-
 		IntPtr ret = IntPtr.Zero;
-		string FileName = IntPtrToString(pFileName);
+		string FileName = BytePtrToString(pFileName);
 		if (FileName.StartsWith("sav/"))
 		{
 			string s = PlayerPrefs.GetString(FileName.Split("/")[1], "");
 			if (s == "")
 				return IntPtr.Zero;
-			byte[] b = Convert.FromBase64String(s);
-			if (b == null)
+			byte[] base64Utf8 = Convert.FromBase64String(s);
+			if (base64Utf8 == null)
 				return IntPtr.Zero;
-			ret = Marshal.AllocCoTaskMem(b.Length);
-			GC.KeepAlive(ret);
-			Marshal.Copy(b, 0, ret, b.Length);
-			Marshal.WriteIntPtr(len, 0, (IntPtr)b.Length);
+			ret = Marshal.AllocCoTaskMem(base64Utf8.Length);
+			Marshal.Copy(base64Utf8, 0, ret, base64Utf8.Length);
+			*len = base64Utf8.Length;
 		}
 		else
 		{
 			Debug.Log(Application.streamingAssetsPath);
 			Debug.Log(FileName);
-			byte[] b = System.IO.File.ReadAllBytes(Application.streamingAssetsPath + "/" + FileName);
-			if (b == null)
+			byte[] fileBody = System.IO.File.ReadAllBytes(Application.streamingAssetsPath + "/" + FileName);
+			if (fileBody == null)
 				return IntPtr.Zero;
-			ret = Marshal.AllocCoTaskMem(b.Length);
-			GC.KeepAlive(ret);
-			Marshal.Copy(b, 0, ret, b.Length);
-			Marshal.WriteIntPtr(len, 0, (IntPtr)b.Length);
+			ret = Marshal.AllocCoTaskMem(fileBody.Length);
+			Marshal.Copy(fileBody, 0, ret, fileBody.Length);
+			*len = fileBody.Length;
 		}
 
-		gcHandleFile.Free();
-		gcHandleLen.Free();
-		GC.KeepAlive(pFileName);
-		GC.KeepAlive(len);
 		GC.KeepAlive(ret);
+
 		return ret;
     }
 
-    private static unsafe string IntPtrToString([In] IntPtr s)
+    private static unsafe string BytePtrToString(byte *s)
 	{
-		byte *src = (byte *)s.ToPointer();
-		byte *b = src;
+		byte *b = s;
 		int len = 0;
 		while (*b != 0)
 		{
@@ -866,24 +795,16 @@ public class SuikaEngine : MonoBehaviour
 		byte[] managed = new byte[len];
 		for (int i = 0; i < len; i++)
 		{
-			managed[i] = Marshal.ReadByte(s, i);
+			managed[i] = *s++;
 		}
 		string ret = Encoding.UTF8.GetString(managed);
-		Debug.Log(ret);
-		GC.KeepAlive(s);
-		GC.KeepAlive(ret);
-		return ret;
+ 		return ret;
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_open_save_file))]
-    static unsafe void open_save_file([In] IntPtr pFileName) {
-		GCHandle gcHandle = GCHandle.Alloc(pFileName, GCHandleType.Pinned);
-
-		SaveFile = Marshal.PtrToStringUTF8(pFileName).Split("/")[1];
+    static unsafe void open_save_file(byte *pFileName) {
+		SaveFile = BytePtrToString(pFileName).Split("/")[1];
 		SaveData = "";
-
-		gcHandle.Free();
-		GC.KeepAlive(pFileName);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_write_save_file))]
