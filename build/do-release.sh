@@ -79,7 +79,7 @@ if [ ! -e libroot ]; then
 fi
 make -j16
 cp suika.exe suika-signed.exe
-sign.sh signed-suika.exe
+sign.sh suika-signed.exe
 cd ..
 
 #

@@ -1076,12 +1076,6 @@ static VOID InitMenu(HWND hWnd)
 	mi.dwTypeData = bEnglish ? L"Japanese NVL Vertical" : L"日本語縦書き";
 	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
 
-	/* 英語アドベンチャーを作成する */
-	mi.fMask = MIIM_TYPE | MIIM_ID;
-	mi.wID = ID_NEW_PROJECT_ADVEN;
-	mi.dwTypeData = bEnglish ? L"English ADV" : L"英語アドベンチャー";
-	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
-
 	/* 英語ノベルを作成する */
 	mi.fMask = MIIM_TYPE | MIIM_ID;
 	mi.wID = ID_NEW_PROJECT_NVLEN;
