@@ -1,5 +1,5 @@
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2023, Keiich Tabata. All rights reserved.
  */
 

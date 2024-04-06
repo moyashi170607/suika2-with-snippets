@@ -1,5 +1,6 @@
 /*
- * Suika2
+ * Watermelon Script
+ * Suika2 / Polaris Engine
  * Copyright (c) 2001-2023, Keiichi Tabata. All rights reserved.
  */
 

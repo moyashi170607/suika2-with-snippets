@@ -1,7 +1,7 @@
 /* -*- tab-width: 8; indent-tabs-mode: t; -*- */
 
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2021, Keiichi Tabata. All rights reserved.
  */
 

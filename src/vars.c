@@ -1,7 +1,7 @@
 /* -*- coding: utf-8; tab-width: 8; indent-tabs-mode: t; -*- */
 
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2023, Keiichi Tabata. All rights reserved.
  */
 
@@ -381,7 +381,7 @@ int32_t *get_global_variables_pointer(void)
 }
 
 /*
- * Suika2 Pro用
+ * Suika2 / Polaris Engine Pro用
  */
 #ifdef USE_EDITOR
 /*

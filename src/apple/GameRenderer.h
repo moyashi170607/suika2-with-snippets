@@ -1,7 +1,7 @@
 // -*- coding: utf-8; tab-width: 4; indent-tabs-mode: nil; -*-
 
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2023, Keiichi Tabata. All rights reserved.
  */
 

@@ -1,7 +1,7 @@
 /* -*- c-basic-offset: 2; indent-tabs-mode: nil; -*- */
 
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2022, Keiichi Tabata. All rights reserved.
  */
 

@@ -1,12 +1,12 @@
 /* -*- tab-width: 8; indent-tabs-mode: t; -*- */
 
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2023, Keiichi Tabata. All rights reserved.
  */
 
 /*
- * Suika2 HAL Implementation for ALSA
+ * Suika2 / Polaris Engine HAL Implementation for ALSA
  *
  * [Changes]
  *  - 2016-06-06 Created.

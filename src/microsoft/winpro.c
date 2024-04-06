@@ -1,12 +1,12 @@
 /* -*- coding: utf-8; indent-tabs-mode: t; tab-width: 4; c-basic-offset: 4; -*- */
 
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2024, Keiichi Tabata. All rights reserved.
  */
 
 /*
- * Suika2 Pro
+ * Suika2 / Polaris Engine Pro
  *
  * [Changes]
  *  2014-05-24 Created (conskit)

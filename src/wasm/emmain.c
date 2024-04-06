@@ -1,7 +1,7 @@
 /* -*- tab-width: 8; indent-tabs-mode: t; -*- */
 
 /*
- * Suika2
+ * Suika2 / Polaris Engine
  * Copyright (C) 2001-2023, Keiichi Tabata. All rights reserved.
  */
 
@@ -20,7 +20,7 @@
 #include <sys/time.h>	/* gettimeofday() */
 
 /*
- * Suika2 Base
+ * Suika2 / Polaris Engine Base
  */
 #include "../suika.h"
 

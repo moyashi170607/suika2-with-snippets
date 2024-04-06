@@ -1,6 +1,7 @@
 %{
 /*
  * Watermelon Script
+ * Suika2 / Polaris Engine
  * Copyright (c) 2022, Keiichi Tabata. All rights reserved.
  */
 #include <stdio.h>
