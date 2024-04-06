@@ -144,7 +144,7 @@ static struct gui_button {
 	/* すべて */
 	char *pointse;
 
-	/* TYPE_HISTORY, TYPE_SAVE, TYPE_LOAD */
+	/* TYPE_HISTORY, TYPE_SAVE, TYPE_LOAD, TYPE_PREVIEW */
 	int clear_r, clear_g, clear_b;
 
 	/* TYPE_GOTO */
@@ -3129,7 +3129,12 @@ static void reset_preview_button(int index)
 
 	b = &button[index];
 
-	clear_image_color(b->rt.img, make_pixel(0, 0, 0, 0));
+	/* イメージをクリアする */
+	clear_image_color(b->rt.img,
+			  make_pixel(0,
+				     (uint32_t)b->clear_r,
+				     (uint32_t)b->clear_g,
+				     (uint32_t)b->clear_b));
 	notify_image_update(b->rt.img);
 
 	color = make_pixel(0xff,
