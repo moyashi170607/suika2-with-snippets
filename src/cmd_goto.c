@@ -53,9 +53,16 @@ bool goto_command(bool *cont)
 		draw_stage_to_thumb();
 
 		/* ロード画面を開始する */
-		if (!prepare_gui_mode(LOAD_GUI_FILE, false)) {
-			log_script_exec_footer();
-			return false;
+		if (check_file_exist(GUI_DIR, LOAD_GUI_FILE)) {
+			if (!prepare_gui_mode(LOAD_GUI_FILE, false)) {
+				log_script_exec_footer();
+				return false;
+			}
+		} else {
+			if (!prepare_gui_mode(COMPAT_LOAD_GUI_FILE, false)) {
+				log_script_exec_footer();
+				return false;
+			}
 		}
 		set_gui_options(true, true, true);
 		start_gui_mode();
@@ -88,9 +95,16 @@ bool goto_command(bool *cont)
 		draw_stage_to_thumb();
 
 		/* セーブ画面を開始する */
-		if (!prepare_gui_mode(SAVE_GUI_FILE, false)) {
-			log_script_exec_footer();
-			return false;
+		if (check_file_exist(GUI_DIR, SAVE_GUI_FILE)) {
+			if (!prepare_gui_mode(SAVE_GUI_FILE, false)) {
+				log_script_exec_footer();
+				return false;
+			}
+		} else {
+			if (!prepare_gui_mode(COMPAT_SAVE_GUI_FILE, false)) {
+				log_script_exec_footer();
+				return false;
+			}
 		}
 		set_gui_options(true, true, true);
 		start_gui_mode();
