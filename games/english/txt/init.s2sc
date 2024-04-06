@@ -78,8 +78,8 @@
 
 @vol bgm 0.0 1.0
 @bg white.png 1.0
-@bgm cicada.ogg
-@vol bgm 1.0 1.0
+@bgm 03.ogg
+@vol bgm 0.5 1.0
 @bg roof.png 1.0 rule:suika.png
 @ch c 001-fun.png 1.0
 *???*e001.ogg*Isn't the breeze great from up here? It's so cool...
@@ -204,8 +204,8 @@ You can create games for all markets.
 
 @vol bgm 0.0 1.0
 @bg coast.png 1.0 c
-@vol bgm 1.0 0.0
-@bgm coast.ogg
+@vol bgm 0.5 0.0
+@bgm 03.ogg
 @ch c 001-happy.png 1.0
 *Midori*e024.ogg*Is there anything else you were wondering?
 @ch c none 1.0
