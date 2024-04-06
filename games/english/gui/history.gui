@@ -1,179 +1,162 @@
 ###
-### History Screen Definition
+### メッセージ履歴画面のGUI定義
 ###
 
 # このファイルの基本設定
 global {
-    # Global settings for this file.
+    # 下記の画像を使用する
     base:   system/history/base.png;
     idle:   system/history/idle.png;
     hover:  system/history/hover.png;
     active: system/history/active.png;
 
-    # History items per screen.
+    # 1画面あたりの履歴表示数を指定
     historyslots: 3;
 
-    # Sound effect for click.
+    # 右クリックによるキャンセル時のSE
     cancelse: click.ogg;
 
-    # Fade-in time (seconds)
+    # フェードイン時間(秒)
     fadein: 0.5;
 
-    # Fade-out time (seconds)
+    # フェードアウト時間(秒)
     fadeout: 0.5;
 
-    # Text-to-speech
-    alt: "The history screen is showing. Press left and right keys.";
+    # 読み上げテキスト
+    alt: ヒストリー画面が表示されています。左右のキーを押してください。;
 }
 
-# A button to return.
+# 元の画面に戻るボタン
 BACK {
-    # Type: cancel
+    # 種類:キャンセル
     type: cancel;
 
-    # Position and size.
-    x: 1140;
-    y: 625;
-    width: 139;
+    # 座標とサイズ
+    x: 1144;
+    y: 22;
+    width: 80;
     height: 80;
 
-    # Sound effect for pointing.
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect for clicking.
+    # クリックされたときの効果音
     clickse: click.ogg;
 
-    # Text-to-speech
-    alt: "Press this button to return to the game.";
+    # 読み上げテキスト
+    alt: ゲームに戻るボタンです。;
 }
 
-
-# History slot1
+# 履歴スロット1
 HISTORYSLOT1 {
-    # Type: history
+    # 種類:履歴
     type: history;
 
-    # Slot 1 (index=0)
+    # 履歴スロット0番目
     index: 0;
 
-    # Position and size.
-    x: 26;
-    y: 122;
-    width: 1110;
-    height: 152;
+    # 座標とサイズ
+    x: 200;
+    y: 140;
+    width: 900;
+    height: 160;
 
-    # Margin.
-    margin: 20;
+    # テキストのマージン
+    margin: 15;
 
-    # Clear color for text (specify the background color to suppress pseudo font outline)
-    clear-r: 255;
-    clear-g: 255;
-    clear-b: 255;
-
-    # Sound effect for pointing.
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-
-    # Text-to-speech
-    alt: "This is the first slot of history. Press return to read.";
+    # 読み上げテキスト
+    alt: ヒストリーの1番目のスロットです。リターンキーを押すと読み上げます。;
 }
 
-# History slot2
+# 履歴スロット2
 HISTORYSLOT2 {
-    # Type: history
+    # 種類:履歴
     type: history;
 
-    # Slot 2 (index=1)
+    # 履歴スロット1番目
     index: 1;
 
-    # Position and size.
-    x: 26;
-    y: 285;
-    width: 1110;
-    height: 152;
+    # 座標とサイズ
+    x: 200;
+    y: 310;
+    width: 900;
+    height: 160;
 
-    # Margin.
-    margin: 20;
+    # テキストのマージン
+    margin: 15;
 
-    # Clear color for text (specify the background color to suppress pseudo font outline)
-    clear-r: 255;
-    clear-g: 255;
-    clear-b: 255;
-
-    # Sound effect for pointing.
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Text-to-speech
-    alt: "This is the second slot of history. Press return to read.";
+    # 読み上げテキスト
+    alt: ヒストリーの2番目のスロットです。リターンキーを押すと読み上げます。;
 }
 
-# History slot2
+# 履歴スロット3
 HISTORYSLOT3 {
-    # Type: history
+    # 種類:履歴
     type: history;
 
-    # Slot 3 (index=2)
+    # 履歴スロット2番目
     index: 2;
 
-    # Position and size.
-    x: 26;
-    y: 447;
-    width: 1110;
-    height: 152;
+    # 座標とサイズ
+    x: 200;
+    y: 484;
+    width: 900;
+    height: 160;
 
-    # Margin.
-    margin: 20;
+    # テキストのマージン
+    margin: 15;
 
-    # Clear color for text (specify the background color to suppress pseudo font outline)
-    clear-r: 255;
-    clear-g: 255;
-    clear-b: 255;
-
-    # Sound effect for pointing.
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Text-to-speech
-    alt: "This is the third slot of history. Press return to read.";
+    # 読み上げテキスト
+    alt: ヒストリーの3番目のスロットです。リターンキーを押すと読み上げます。;
 }
 
-# Scroll bar
+# スクロールバー
 SCROLL {
-    # Type: historyscroll
+    # 種類:スクロールバー
     type: historyscroll;
 
-    # Position and size.
-    x: 1152;
-    y: 120;
-    width: 118;
-    height: 478;
+    # 座標とサイズ
+    x: 1150;
+    y: 153;
+    width: 68;
+    height: 492;
 
-    # Sound effect for pointing.
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Text-to-speech
-    alt: "This is the third slot of history. Press up or down arrrow to scroll.";
+    # 読み上げテキスト
+    alt: スクロールバーです。上下のキーで操作できます。;
 }
 
-# A button to return to the title.
-TITLE {
-    # Type: title
-    type: title;
-
-    # The title script.
-    file: init.s2sc;
-
-    # Position and size.
-    x: 967;
-    y: 625;
-    width: 174;
-    height: 80;
-
-    # Sound effect for pointing.
-    pointse: btn-change.ogg;
-
-    # Sound effect for clicking.
-    clickse: click.ogg;
-
-    # Text-to-speech
-    alt: "Press this button to return to the game title.";
-}
+# タイトルへ戻るボタン
+#TITLE {
+#    # 種類:タイトルへ戻る
+#    type: title;
+#
+#    # 移動先のシナリオファイル
+#    file: init.s2sc;
+#
+#    # 座標とサイズ
+#    x: 967;
+#    y: 625;
+#    width: 174;
+#    height: 80;
+#
+#    # ポイントされたときの効果音
+#    pointse: btn-change.ogg;
+#
+#    # クリックされたときの効果音
+#    clickse: click.ogg;
+#
+#    # 読み上げテキスト
+#    alt: このボタンはゲームのタイトル画面に戻るものです。;
+#}

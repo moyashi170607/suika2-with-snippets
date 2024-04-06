@@ -1,6 +1,0 @@
-***CREDIT***
-
-en_idle.png by MaxMorgan
-en_hover.png by MaxMorgan
-ja_idle.png by MaxMorgan
-ja_hover.png by MaxMorgan

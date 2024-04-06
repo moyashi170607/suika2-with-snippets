@@ -1,74 +1,94 @@
 ###
-### GUI Definition for Title Screen
+### タイトル画面のGUI定義
 ###
 
-# Basic Settings
+# このファイルの基本設定
 global {
-    # Use these images
+    # 下記の画像を使用する
     idle:   title/idle.png;
     hover:  title/hover.png;
+
+    # この画面ではactive画像を使わないので、hover画像と同じものを指定する
     active: title/hover.png;
+
+    # フェードイン時間(秒) [この画面ではフェードインを使わない]
+    # fadein: 1.0;
+
+    # フェードアウト時間(秒) [この画面ではフェードアウトを使わない]
+    # fadeout: 1.0;
+
+    # 読み上げ
+    alt: ゲームのメニュー画面が表示されています。左右のキーを押してください。;
 }
 
-# START Button
+# STARTボタン
 START {
-    # Jump-to-label type
+    # 種類:ラベルへジャンプ
     type: goto;
 
-    # Jump to label
+    # ジャンプ先のラベル
     label: START;
 
-    # Position and size
+    # 座標とサイズ
     x: 33;
     y: 491;
     width: 323;
     height: 196;
 
-    # Sound effect when pointed
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect when clicked
+    # クリックされたときの効果音
     clickse: click.ogg;
+
+    # 読み上げテキスト
+    alt: このボタンを押すとゲームを開始します。;
 }
 
-# LOAD Button
+# LOADボタン
 LOAD {
-    # Jump-to-label type
+    # 種類:ラベルへジャンプ
     type: goto;
 
-    # Jump to label
+    # ジャンプ先のラベル
     label: LOAD;
 
-    # Position and size
+    # 座標とサイズ
     x: 356;
     y: 493;
     width: 321;
     height: 205;
 
-    # Sound effect when pointed
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect when clicked
+    # クリックされたときの効果音
     clickse: click.ogg;
+
+    # 読み上げテキスト
+    alt: このボタンを押すとロード画面を表示します。;
 }
 
-# CONFIG Button
+# CONFIGボタン
 CONFIG {
-    # Jump-to-label type
+    # 種類:ラベルへジャンプ
     type: goto;
 
-    # Jump to label
+    # ジャンプ先のラベル
     label: CONFIG;
 
-    # Position and size
+    # 座標とサイズ
     x: 677;
     y: 496;
     width: 321;
     height: 193;
 
-    # Sound effect when pointed
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect when clicked
+    # クリックされたときの効果音
     clickse: click.ogg;
+
+    # 読み上げテキスト
+    alt: このボタンを押すとコンフィグ画面を表示します。;
 }

@@ -1,5 +1,6 @@
 ***CREDIT***
 
-idle.png by MaxMorgan
-hover.png by MaxMorgan
-active.png by MaxMorgan
+base.png by SOrow
+idle.png by SOrow
+hover.png by SOrow
+active.png by SOrow

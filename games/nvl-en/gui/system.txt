@@ -121,7 +121,7 @@ FONT1 {
     type: font;
 
     # Font file name
-    file: VL-PGothic-Regular.ttf;
+    file: 07LogoTypeGothic7.ttf;
 
     # Position and size
     x: 770;
@@ -142,7 +142,7 @@ FONT2 {
     type: font;
 
     # Font file name
-    file: yasashisa.ttf;
+    file: 07LogoTypeGothic7.ttf;
 
     # Position and size
     x: 900;

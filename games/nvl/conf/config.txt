@@ -22,7 +22,7 @@ window.menubar=0
 ###
 
 # フォントファイル名
-font.file=yasashisa.ttf
+font.file=07LogoTypeGothic7.ttf
 
 # フォントサイズ
 font.size=38

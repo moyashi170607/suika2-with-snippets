@@ -1,240 +1,240 @@
 ###
-### Save Screen Definition
+### セーブ画面のGUI定義
 ###
 
-# Global settings for this file.
+# このファイルの基本設定
 global {
-    # Use the following images.
+    # 下記の画像を使用する
     base:   system/save/base.png;
     idle:   system/save/idle.png;
     hover:  system/save/hover.png;
     active: system/save/active.png;
 
-    # Save data count per screen.
+    # 1画面あたりのセーブデータ表示数を指定
     saveslots: 3;
 
-    # Sound effect for click.
+    # 右クリックによるキャンセル時のSE
     cancelse: click.ogg;
 
-    # Fade-in time (seconds)
+    # フェードイン時間(秒)
     fadein: 0.5;
 
-    # Fade-out time (seconds)
+    # フェードアウト時間(秒)
     fadeout: 0.5;
 
-    # Text-to-speech
-    alt: "The save screen is showing. Press left and right keys.";
+    # 読み上げテキスト
+    alt: セーブ画面が表示されています。左右のキーを押してください。;
 }
 
-# A button to return.
+# 元の画面に戻るボタン
 BACK {
-    # Type: cancel
+    # 種類:キャンセル
     type: cancel;
 
-    # Position and size.
-    x: 1140;
-    y: 625;
-    width: 139;
+    # 座標とサイズ
+    x: 1142;
+    y: 22;
+    width: 80;
     height: 80;
 
-    # Sound effect for pointing.
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect for clicking.
+    # クリックされたときの効果音
     clickse: click.ogg;
 
-    # Text-to-speech
-    alt: "Press this button to return to the game.";
+    # 読み上げテキスト
+    alt: このボタンを押すとゲーム画面に戻ります。;
 }
 
-# The first save data item.
+# セーブデータ1番目
 SAVESLOT1 {
-    # Type: save
+    # 種類:セーブ
     type: save;
 
-    # Save data index.
+    # セーブデータ番号0
     index: 0;
 
-    # Position and size.
-    x: 26;
-    y: 122;
-    width: 1110;
-    height: 152;
+    # 座標とサイズ
+    x: 167;
+    y: 153;
+    width: 950;
+    height: 162;
 
-    # Margin between an image and texts.
-    margin: 10;
+    # 画像とテキストのマージン
+    margin: 20;
 
-    # Sound effect for pointing.
+    # 背景色(スロットが白や黒のときに目立たないようにする)
+    #clear-r: 255;
+    #clear-g: 255;
+    #clear-b: 255;
+
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect for clicking.
+    # クリックされたときの効果音
     clickse: click.ogg;
 
-    # Clear color for text (specify the background color to suppress pseudo font outline)
-    clear-r: 255;
-    clear-g: 255;
-    clear-b: 255;
-
-    # Text-to-speech
-    alt: "Press this button to save to the slot 1.";
+    # 読み上げテキスト
+    alt: このボタンを押すとセーブスロット1にセーブします。;
 }
 
-# The second save data item.
+# セーブデータ2番目
 SAVESLOT2 {
-    # Type: save
+    # 種類:セーブ
     type: save;
 
-    # Save data index.
+    # セーブデータ番号1
     index: 1;
 
-    # Position and size.
-    x: 26;
-    y: 285;
-    width: 1110;
-    height: 152;
+    # 座標とサイズ
+    x: 167;
+    y: 318;
+    width: 950;
+    height: 162;
 
-    # Margin between an image and texts.
-    margin: 10;
+    # 画像とテキストのマージン
+    margin: 20;
 
-    # Sound effect for pointing.
+    # 背景色(スロットが白や黒のときに目立たないようにする)
+    #clear-r: 255;
+    #clear-g: 255;
+    #clear-b: 255;
+
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect for clicking.
+    # クリックされたときの効果音
     clickse: click.ogg;
 
-    # Clear color for text (specify the background color to suppress pseudo font outline)
-    clear-r: 255;
-    clear-g: 255;
-    clear-b: 255;
-
-    # Text-to-speech
-    alt: "Press this button to save to the slot 2.";
+    # 読み上げテキスト
+    alt: このボタンを押すとセーブスロット2にセーブします。;
 }
 
-# The third save data item.
+# セーブデータ3番目
 SAVESLOT3 {
-    # Type: save
+    # 種類:セーブ
     type: save;
 
-    # Save data index.
+    # セーブデータ番号2
     index: 2;
 
-    # Position and size.
-    x: 26;
-    y: 447;
-    width: 1110;
-    height: 152;
+    # 座標とサイズ
+    x: 167;
+    y: 483;
+    width: 950;
+    height: 162;
 
-    # Margin between an image and texts.
-    margin: 10;
+    # 画像とテキストのマージン
+    margin: 20;
 
-    # Sound effect for pointing.
+    # 背景色(スロットが白や黒のときに目立たないようにする)
+    #clear-r: 255;
+    #clear-g: 255;
+    #clear-b: 255;
+
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect for clicking.
+    # クリックされたときの効果音
     clickse: click.ogg;
 
-    # Clear color for text (specify the background color to suppress pseudo font outline)
-    clear-r: 255;
-    clear-g: 255;
-    clear-b: 255;
-
-    # Text-to-speech
-    alt: "Press this button to save to the slot 3.";
+    # 読み上げテキスト
+    alt: このボタンを押すとセーブスロット3にセーブします。;
 }
 
-# A button for save data page 1
+# セーブデータページ1のボタン
 PAGE1 {
-    # Type: savepage
+    # 種類:セーブデータページ
     type: savepage;
 
-    # Page 1 (index=0)
+    # 1ページ目(index=0)
     index: 0;
 
-    # Position and size.
-    x: 1164;
-    y: 330;
-    width: 88;
-    height: 88;
-
-    # Sound effect for pointing.
-    pointse: btn-change.ogg;
-
-    # Sound effect for clicking.
-    clickse: click.ogg;
-
-    # Text-to-speech.
-    alt: "Press this button to move to save data page 1.";
-}
-
-# A button for save data page 2
-PAGE2 {
-    # Type: savepage
-    type: savepage;
-
-    # Page 2 (index=1)
-    index: 1;
-
-    # Position and size.
-    x: 1164;
-    y: 423;
-    width: 88;
-    height: 88;
-
-    # Sound effect for pointing.
-    pointse: btn-change.ogg;
-
-    # Sound effect for clicking.
-    clickse: click.ogg;
-
-    # Text-to-speech.
-    alt: "Press this button to move to save data page 2.";
-}
-
-# A button for save data page 3
-PAGE3 {
-    # Type: savepage
-    type: savepage;
-
-    # Page 3 (index=2)
-    index: 2;
-
-    # Position and size.
-    x: 1164;
-    y: 517;
-    width: 88;
-    height: 88;
-
-    # Sound effect for pointing.
-    pointse: btn-change.ogg;
-
-    # Sound effect for clicking.
-    clickse: click.ogg;
-
-    # Text-to-speech.
-    alt: "Press this button to move to save data page 3.";
-}
-
-# A button to return to the title.
-TITLE {
-    # Type: title
-    type: title;
-
-    # The title script.
-    file: init.s2sc;
-
-    # Position and size.
-    x: 967;
-    y: 625;
-    width: 174;
+    # 座標とサイズ
+    x: 862;
+    y: 58;
+    width: 80;
     height: 80;
 
-    # Sound effect for pointing.
+    # ポイントされたときの効果音
     pointse: btn-change.ogg;
 
-    # Sound effect for clicking.
+    # クリックされたときの効果音
     clickse: click.ogg;
 
-    # Text-to-speech
-    alt: "Press this button to return to the game title.";
+    # 読み上げテキスト
+    alt: このボタンを押すとセーブデータのページ1を表示します。;
 }
+
+# セーブデータページ2のボタン
+PAGE2 {
+    # 種類:セーブデータページ
+    type: savepage;
+
+    # 2ページ目(index=1)
+    index: 1;
+
+    # 座標とサイズ
+    x: 952;
+    y: 58;
+    width: 80;
+    height: 80;
+
+    # ポイントされたときの効果音
+    pointse: btn-change.ogg;
+
+    # クリックされたときの効果音
+    clickse: click.ogg;
+
+    # 読み上げテキスト
+    alt: このボタンを押すとセーブデータのページ2を表示します。;
+}
+
+# セーブデータページ3のボタン
+PAGE3 {
+    # 種類:セーブデータページ
+    type: savepage;
+
+    # 3ページ目(index=2)
+    index: 2;
+
+    # 座標とサイズ
+    x: 1042;
+    y: 58;
+    width: 80;
+    height: 80;
+
+    # ポイントされたときの効果音
+    pointse: btn-change.ogg;
+
+    # クリックされたときの効果音
+    clickse: click.ogg;
+
+    # 読み上げテキスト
+    alt: このボタンを押すとセーブデータのページ2を表示します。;
+}
+
+# タイトルへ戻るボタン
+#TITLE {
+#    # 種類:タイトルへ戻る
+#    type: title;
+#
+#    # 移動先のシナリオファイル
+#    file: init.s2sc;
+#
+#    # 座標とサイズ
+#    x: 922;
+#    y: 41;
+#    width: 80;
+#    height: 80;
+#
+#    # ポイントされたときの効果音
+#    pointse: btn-change.ogg;
+#
+#    # クリックされたときの効果音
+#    clickse: click.ogg;
+#
+#    # 読み上げテキスト
+#    alt: このボタンはゲームのタイトル画面に戻るものです。;
+#}

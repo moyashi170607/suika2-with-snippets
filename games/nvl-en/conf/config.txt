@@ -83,7 +83,7 @@ font.select=0
 
 # The global font file name.
 #  - This will be changed by SystemGUI
-font.file=yasashisa.ttf
+font.file=07LogoTypeGothic7.ttf
 
 # The main font file name. (Optional)
 #  - This cannot be changed in a game

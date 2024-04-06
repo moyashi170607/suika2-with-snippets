@@ -163,7 +163,7 @@ FONT1 {
     type: font;
 
     # 押されたときに変更するフォント
-    file: VL-PGothic-Regular.ttf;
+    file: 07LogoTypeGothic7.ttf;
 
     # 座標とサイズ
     x: 770;
@@ -187,7 +187,7 @@ FONT2 {
     type: font;
 
     # 押されたときに変更するフォント
-    file: yasashisa.ttf;
+    file: 07LogoTypeGothic7.ttf;
 
     # 座標とサイズ
     x: 900;
