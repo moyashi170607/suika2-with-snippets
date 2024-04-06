@@ -5,12 +5,17 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
-<li>Suika2/17.61 2024/4/6
+<li>Suika2/17.62 2024/4/6
   <ul>
     <li>suika.exeのアイコンを削除 (Thanks to あさつきさん and ソローさん)</li>
   </ul>
 </li>
 <!-- END-LATEST-JP -->
+<li>Suika2/17.61 2024/4/6
+  <ul>
+    <li>suika.exeのアイコンを削除 (Thanks to あさつきさん and ソローさん)</li>
+  </ul>
+</li>
 <li>Suika2/17.60 2024/4/6
   <ul>
     <li>コンフィグ画面のプレビュー枠の背景色に対応 (Thanks to ソローさん)</li>
@@ -2032,12 +2037,17 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
-<li>Suika2/17.61 2024/4/6
+<li>Suika2/17.62 2024/4/6
   <ul>
     <li>Removed the icon from suika.exe (Thanks to Asatsuki-san and SOrow-san)</li>
   </ul>
 </li>
 <!-- END-LATEST-EN -->
+<li>Suika2/17.61 2024/4/6
+  <ul>
+    <li>Removed the icon from suika.exe (Thanks to Asatsuki-san and SOrow-san)</li>
+  </ul>
+</li>
 <li>Suika2/17.60 2024/4/6
   <ul>
     <li>Added clear-[r/g/b] to preview button on GUI (Thanks to SOrow-san)</li>
