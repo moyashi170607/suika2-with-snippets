@@ -78,7 +78,8 @@ if [ ! -e libroot ]; then
     ./build-libs.sh;
 fi
 make -j16
-sign.sh suika.exe
+cp suika.exe suika-signed.exe
+sign.sh signed-suika.exe
 cd ..
 
 #
@@ -176,12 +177,13 @@ cp -R ../games/japanese installer-windows/games/
 cp -R ../games/english installer-windows/games/
 cp -R ../games/nvl installer-windows/games/
 cp -R ../games/nvl-tategaki installer-windows/games/
-cp -R ../games/nvl-en installer-windows/games/
+#cp -R ../games/nvl-en installer-windows/games/
 
 # /tools
 rm -rf installer-windows/tools
 mkdir -p installer-windows/tools
 cp  engine-windows/suika.exe installer-windows/tools/
+cp  engine-windows/suika-signed.exe installer-windows/tools/
 cp engine-macos/suika-mac.dmg installer-windows/tools/
 cp -R engine-android/android-src installer-windows/tools/android-src
 cp -R engine-ios/ios-src installer-windows/tools/ios-src
@@ -191,8 +193,8 @@ cp engine-wasm/html/index.js installer-windows/tools/web/index.js
 cp engine-wasm/html/index.wasm installer-windows/tools/web/index.wasm
 cp  ../tools/web-test/web-test.exe installer-windows/tools/web-test.exe
 cp -R ../tools/installer installer-windows/tools/installer
-cp ../tools/snippets/jp-normal/plaintext.code-snippets installer-windows/plaintext.code-snippets.jp
-cp ../tools/snippets/en-normal/plaintext.code-snippets installer-windows/plaintext.code-snippets.en
+#cp ../tools/snippets/jp-normal/plaintext.code-snippets installer-windows/plaintext.code-snippets.jp
+#cp ../tools/snippets/en-normal/plaintext.code-snippets installer-windows/plaintext.code-snippets.en
 
 # Make an installer
 cd installer-windows

@@ -3989,12 +3989,14 @@ static BOOL CreateProjectFromTemplate(const wchar_t *pszTemplate)
 	hFile = CreateFileW(pFile, GENERIC_WRITE, 0, NULL, CREATE_NEW, 0, NULL);
 	CloseHandle(hFile);
 
+#if 0
 	/* .vscodeを生成する */
 	CreateDirectory(L".\\.vscode", 0);
 	CopyLibraryFiles(bEnglish ?
 					 L"plaintext.code-snippets.en" :
 					 L"plaintext.code-snippets.jp",
 					 L".\\.vscode\\plaintext.code-snippets");
+#endif
 
 	/* コピーを行う */
 	if (!CopyLibraryFiles(pszTemplate, L".\\"))

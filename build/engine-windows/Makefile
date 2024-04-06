@@ -108,12 +108,6 @@ suika.exe: libroot $(OBJS) $(HDRS_MAIN) $(HDRS)
 libroot:
 	./build-libs.sh
 
-sign: suika.exe
-	sign.sh suika.exe
-
-upload: suika.exe
-	ftp-upload.sh suika.exe dl/suika.exe
-
 #
 # Phony
 #
