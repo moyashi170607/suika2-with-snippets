@@ -473,41 +473,49 @@ void MainWindow::scrollScript()
 //
 // Make a new English ADV project.
 //
-void MainWindow::on_actionNew_Project_English_Adv_triggered()
+void MainWindow::on_actionNew_Project_English_triggered()
 {
-    startWithTemplateGame("english-adv");
+    startWithTemplateGame("english");
 }
 
 //
 // Make a new English NVL project.
 //
-void MainWindow::on_actionNew_Project_English_Nvl_triggered()
+void MainWindow::on_actionNew_Project_English_Novel_triggered()
 {
     startWithTemplateGame("english-nvl");
 }
 
 //
-// Make a new Japanese ADV project.
+// Make a new Japanese Light project.
 //
-void MainWindow::on_actionNew_Project_Japanese_Adv_triggered()
+void MainWindow::on_actionNew_Project_Japanese_Light_triggered()
 {
-    startWithTemplateGame("japanese-adv");
+    startWithTemplateGame("japanese-light");
+}
+
+//
+// Make a new Japanese Dark project.
+//
+void MainWindow::on_actionNew_Project_Japanese_Dark_triggered()
+{
+    startWithTemplateGame("japanese-dark");
 }
 
 //
 // Make a new Japanese NVL project.
 //
-void MainWindow::on_actionNew_Project_Japanese_Nvl_triggered()
+void MainWindow::on_actionNew_Project_Japanese_Novel_triggered()
 {
-    startWithTemplateGame("japanese-nvl");
+    startWithTemplateGame("japanese-novel");
 }
 
 //
 // Make a new Japanese NVL (vertical) project.
 //
-void MainWindow::on_actionNew_Project_Japanese_Nvl_Vertical_triggered()
+void MainWindow::on_actionNew_Project_Japanese_Tategaki_triggered()
 {
-    startWithTemplateGame("japanese-nvl-vertical");
+    startWithTemplateGame("japanese-tategaki");
 }
 
 // Copy a template game.
