@@ -127,9 +127,6 @@ cd engine-android
 make debug > /dev/null
 make src > /dev/null
 cd ..
-cd pro-android
-make
-cd ..
 
 #
 # Build "suika-pro.exe".

@@ -140,4 +140,4 @@ setup:
 	@
 	@echo 'Create a template game zip.'
 	@mkdir -p app/src/main/assets
-	@cd ../../games/japanese && zip -r ../../build/pro-android/app/src/main/assets/game.zip *
+	@cd ../../games/japanese-light && zip -r ../../build/pro-android/app/src/main/assets/game.zip *
