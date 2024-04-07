@@ -5,12 +5,18 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.66 (Polaris Engine 0.2) 2024/4/7
+  <ul>
+    <li>テンプレートの拡張子を改修</li>
+    <li>新CI/CD (自動リリース) テスト</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.65 (Polaris Engine 0.1) 2024/4/7
   <ul>
     <li>Windows版インストーラで古いファイルを削除するように改良 (Thanks to ソローさん)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.64 2024/4/7
   <ul>
     <li>Cキーによるクラッシュバグの修正(再) (Thanks to かめのさん)</li>
@@ -2056,12 +2062,18 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.66 (Polaris Engine 0.2) 2024/4/7
+  <ul>
+    <li>Fixed extensions in templates</li>
+    <li>New CI/CD (auto release) test</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.65 (Polaris Engine 0.1) 2024/4/7
   <ul>
     <li>Improved the installer for Windows (Thanks to SOrow-san)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.64 2024/4/7
   <ul>
     <li>Again: Fixed a crash when C key is pressed (Thanks to Kameno-san)</li>
