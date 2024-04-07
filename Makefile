@@ -134,7 +134,7 @@ setup:
 	@if [ ! -z "`uname | grep FreeBS`" ]; then \
 		echo 'Installing dependencies...'; \
 		sudo pkg update; \
-		sudo pkg install gmake gsed qt6-6.6.2 xorg git cmake alsa-plugin mesa-devel; \
+		sudo pkg install gmake gsed alsa-libs alsa-plugins qt6-6.6.2 xorg git cmake alsa-plugin mesa-devel freetype2; \
 	fi
 
 engine-windows:
