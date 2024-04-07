@@ -62,6 +62,7 @@ build/engine-macos/libroot
 build/engine-macos/libroot-mac.tar.gz
 build/engine-macos/suika-mac.dmg
 build/engine-macos/build
+build/engine-macos/suika-mac-nosign.dmg
 
 # Wasm
 build/engine-wasm/html
@@ -98,7 +99,8 @@ build/engine-unity/Assembly-CSharp.csproj
 build/engine-unity/.vs
 build/engine-unity/.vscode
 build/engine-unity/.vsconfig
-build/engine-windows/tmp/
+build/engine-windows/tmp
+build/engine-unity/obj
 build/engine-unity/Library
 build/engine-unity/Logs
 build/engine-unity/Packages

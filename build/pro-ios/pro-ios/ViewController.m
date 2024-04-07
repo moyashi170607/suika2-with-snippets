@@ -204,7 +204,7 @@ static void setStoppedState(void);
                                     @"txt",
                                     @"wms"];
         for (NSString *sub in subfolderArray) {
-            NSString *src = [NSString stringWithFormat:@"%@/japanese/%@", [[NSBundle mainBundle] bundlePath], sub];
+            NSString *src = [NSString stringWithFormat:@"%@/japanese-light/%@", [[NSBundle mainBundle] bundlePath], sub];
             NSString *dst = [NSString stringWithFormat:@"%@/%@", self.iCloudDrivePath, sub];
             [[NSFileManager defaultManager] removeItemAtPath:dst error:&error];
             [[NSFileManager defaultManager] copyItemAtPath:src toPath:dst error:&error];

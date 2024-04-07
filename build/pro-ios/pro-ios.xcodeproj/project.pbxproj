@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260A07D42BC2A56000548F8A /* japanese-light in Resources */ = {isa = PBXBuildFile; fileRef = 260A07D32BC2A56000548F8A /* japanese-light */; };
 		26715D512BB4B11A00F11697 /* ciel.c in Sources */ = {isa = PBXBuildFile; fileRef = 26715D502BB4B11A00F11697 /* ciel.c */; };
 		26E7F0882B2E979B0076C82C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7F0872B2E979B0076C82C /* AppDelegate.m */; };
 		26E7F08B2B2E979B0076C82C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7F08A2B2E979B0076C82C /* SceneDelegate.m */; };
@@ -76,10 +77,10 @@
 		26E7F1412B2EA67D0076C82C /* GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E7F13A2B2EA67D0076C82C /* GameRenderer.m */; };
 		26E7F1422B2EA67D0076C82C /* GameShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 26E7F13C2B2EA67D0076C82C /* GameShaders.metal */; };
 		26E7F1432B2EA67D0076C82C /* aunit.c in Sources */ = {isa = PBXBuildFile; fileRef = 26E7F13F2B2EA67D0076C82C /* aunit.c */; };
-		26E7F1462B2EA6EF0076C82C /* japanese in Resources */ = {isa = PBXBuildFile; fileRef = 26E7F1452B2EA6EF0076C82C /* japanese */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260A07D32BC2A56000548F8A /* japanese-light */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "japanese-light"; path = "../../../games/japanese-light"; sourceTree = "<group>"; };
 		26715D4F2BB4B11A00F11697 /* ciel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ciel.h; path = ../../src/ciel.h; sourceTree = "<group>"; };
 		26715D502BB4B11A00F11697 /* ciel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ciel.c; path = ../../src/ciel.c; sourceTree = "<group>"; };
 		268AD8BC2B38CB1D00B48542 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		26E7F13E2B2EA67D0076C82C /* GameViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewControllerProtocol.h; path = ../../src/apple/GameViewControllerProtocol.h; sourceTree = "<group>"; };
 		26E7F13F2B2EA67D0076C82C /* aunit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = aunit.c; path = ../../src/apple/aunit.c; sourceTree = "<group>"; };
 		26E7F1402B2EA67D0076C82C /* GameShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameShaderTypes.h; path = ../../src/apple/GameShaderTypes.h; sourceTree = "<group>"; };
-		26E7F1452B2EA6EF0076C82C /* japanese */ = {isa = PBXFileReference; lastKnownFileType = folder; name = japanese; path = ../../../games/japanese; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,7 +349,7 @@
 		26E7F1442B2EA6BA0076C82C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				26E7F1452B2EA6EF0076C82C /* japanese */,
+				260A07D32BC2A56000548F8A /* japanese-light */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -414,8 +414,8 @@
 			files = (
 				26E7F0962B2E979D0076C82C /* LaunchScreen.storyboard in Resources */,
 				26E7F0932B2E979D0076C82C /* Assets.xcassets in Resources */,
+				260A07D42BC2A56000548F8A /* japanese-light in Resources */,
 				26E7F0912B2E979B0076C82C /* Main.storyboard in Resources */,
-				26E7F1462B2EA6EF0076C82C /* japanese in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
