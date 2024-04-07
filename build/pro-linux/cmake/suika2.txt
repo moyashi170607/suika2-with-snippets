@@ -7,9 +7,6 @@ set(CMAKE_AUTORCC OFF)
 # Target "suika2"
 project(suika2 VERSION 0.1 LANGUAGES C)
 
-# Add *BSD path
-target_include_directories(suika2 PRIVATE /usr/local/include)
-
 # Preprocessor macros
 add_compile_definitions(
   USE_EDITOR
@@ -19,6 +16,7 @@ add_compile_definitions(
 # Use libraries
 include_directories(/usr/include/libpng)
 include_directories(/usr/include/freetype2)
+include_directories(/usr/local/include)
 
 # Base source files
 set(PROJECT_SOURCES
