@@ -50,25 +50,29 @@ install: build
 	@install -v build/engine-wasm/html/index.js $(DESTDIR)/share/suika2/export-web
 	@install -v build/engine-wasm/html/index.wasm $(DESTDIR)/share/suika2/export-web
 
-	@install -v -d $(DESTDIR)/share/suika2/japanese-adv
-	@cd games/japanese && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-adv/{}" ';' && cd ../..
-	@cd games/japanese && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/japanese-adv/{}" ';' && cd ../..
+	@install -v -d $(DESTDIR)/share/suika2/japanese-light
+	@cd games/japanese-light && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-light/{}" ';' && cd ../..
+	@cd games/japanese-light && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/japanese-light/{}" ';' && cd ../..
 
-	@install -v -d $(DESTDIR)/share/suika2/japanese-nvl
-	@cd games/nvl && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-nvl/{}" ';' && cd ../..
-	@cd games/nvl && find . -type f -exec install -v "$(DESTDIR)/share/suika2/japanese-nvl/{}" "{}" ';' && cd ../..
+	@install -v -d $(DESTDIR)/share/suika2/japanese-dark
+	@cd games/japanese-dark && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-dark/{}" ';' && cd ../..
+	@cd games/japanese-dark && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/japanese-dark/{}" ';' && cd ../..
 
-	@install -v -d $(DESTDIR)/share/suika2/japanese-nvl-vertical
-	@cd games/nvl-tategaki && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-nvl-vertical/{}" ';' && cd ../..
-	@cd games/nvl-tategaki && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/japanese-nvl-vertical/{}" ';' && cd ../..
+	@install -v -d $(DESTDIR)/share/suika2/japanese-novel
+	@cd games/japanese-novel && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-novel/{}" ';' && cd ../..
+	@cd games/japanese-novel && find . -type f -exec install -v "$(DESTDIR)/share/suika2/japanese-novel/{}" "{}" ';' && cd ../..
 
-	@install -v -d $(DESTDIR)/share/suika2/english-adv
-	@cd games/english && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english-adv/{}" ';' && cd ../..
-	@cd games/english && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english-adv/{}" ';' && cd ../..
+	@install -v -d $(DESTDIR)/share/suika2/japanese-tategaki
+	@cd games/japanese-tategaki && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-tategaki/{}" ';' && cd ../..
+	@cd games/japanese-tategaki && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/japanese-tategaki/{}" ';' && cd ../..
 
-	@install -v -d $(DESTDIR)/share/suika2/english-nvl
-	@cd games/nvl-en && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english-nvl/{}" ';' && cd ../..
-	@cd games/nvl-en && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english-nvl/{}" ';' && cd ../..
+	@install -v -d $(DESTDIR)/share/suika2/english
+	@cd games/english && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english/{}" ';' && cd ../..
+	@cd games/english && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english/{}" ';' && cd ../..
+
+	@install -v -d $(DESTDIR)/share/suika2/english-novel
+	@cd games/english-novel && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english-novel/{}" ';' && cd ../..
+	@cd games/english-novel && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english-novel/{}" ';' && cd ../..
 
 clean:
 	rm -f suika-linux suika-pro
