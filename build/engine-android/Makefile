@@ -132,7 +132,7 @@ debug:
 	@tar xzf ../libsrc/brotli-1.1.0.tar.gz -C app/src/main/cpp/brotli --strip-components 1
 	@
 	@mkdir -p app/src/main/assets
-	@cp -R ../../games/japanese/* app/src/main/assets/
+	@cp -R ../../games/japanese-light/* app/src/main/assets/
 
 src:
 	@echo 'Making a source code tree for the export feature.'
