@@ -17,6 +17,7 @@ add_compile_definitions(
 include_directories(/usr/include/libpng)
 include_directories(/usr/include/freetype2)
 include_directories(/usr/local/include)
+include_directories(/usr/local/include/freetype2)
 
 # Base source files
 set(PROJECT_SOURCES
