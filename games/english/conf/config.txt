@@ -60,7 +60,7 @@ font.select=0
 #  - コンフィグ画面で選択されるフォント
 #  - グローバルセーブデータに保存される
 #  - このフォント名はセーブデータがないときの初期値として必須
-font.file=07LogoTypeGothic7.ttf
+font.file=rounded-l-mplus-1c-bold.ttf
 
 # [メインフォント] (省略可)
 #  - ゲーム内からは変更できないコンフィグ
@@ -78,9 +78,9 @@ font.file=07LogoTypeGothic7.ttf
 font.size=34
 
 # [メッセージのフォントの色]
-font.color.r=255
-font.color.g=255
-font.color.b=255
+font.color.r=80
+font.color.g=40
+font.color.b=10
 
 # [メッセージのフォントのふちどり] (省略可)
 #  - 0: あり
@@ -88,16 +88,16 @@ font.color.b=255
 font.outline.remove=0
 
 # [メッセージのフォントのふちどりの色] (省略可)
-font.outline.color.r=64
-font.outline.color.g=64
-font.outline.color.b=64
+font.outline.color.r=255
+font.outline.color.g=255
+font.outline.color.b=255
 
 # [メッセージのフォントのふちどりのを太くする量] (省略可)
 # -  0: デフォルトの2ピクセル
 # - -1: 細めの1ピクセル
 # -  1: 太めの3ピクセル
 # -  2: 極太の4ピクセル
-font.outline.add=0
+font.outline.add=1
 
 # [メッセージと名前のルビのフォントサイズ] (省略可)
 font.ruby.size=16
@@ -127,11 +127,11 @@ namebox.font.size=30
 namebox.font.outline=0
 
 # [名前ボックス画像を表示する位置]
-namebox.x=80
-namebox.y=505
+namebox.x=160
+namebox.y=496
 
 # [名前ボックス画像内のテキスト上端マージン]
-namebox.margin.top=4
+namebox.margin.top=10
 
 # [名前の中央揃え] (省略可)
 #  - 0: 中央揃え
@@ -158,16 +158,16 @@ msgbox.fg.file=system/msgbox/hover.png
 
 # [メッセージボックス画像を表示する位置]
 msgbox.x=0
-msgbox.y=491
+msgbox.y=530
 
 # [メッセージボックス画像内のテキスト左端マージン]
-msgbox.margin.left=195
+msgbox.margin.left=240
 
 # [メッセージボックス画像内のテキスト上端マージン]
-msgbox.margin.top=88
+msgbox.margin.top=41
 
 # [メッセージボックス画像内のテキスト右端マージン]
-msgbox.margin.right=195
+msgbox.margin.right=240
 
 # [メッセージボックス画像内のテキスト下端マージン]
 msgbox.margin.bottom=50
@@ -183,8 +183,8 @@ msgbox.speed=40.0
 
 # [メッセージボックスを非表示にするボタンの座標] (省略可)
 #  - メッセージボックス内の座標
-msgbox.btn.hide.x=1215
-msgbox.btn.hide.y=65
+msgbox.btn.hide.x=1078
+msgbox.btn.hide.y=20
 msgbox.btn.hide.width=50
 msgbox.btn.hide.height=50
 
@@ -306,7 +306,7 @@ msgbox.fill.color.a=255
 ###
 
 # [クリックアニメーション画像の表示位置]
-click.x=1170
+click.x=1060
 click.y=660
 
 # [クリックアニメーションの位置を移動するか] (省略可)
@@ -425,7 +425,7 @@ save.data.thumb.height=120
 ###
 
 # [システムメニュー画像の座標]
-sysmenu.x=558
+sysmenu.x=560
 sysmenu.y=15
 
 # [システムメニュー画像(通常時)のファイル名]
@@ -623,7 +623,7 @@ gui.save.font.size=30
 #  - 4: ふちどりあり(メッセージボックス設定2px)
 #  - 5: ふちどりあり(メッセージボックス設定3px)
 #  - 6: ふちどりあり(メッセージボックス設定4px)
-gui.save.font.outline=0
+gui.save.font.outline=4
 
 # [セーブのルビのフォントサイズ]
 gui.save.font.ruby.size=16
@@ -652,7 +652,7 @@ gui.history.font.size=30
 #  - 4: ふちどりあり(メッセージボックス設定2px)
 #  - 5: ふちどりあり(メッセージボックス設定3px)
 #  - 6: ふちどりあり(メッセージボックス設定4px)
-gui.history.font.outline=0
+gui.history.font.outline=4
 
 # [ヒストリのルビのフォントサイズ] (省略可)
 gui.history.font.ruby.size=16

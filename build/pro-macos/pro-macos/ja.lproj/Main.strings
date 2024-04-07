@@ -1,14 +1,17 @@
-/* Class = "NSButtonCell"; alternateTitle = "Japanese ADV"; ObjectID = "4Ja-bP-HuC"; */
-"4Ja-bP-HuC.alternateTitle" = "日本語ADV";
+/* Class = "NSButtonCell"; title = "Japanese Dark"; ObjectID = "OfP-bA-gbH"; */
+"OfP-bA-gbH.title" = "日本語ダーク";
 
-/* Class = "NSButtonCell"; title = "Japanese ADV Dark"; ObjectID = "4Ja-bP-HuC"; */
-"4Ja-bP-HuC.title" = "日本語ADV";
+/* Class = "NSButtonCell"; title = "Japanese Tategaki"; ObjectID = "ffh-TZ-lVw"; */
+"ffh-TZ-lVw.title" = "日本語縦書き";
 
-/* Class = "NSButtonCell"; alternateTitle = "Japanese ADV"; ObjectID = "DEh-6A-3y0"; */
-"DEh-6A-3y0.alternateTitle" = "日本語ADV(ボイス)";
+/* Class = "NSButtonCell"; title = "Japanese Novel"; ObjectID = "y9L-Ut-Kyi"; */
+"y9L-Ut-Kyi.title" = "日本語ノベル";
 
-/* Class = "NSButtonCell"; title = "Japanese ADV"; ObjectID = "DEh-6A-3y0"; */
-"DEh-6A-3y0.title" = "日本語ADV(ボイス)";
+/* Class = "NSButtonCell"; alternateTitle = "Japanese Light"; ObjectID = "4Ja-bP-HuC"; */
+"4Ja-bP-HuC.alternateTitle" = "日本語ライト";
+
+/* Class = "NSButtonCell"; title = "Japanese Dark"; ObjectID = "4Ja-bP-HuC"; */
+"4Ja-bP-HuC.title" = "日本語ライト";
 
 /* Class = "NSMenuItem"; title = "Left"; ObjectID = "0CS-J2-e1h"; */
 "0CS-J2-e1h.title" = "左";
@@ -217,11 +220,11 @@
 /* Class = "NSMenuItem"; title = "Next"; ObjectID = "OcG-cB-BoR"; */
 "OcG-cB-BoR.title" = "次へ";
 
-/* Class = "NSButtonCell"; alternateTitle = "Japanese NVL"; ObjectID = "OfP-bA-gbH"; */
-"OfP-bA-gbH.alternateTitle" = "日本語NVL";
+/* Class = "NSButtonCell"; alternateTitle = "Japanese Novel"; ObjectID = "OfP-bA-gbH"; */
+"OfP-bA-gbH.alternateTitle" = "日本語ダーク";
 
-/* Class = "NSButtonCell"; title = "Japanese NVL"; ObjectID = "OfP-bA-gbH"; */
-"OfP-bA-gbH.title" = "日本語NVL";
+/* Class = "NSButtonCell"; title = "Japanese Novel"; ObjectID = "OfP-bA-gbH"; */
+"OfP-bA-gbH.title" = "日本語ダーク";
 
 /* Class = "NSMenuItem"; title = "Message"; ObjectID = "PYl-Bd-FCX"; */
 "PYl-Bd-FCX.title" = "メッセージ";
@@ -346,11 +349,11 @@
 /* Class = "NSMenuItem"; title = "Open Game Folder"; ObjectID = "ev1-83-Gqg"; */
 "ev1-83-Gqg.title" = "ゲームフォルダを開く";
 
-/* Class = "NSButtonCell"; alternateTitle = "Japanese Vertical"; ObjectID = "ffh-TZ-lVw"; */
-"ffh-TZ-lVw.alternateTitle" = "日本語縦書きNVL";
+/* Class = "NSButtonCell"; alternateTitle = "Japanese Tategaki"; ObjectID = "ffh-TZ-lVw"; */
+"ffh-TZ-lVw.alternateTitle" = "日本語縦書き";
 
-/* Class = "NSButtonCell"; title = "Japanese Vertical"; ObjectID = "ffh-TZ-lVw"; */
-"ffh-TZ-lVw.title" = "日本語縦書きNVL";
+/* Class = "NSButtonCell"; title = "Japanese Tategaki"; ObjectID = "ffh-TZ-lVw"; */
+"ffh-TZ-lVw.title" = "日本語縦書き";
 
 /* Class = "NSMenu"; title = "Right Center"; ObjectID = "g72-Da-IOX"; */
 "g72-Da-IOX.title" = "中央右";
@@ -457,11 +460,11 @@
 /* Class = "NSMenuItem"; title = "File"; ObjectID = "q3i-GK-H3D"; */
 "q3i-GK-H3D.title" = "ファイル";
 
-/* Class = "NSButtonCell"; alternateTitle = "English NVL"; ObjectID = "q7o-ct-tkn"; */
-"q7o-ct-tkn.alternateTitle" = "英語NVL";
+/* Class = "NSButtonCell"; alternateTitle = "English Novel"; ObjectID = "q7o-ct-tkn"; */
+"q7o-ct-tkn.alternateTitle" = "英語ノベル";
 
-/* Class = "NSButtonCell"; title = "English NVL"; ObjectID = "q7o-ct-tkn"; */
-"q7o-ct-tkn.title" = "英語NVL";
+/* Class = "NSButtonCell"; title = "English Novel"; ObjectID = "q7o-ct-tkn"; */
+"q7o-ct-tkn.title" = "英語ノベル";
 
 /* Class = "NSMenu"; title = "Left Center"; ObjectID = "qRu-pK-tCO"; */
 "qRu-pK-tCO.title" = "中央左";
@@ -478,11 +481,17 @@
 /* Class = "NSMenu"; title = "Services"; ObjectID = "shQ-pW-UQw"; */
 "shQ-pW-UQw.title" = "サービス";
 
-/* Class = "NSButtonCell"; alternateTitle = "English ADV"; ObjectID = "tml-Nr-ByC"; */
-"tml-Nr-ByC.alternateTitle" = "英語ADV";
+/* Class = "NSButtonCell"; alternateTitle = "English"; ObjectID = "tml-Nr-ByC"; */
+"tml-Nr-ByC.alternateTitle" = "英語";
 
-/* Class = "NSButtonCell"; title = "English ADV"; ObjectID = "tml-Nr-ByC"; */
-"tml-Nr-ByC.title" = "英語ADV";
+/* Class = "NSButtonCell"; title = "English"; ObjectID = "tml-Nr-ByC"; */
+"tml-Nr-ByC.title" = "英語";
+
+/* Class = "NSButtonCell"; title = "English"; ObjectID = "tPZ-wm-JBg"; */
+"tPZ-wm-JBg.title" = "英語ノベル";
+
+/* Class = "NSButtonCell"; title = "English"; ObjectID = "tPZ-wm-JBg"; */
+"tPZ-wm-JBg.alternateTitle" = "英語ノベル";
 
 /* Class = "NSMenuItem"; title = "Right Center"; ObjectID = "vXa-ad-PYz"; */
 "vXa-ad-PYz.title" = "中央右";

@@ -557,7 +557,7 @@ static ViewController *theViewController;
 }
 
 - (IBAction)onCreateEnglishNovel:(id)sender {
-    if ([self createProject:@"nvl-en"])
+    if ([self createProject:@"english-novel"])
         [self setupView];
 }
 

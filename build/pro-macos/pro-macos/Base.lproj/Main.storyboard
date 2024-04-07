@@ -81,18 +81,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4WV-uO-TSw">
-                                        <rect key="frame" x="18" y="369" width="371" height="16"/>
+                                        <rect key="frame" x="20" y="320" width="371" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="New game from a template:" id="kw6-Qf-ReF">
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Or select a template:" id="kw6-Qf-ReF">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dk3-hT-IiK">
-                                        <rect key="frame" x="32" y="225" width="130" height="123"/>
+                                        <rect key="frame" x="32" y="174" width="130" height="123"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="Japanese Light" alternateTitle="Japanese ADV" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="4Ja-bP-HuC">
+                                        <buttonCell key="cell" type="square" title="Japanese Light" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="4Ja-bP-HuC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                             <connections>
@@ -104,9 +104,9 @@
                                         </connections>
                                     </button>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-iZ-WL3">
-                                        <rect key="frame" x="32" y="80" width="130" height="124"/>
+                                        <rect key="frame" x="32" y="29" width="130" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="English" alternateTitle="English ADV" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="tml-Nr-ByC">
+                                        <buttonCell key="cell" type="square" title="English" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="tml-Nr-ByC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -115,9 +115,9 @@
                                         </connections>
                                     </button>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-Zk-eIB">
-                                        <rect key="frame" x="196" y="80" width="124" height="124"/>
+                                        <rect key="frame" x="196" y="29" width="124" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="English Novel" alternateTitle="English ADV" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="tPZ-wm-JBg">
+                                        <buttonCell key="cell" type="square" title="English Novel" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="tPZ-wm-JBg">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -126,9 +126,9 @@
                                         </connections>
                                     </button>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="syw-nI-k6c">
-                                        <rect key="frame" x="196" y="224" width="124" height="124"/>
+                                        <rect key="frame" x="196" y="173" width="124" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="Japanese Dark" alternateTitle="Japanese NVL" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="OfP-bA-gbH">
+                                        <buttonCell key="cell" type="square" title="Japanese Dark" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="OfP-bA-gbH">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -137,9 +137,9 @@
                                         </connections>
                                     </button>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-pP-c6y">
-                                        <rect key="frame" x="357" y="225" width="124" height="124"/>
+                                        <rect key="frame" x="357" y="174" width="124" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="Japanese Novel" alternateTitle="Japanese NVL" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="y9L-Ut-Kyi">
+                                        <buttonCell key="cell" type="square" title="Japanese Novel" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="y9L-Ut-Kyi">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -147,8 +147,19 @@
                                             <action selector="onCreateJapaneseNovel:" target="rdk-rJ-M5M" id="JRU-gH-O1p"/>
                                         </connections>
                                     </button>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2IH-KC-u4x">
+                                        <rect key="frame" x="521" y="174" width="124" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" title="Japanese Tategaki" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="ffh-TZ-lVw">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onCreateJapaneseTategaki:" target="rdk-rJ-M5M" id="2JW-YO-DZa"/>
+                                        </connections>
+                                    </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ckm-rk-lL4">
-                                        <rect key="frame" x="686" y="13" width="157" height="32"/>
+                                        <rect key="frame" x="13" y="358" width="157" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="push" title="Open Existing Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4JV-pZ-yQu">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -156,17 +167,6 @@
                                         </buttonCell>
                                         <connections>
                                             <action selector="onOpenGame:" target="rdk-rJ-M5M" id="qhj-gr-3qj"/>
-                                        </connections>
-                                    </button>
-                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2IH-KC-u4x">
-                                        <rect key="frame" x="521" y="225" width="124" height="124"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="Japanese Tategaki" alternateTitle="Japanese Vertical" bezelStyle="shadowlessSquare" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="ffh-TZ-lVw">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="onCreateJapaneseTategaki:" target="rdk-rJ-M5M" id="2JW-YO-DZa"/>
                                         </connections>
                                     </button>
                                 </subviews>

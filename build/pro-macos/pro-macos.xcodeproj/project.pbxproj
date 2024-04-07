@@ -208,7 +208,6 @@
 		267E34132BAB7D0A007AE3BE /* ciel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ciel.c; path = ../../src/ciel.c; sourceTree = "<group>"; };
 		269D04702B28891C00934EE2 /* ScriptTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScriptTextView.h; sourceTree = "<group>"; };
 		269D04712B28891C00934EE2 /* ScriptTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScriptTextView.m; sourceTree = "<group>"; };
-		269F25892BB4A72800ABD7CC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		26A1BAE22B2AD78700761444 /* ios-src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ios-src"; path = "../../engine-ios/ios-src"; sourceTree = "<group>"; };
 		26A1BAE62B2AD79E00761444 /* android-src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "android-src"; path = "../../engine-android/android-src"; sourceTree = "<group>"; };
 		26A1BAF02B2AD7D700761444 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = index.js; path = "../../engine-wasm/html/index.js"; sourceTree = "<group>"; };
@@ -227,6 +226,7 @@
 		26B806BF2BC2901700A92A02 /* english */ = {isa = PBXFileReference; lastKnownFileType = folder; name = english; path = ../../../games/english; sourceTree = "<group>"; };
 		26B806C02BC2901700A92A02 /* japanese-tategaki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "japanese-tategaki"; path = "../../../games/japanese-tategaki"; sourceTree = "<group>"; };
 		26B806C12BC2901700A92A02 /* japanese-novel */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "japanese-novel"; path = "../../../games/japanese-novel"; sourceTree = "<group>"; };
+		26B806C92BC2978E00A92A02 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		26C9DF0A2BC1608F004FCF96 /* suika-signed.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = "suika-signed.exe"; path = "../../engine-windows/suika-signed.exe"; sourceTree = "<group>"; };
 		26F4E5B02B32CE61003E4B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -592,7 +592,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				26F4E5B02B32CE61003E4B5A /* Base */,
-				269F25892BB4A72800ABD7CC /* ja */,
+				26B806C92BC2978E00A92A02 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
