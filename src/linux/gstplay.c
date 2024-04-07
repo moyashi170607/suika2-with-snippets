@@ -153,14 +153,20 @@ gstplay_loop_iteration (void)
 
 #else /* #ifndef NO_GST */
 
+#include "types.h"
+
 void
 gstplay_init (int argc, char *argv[])
 {
+  UNUSED_PARAMETER(argc);
+  UNUSED_PARAMETER(argv);
 }
 
 void
 gstplay_play (const char *fname, Window window)
 {
+  UNUSED_PARAMETER(fname);
+  UNUSED_PARAMETER(window);
 }
 
 void

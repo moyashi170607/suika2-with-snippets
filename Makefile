@@ -130,6 +130,12 @@ setup:
 		echo "Re-enabling EXE file execution."; \
 		echo 1 | sudo tee /proc/sys/fs/binfmt_misc/WSLInterop; \
 	fi
+	@# For FreeBSD:
+	@if [ ! -z "`uname | grep Linux`" ]; then \
+		echo 'Installing dependencies...'; \
+		sudo pkg update; \
+		sudo pkg install gmake gsed qt6-6.6.2 xorg git cmake alsa-plugin mesa-devel; \
+	fi
 
 engine-windows:
 	cd build/engine-windows && make && cd ../..

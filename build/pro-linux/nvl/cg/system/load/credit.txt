@@ -1,6 +1,0 @@
-***CREDIT***
-
-base.png by MaxMorgan
-idle.png by MaxMorgan
-hover.png by MaxMorgan
-active.png by MaxMorgan
