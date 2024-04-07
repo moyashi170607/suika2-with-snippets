@@ -5,13 +5,18 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.68 2024/4/7
+  <ul>
+    <li>アイコン変更用のsuika.exeと、デフォルトアイコンだが起動時に警告が表示されないsuika-signed.exeに分離</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.67 2024/4/7
   <ul>
     <li>テンプレートの拡張子を改修</li>
     <li>新CI/CD (自動リリース) テスト</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.66 2024/4/7
   <ul>
     <li>テンプレートの拡張子を改修</li>
@@ -2068,6 +2073,11 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.68 2024/4/7
+  <ul>
+    <li>Separate suika.exe and suika-signed.exe for an easy icon replacement of suika.exe</li>
+  </ul>
+</li>
 <li>Suika2/17.67 2024/4/7
   <ul>
     <li>Fixed extensions in templates</li>

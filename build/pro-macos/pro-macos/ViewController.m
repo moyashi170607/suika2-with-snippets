@@ -1122,7 +1122,7 @@ static ViewController *theViewController;
         return;
     }
 
-    NSArray *appArray = @[@"suika-mac.dmg", @"suika.exe"];
+    NSArray *appArray = @[@"suika-mac.dmg", @"suika.exe", @"suika-signed.exe"];
     for (NSString *sub in appArray) {
         if (![fileManager copyItemAtPath:[NSString stringWithFormat:@"%@/Contents/Resources/%@", [[NSBundle  mainBundle] bundlePath], sub]
                                   toPath:[NSString stringWithFormat:@"%@/export-desktop/%@", [fileManager currentDirectoryPath], sub]

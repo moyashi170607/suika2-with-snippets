@@ -4498,6 +4498,13 @@ VOID OnExportWin(void)
 				 "実行ファイルのコピーに失敗しました。");
 		return;
 	}
+	if (!CopyLibraryFiles(L"tools\\suika-signed.exe", L".\\windows-export\\suika-signed.exe"))
+	{
+		log_info(bEnglish ?
+				 "Failed to copy exe file." :
+				 "実行ファイルのコピーに失敗しました。");
+		return;
+	}
 
 	/* movをコピーする */
 	CopyMovFiles(L".\\mov", L".\\windows-export\\mov");
@@ -4672,6 +4679,13 @@ VOID OnExportWinMac(void)
 
 	/* ファイルをコピーする */
 	if (!CopyLibraryFiles(L"tools\\suika.exe", L".\\windows-mac-export\\suika.exe"))
+	{
+		log_info(bEnglish ?
+				 "Failed to copy exe file." :
+				 "実行ファイルのコピーに失敗しました。");
+		return;
+	}
+	if (!CopyLibraryFiles(L"tools\\suika-signed.exe", L".\\windows-export\\suika-signed.exe"))
 	{
 		log_info(bEnglish ?
 				 "Failed to copy exe file." :
