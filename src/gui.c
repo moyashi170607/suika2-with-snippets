@@ -119,7 +119,7 @@ static struct gui_button {
 	/* TYPE_GOTO, TYPE_GALLERY */
 	char *label;
 
-	/* TYPE_BGMVOL, TYPE_VOICEVOL, TYPE_SEVOL, TYPE_GUI, TYPE_FONT TYPE_WMS */
+	/* TYPE_MASTERVOL, TYPE_BGMVOL, TYPE_VOICEVOL, TYPE_SEVOL, TYPE_GUI, TYPE_FONT TYPE_WMS */
 	char *file;
 
 	/* すべてのボタン */
@@ -1378,7 +1378,8 @@ static void process_se(void)
 			return;
 		} else if (result_index != -1) {
 			/* 音量系のボタンの場合、SEは再生しない */
-			if (button[result_index].type == TYPE_BGMVOL ||
+			if (button[result_index].type == TYPE_MASTERVOL ||
+			    button[result_index].type == TYPE_BGMVOL ||
 			    button[result_index].type == TYPE_VOICEVOL ||
 			    button[result_index].type == TYPE_SEVOL ||
 			    button[result_index].type == TYPE_CHARACTERVOL)
@@ -1654,9 +1655,13 @@ static void process_button_drag(int index)
 	b = &button[index];
 
 	/* ドラッグ可能なボタンではない場合 */
-	if (b->type != TYPE_BGMVOL && b->type != TYPE_VOICEVOL &&
-	    b->type != TYPE_SEVOL && b->type != TYPE_CHARACTERVOL &&
-	    b->type != TYPE_TEXTSPEED && b->type != TYPE_AUTOSPEED &&
+	if (b->type != TYPE_MASTERVOL &&
+	    b->type != TYPE_BGMVOL &&
+	    b->type != TYPE_VOICEVOL &&
+	    b->type != TYPE_SEVOL &&
+	    b->type != TYPE_CHARACTERVOL &&
+	    b->type != TYPE_TEXTSPEED &&
+	    b->type != TYPE_AUTOSPEED &&
 	    b->type != TYPE_HISTORYSCROLL &&
 	    b->type != TYPE_HISTORYSCROLL_HORIZONTAL)
 		return;
@@ -1824,9 +1829,13 @@ static void process_button_click(int index)
 	b = &button[index];
 
 	/* クリックできないボタンの場合 */
-	if (b->type == TYPE_BGMVOL || b->type == TYPE_VOICEVOL ||
-	    b->type == TYPE_SEVOL || b->type == TYPE_CHARACTERVOL ||
-	    b->type == TYPE_TEXTSPEED || b->type == TYPE_AUTOSPEED ||
+	if (b->type == TYPE_MASTERVOL ||
+	    b->type == TYPE_BGMVOL ||
+	    b->type == TYPE_VOICEVOL ||
+	    b->type == TYPE_SEVOL ||
+	    b->type == TYPE_CHARACTERVOL ||
+	    b->type == TYPE_TEXTSPEED ||
+	    b->type == TYPE_AUTOSPEED ||
 	    b->type == TYPE_PREVIEW)
 		return;
 
@@ -1921,6 +1930,7 @@ static void process_button_render(int index)
 	b = &button[index];
 
 	switch (b->type) {
+	case TYPE_MASTERVOL:
 	case TYPE_BGMVOL:
 	case TYPE_VOICEVOL:
 	case TYPE_SEVOL:
@@ -2190,6 +2200,7 @@ static void process_button_draw(struct image *target, int index)
 	b = &button[index];
 
 	switch (b->type) {
+	case TYPE_MASTERVOL:
 	case TYPE_BGMVOL:
 	case TYPE_VOICEVOL:
 	case TYPE_SEVOL:
