@@ -69,10 +69,6 @@
 		26495D122B2A7BFD0050EDDF /* GameRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26495D0D2B2A7BFD0050EDDF /* GameRenderer.m */; };
 		26495D132B2A7BFD0050EDDF /* aunit.c in Sources */ = {isa = PBXBuildFile; fileRef = 26495D0F2B2A7BFD0050EDDF /* aunit.c */; };
 		2662D0E82B5A5E860019B596 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2662D0E72B5A5E860019B596 /* WindowController.m */; };
-		2662D0FA2B5AC8710019B596 /* nvl-jp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2662D0F52B5AC8710019B596 /* nvl-jp.png */; };
-		2662D0FB2B5AC8710019B596 /* adv-jp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2662D0F62B5AC8710019B596 /* adv-jp.png */; };
-		2662D0FC2B5AC8710019B596 /* adv-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 2662D0F72B5AC8710019B596 /* adv-en.png */; };
-		2662D0FE2B5AC8710019B596 /* nvl-jp-vert.png in Resources */ = {isa = PBXBuildFile; fileRef = 2662D0F92B5AC8710019B596 /* nvl-jp-vert.png */; };
 		2669F7CB2B2843D5001AEF17 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2669F7CA2B2843D5001AEF17 /* AVFoundation.framework */; };
 		2669F7D72B284675001AEF17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2669F7CD2B284675001AEF17 /* AppDelegate.m */; };
 		2669F7D82B284675001AEF17 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2669F7CF2B284675001AEF17 /* GameView.m */; };
@@ -82,14 +78,22 @@
 		269D04722B28891C00934EE2 /* ScriptTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 269D04712B28891C00934EE2 /* ScriptTextView.m */; };
 		26A1BAE32B2AD78800761444 /* ios-src in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAE22B2AD78700761444 /* ios-src */; };
 		26A1BAE72B2AD79E00761444 /* android-src in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAE62B2AD79E00761444 /* android-src */; };
-		26A1BAED2B2AD7B200761444 /* nvl in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAE92B2AD7B200761444 /* nvl */; };
-		26A1BAEF2B2AD7B200761444 /* nvl-tategaki in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAEB2B2AD7B200761444 /* nvl-tategaki */; };
 		26A1BAF32B2AD7D700761444 /* index.js in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAF02B2AD7D700761444 /* index.js */; };
 		26A1BAF42B2AD7D700761444 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAF12B2AD7D700761444 /* index.html */; };
 		26A1BAF52B2AD7D700761444 /* index.wasm in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAF22B2AD7D700761444 /* index.wasm */; };
 		26A1BAF92B2AD7F600761444 /* suika.exe in Resources */ = {isa = PBXBuildFile; fileRef = 26A1BAF82B2AD7F600761444 /* suika.exe */; };
-		26C235042BC1617F00D9DEB9 /* english in Resources */ = {isa = PBXBuildFile; fileRef = 26C235032BC1617F00D9DEB9 /* english */; };
-		26C235062BC161BA00D9DEB9 /* japanese in Resources */ = {isa = PBXBuildFile; fileRef = 26C235052BC161BA00D9DEB9 /* japanese */; };
+		26B806B62BC2900A00A92A02 /* english-novel.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B806B02BC2900A00A92A02 /* english-novel.png */; };
+		26B806B72BC2900A00A92A02 /* japanese-tategaki.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B806B12BC2900A00A92A02 /* japanese-tategaki.png */; };
+		26B806B82BC2900A00A92A02 /* japanese-light.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B806B22BC2900A00A92A02 /* japanese-light.png */; };
+		26B806B92BC2900A00A92A02 /* english.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B806B32BC2900A00A92A02 /* english.png */; };
+		26B806BA2BC2900A00A92A02 /* japanese-novel.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B806B42BC2900A00A92A02 /* japanese-novel.png */; };
+		26B806BB2BC2900A00A92A02 /* japanese-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B806B52BC2900A00A92A02 /* japanese-dark.png */; };
+		26B806C22BC2901700A92A02 /* japanese-dark in Resources */ = {isa = PBXBuildFile; fileRef = 26B806BC2BC2901700A92A02 /* japanese-dark */; };
+		26B806C32BC2901700A92A02 /* english-novel in Resources */ = {isa = PBXBuildFile; fileRef = 26B806BD2BC2901700A92A02 /* english-novel */; };
+		26B806C42BC2901700A92A02 /* japanese-light in Resources */ = {isa = PBXBuildFile; fileRef = 26B806BE2BC2901700A92A02 /* japanese-light */; };
+		26B806C52BC2901700A92A02 /* english in Resources */ = {isa = PBXBuildFile; fileRef = 26B806BF2BC2901700A92A02 /* english */; };
+		26B806C62BC2901700A92A02 /* japanese-tategaki in Resources */ = {isa = PBXBuildFile; fileRef = 26B806C02BC2901700A92A02 /* japanese-tategaki */; };
+		26B806C72BC2901700A92A02 /* japanese-novel in Resources */ = {isa = PBXBuildFile; fileRef = 26B806C12BC2901700A92A02 /* japanese-novel */; };
 		26C9DF0B2BC1608F004FCF96 /* suika-signed.exe in Resources */ = {isa = PBXBuildFile; fileRef = 26C9DF0A2BC1608F004FCF96 /* suika-signed.exe */; };
 		26F4E5AF2B32CE61003E4B5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F4E5B12B32CE61003E4B5A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -190,10 +194,6 @@
 		26495D102B2A7BFD0050EDDF /* GameShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameShaderTypes.h; path = ../../src/apple/GameShaderTypes.h; sourceTree = "<group>"; };
 		2662D0E62B5A5E860019B596 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
 		2662D0E72B5A5E860019B596 /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
-		2662D0F52B5AC8710019B596 /* nvl-jp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nvl-jp.png"; sourceTree = "<group>"; };
-		2662D0F62B5AC8710019B596 /* adv-jp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "adv-jp.png"; sourceTree = "<group>"; };
-		2662D0F72B5AC8710019B596 /* adv-en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "adv-en.png"; sourceTree = "<group>"; };
-		2662D0F92B5AC8710019B596 /* nvl-jp-vert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nvl-jp-vert.png"; sourceTree = "<group>"; };
 		2669F7082B283866001AEF17 /* Suika2 Pro Desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Suika2 Pro Desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2669F7CA2B2843D5001AEF17 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2669F7CD2B284675001AEF17 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -211,14 +211,22 @@
 		269F25892BB4A72800ABD7CC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		26A1BAE22B2AD78700761444 /* ios-src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ios-src"; path = "../../engine-ios/ios-src"; sourceTree = "<group>"; };
 		26A1BAE62B2AD79E00761444 /* android-src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "android-src"; path = "../../engine-android/android-src"; sourceTree = "<group>"; };
-		26A1BAE92B2AD7B200761444 /* nvl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = nvl; path = ../../../games/nvl; sourceTree = "<group>"; };
-		26A1BAEB2B2AD7B200761444 /* nvl-tategaki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "nvl-tategaki"; path = "../../../games/nvl-tategaki"; sourceTree = "<group>"; };
 		26A1BAF02B2AD7D700761444 /* index.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = index.js; path = "../../engine-wasm/html/index.js"; sourceTree = "<group>"; };
 		26A1BAF12B2AD7D700761444 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../engine-wasm/html/index.html"; sourceTree = "<group>"; };
 		26A1BAF22B2AD7D700761444 /* index.wasm */ = {isa = PBXFileReference; lastKnownFileType = file; name = index.wasm; path = "../../engine-wasm/html/index.wasm"; sourceTree = "<group>"; };
 		26A1BAF82B2AD7F600761444 /* suika.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = suika.exe; path = "../../engine-windows/suika.exe"; sourceTree = "<group>"; };
-		26C235032BC1617F00D9DEB9 /* english */ = {isa = PBXFileReference; lastKnownFileType = folder; name = english; path = ../../../games/english; sourceTree = "<group>"; };
-		26C235052BC161BA00D9DEB9 /* japanese */ = {isa = PBXFileReference; lastKnownFileType = folder; name = japanese; path = ../../../games/japanese; sourceTree = "<group>"; };
+		26B806B02BC2900A00A92A02 /* english-novel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "english-novel.png"; sourceTree = "<group>"; };
+		26B806B12BC2900A00A92A02 /* japanese-tategaki.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "japanese-tategaki.png"; sourceTree = "<group>"; };
+		26B806B22BC2900A00A92A02 /* japanese-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "japanese-light.png"; sourceTree = "<group>"; };
+		26B806B32BC2900A00A92A02 /* english.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = english.png; sourceTree = "<group>"; };
+		26B806B42BC2900A00A92A02 /* japanese-novel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "japanese-novel.png"; sourceTree = "<group>"; };
+		26B806B52BC2900A00A92A02 /* japanese-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "japanese-dark.png"; sourceTree = "<group>"; };
+		26B806BC2BC2901700A92A02 /* japanese-dark */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "japanese-dark"; path = "../../../games/japanese-dark"; sourceTree = "<group>"; };
+		26B806BD2BC2901700A92A02 /* english-novel */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "english-novel"; path = "../../../games/english-novel"; sourceTree = "<group>"; };
+		26B806BE2BC2901700A92A02 /* japanese-light */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "japanese-light"; path = "../../../games/japanese-light"; sourceTree = "<group>"; };
+		26B806BF2BC2901700A92A02 /* english */ = {isa = PBXFileReference; lastKnownFileType = folder; name = english; path = ../../../games/english; sourceTree = "<group>"; };
+		26B806C02BC2901700A92A02 /* japanese-tategaki */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "japanese-tategaki"; path = "../../../games/japanese-tategaki"; sourceTree = "<group>"; };
+		26B806C12BC2901700A92A02 /* japanese-novel */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "japanese-novel"; path = "../../../games/japanese-novel"; sourceTree = "<group>"; };
 		26C9DF0A2BC1608F004FCF96 /* suika-signed.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = "suika-signed.exe"; path = "../../engine-windows/suika-signed.exe"; sourceTree = "<group>"; };
 		26F4E5B02B32CE61003E4B5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,14 +339,18 @@
 		2610CD1B2B287C9100300004 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2662D0F72B5AC8710019B596 /* adv-en.png */,
-				2662D0F62B5AC8710019B596 /* adv-jp.png */,
-				2662D0F92B5AC8710019B596 /* nvl-jp-vert.png */,
-				2662D0F52B5AC8710019B596 /* nvl-jp.png */,
-				26C235052BC161BA00D9DEB9 /* japanese */,
-				26C235032BC1617F00D9DEB9 /* english */,
-				26A1BAE92B2AD7B200761444 /* nvl */,
-				26A1BAEB2B2AD7B200761444 /* nvl-tategaki */,
+				26B806BF2BC2901700A92A02 /* english */,
+				26B806BD2BC2901700A92A02 /* english-novel */,
+				26B806BC2BC2901700A92A02 /* japanese-dark */,
+				26B806BE2BC2901700A92A02 /* japanese-light */,
+				26B806C12BC2901700A92A02 /* japanese-novel */,
+				26B806C02BC2901700A92A02 /* japanese-tategaki */,
+				26B806B02BC2900A00A92A02 /* english-novel.png */,
+				26B806B32BC2900A00A92A02 /* english.png */,
+				26B806B52BC2900A00A92A02 /* japanese-dark.png */,
+				26B806B22BC2900A00A92A02 /* japanese-light.png */,
+				26B806B42BC2900A00A92A02 /* japanese-novel.png */,
+				26B806B12BC2900A00A92A02 /* japanese-tategaki.png */,
 				26A1BAE22B2AD78700761444 /* ios-src */,
 				26A1BAE62B2AD79E00761444 /* android-src */,
 				2617DE222B3C5EB2006F4211 /* suika-mac.dmg */,
@@ -472,24 +484,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26B806C32BC2901700A92A02 /* english-novel in Resources */,
+				26B806BA2BC2900A00A92A02 /* japanese-novel.png in Resources */,
 				2610CC842B2878C900300004 /* Assets.xcassets in Resources */,
 				26F4E5AF2B32CE61003E4B5A /* Main.storyboard in Resources */,
-				2662D0FA2B5AC8710019B596 /* nvl-jp.png in Resources */,
-				26C235042BC1617F00D9DEB9 /* english in Resources */,
+				26B806C62BC2901700A92A02 /* japanese-tategaki in Resources */,
+				26B806B72BC2900A00A92A02 /* japanese-tategaki.png in Resources */,
+				26B806C52BC2901700A92A02 /* english in Resources */,
+				26B806B62BC2900A00A92A02 /* english-novel.png in Resources */,
+				26B806B82BC2900A00A92A02 /* japanese-light.png in Resources */,
 				26A1BAE32B2AD78800761444 /* ios-src in Resources */,
+				26B806B92BC2900A00A92A02 /* english.png in Resources */,
 				2617DE232B3C5EB2006F4211 /* suika-mac.dmg in Resources */,
 				26C9DF0B2BC1608F004FCF96 /* suika-signed.exe in Resources */,
-				26A1BAED2B2AD7B200761444 /* nvl in Resources */,
-				2662D0FC2B5AC8710019B596 /* adv-en.png in Resources */,
-				2662D0FE2B5AC8710019B596 /* nvl-jp-vert.png in Resources */,
+				26B806BB2BC2900A00A92A02 /* japanese-dark.png in Resources */,
+				26B806C72BC2901700A92A02 /* japanese-novel in Resources */,
 				26A1BAF92B2AD7F600761444 /* suika.exe in Resources */,
 				26A1BAF52B2AD7D700761444 /* index.wasm in Resources */,
 				26A1BAF32B2AD7D700761444 /* index.js in Resources */,
-				26A1BAEF2B2AD7B200761444 /* nvl-tategaki in Resources */,
+				26B806C22BC2901700A92A02 /* japanese-dark in Resources */,
 				26A1BAE72B2AD79E00761444 /* android-src in Resources */,
-				26C235062BC161BA00D9DEB9 /* japanese in Resources */,
+				26B806C42BC2901700A92A02 /* japanese-light in Resources */,
 				26A1BAF42B2AD7D700761444 /* index.html in Resources */,
-				2662D0FB2B5AC8710019B596 /* adv-jp.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

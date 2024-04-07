@@ -1057,29 +1057,41 @@ static VOID InitMenu(HWND hWnd)
 	mi.dwTypeData = bEnglish ? L"Create a new game" : L"新規ゲームを作成";
 	InsertMenuItem(hMenuFile, 0, TRUE, &mi);
 
-	/* 日本語アドベンチャーを作成する */
+	/* 日本語ライトを作成する */
 	nOrder = 0;
 	mi.fMask = MIIM_TYPE | MIIM_ID;
-	mi.wID = ID_NEW_PROJECT_ADVJP;
-	mi.dwTypeData = bEnglish ? L"Japanese ADV" : L"日本語アドベンチャー";
+	mi.wID = ID_NEW_PROJECT_JAPANESE_LIGHT;
+	mi.dwTypeData = bEnglish ? L"Japanese Light" : L"日本語ライト";
+	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
+
+	/* 日本語ダークを作成する */
+	mi.fMask = MIIM_TYPE | MIIM_ID;
+	mi.wID = ID_NEW_PROJECT_JAPANESE_DARK;
+	mi.dwTypeData = bEnglish ? L"Japanese Dark" : L"日本語ダーク";
 	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
 
 	/* 日本語ノベルを作成する */
 	mi.fMask = MIIM_TYPE | MIIM_ID;
-	mi.wID = ID_NEW_PROJECT_NVLJP;
-	mi.dwTypeData = bEnglish ? L"Japanese NVL" : L"日本語ノベル";
+	mi.wID = ID_NEW_PROJECT_JAPANESE_NOVEL;
+	mi.dwTypeData = bEnglish ? L"Japanese Novel" : L"日本語ノベル";
 	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
 
 	/* 日本語縦書きを作成する */
 	mi.fMask = MIIM_TYPE | MIIM_ID;
-	mi.wID = ID_NEW_PROJECT_NVLJPV;
-	mi.dwTypeData = bEnglish ? L"Japanese NVL Vertical" : L"日本語縦書き";
+	mi.wID = ID_NEW_PROJECT_JAPANESE_TATEGAKI;
+	mi.dwTypeData = bEnglish ? L"Japanese Vertical Novel" : L"日本語縦書きノベル";
+	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
+
+	/* 英語を作成する */
+	mi.fMask = MIIM_TYPE | MIIM_ID;
+	mi.wID = ID_NEW_PROJECT_ENGLISH;
+	mi.dwTypeData = bEnglish ? L"English" : L"英語";
 	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
 
 	/* 英語ノベルを作成する */
 	mi.fMask = MIIM_TYPE | MIIM_ID;
-	mi.wID = ID_NEW_PROJECT_NVLEN;
-	mi.dwTypeData = bEnglish ? L"English NVL" : L"英語ノベル";
+	mi.wID = ID_NEW_PROJECT_ENGLISH_NOVEL;
+	mi.dwTypeData = bEnglish ? L"English Novel" : L"英語ノベル";
 	InsertMenuItem(hMenuProject, nOrder++, TRUE, &mi);
 
 	/* 2階層目を作成する準備を行う */
@@ -1449,11 +1461,12 @@ static VOID StartGame(void)
 		EnableWindow(hWndBtnVar, TRUE);
 
 		/* Make menu items enabled/disabled. */
-		EnableMenuItem(hMenu, ID_NEW_PROJECT_ADVJP, MF_GRAYED);
-		EnableMenuItem(hMenu, ID_NEW_PROJECT_NVLJP, MF_GRAYED);
-		EnableMenuItem(hMenu, ID_NEW_PROJECT_NVLJPV, MF_GRAYED);
-		EnableMenuItem(hMenu, ID_NEW_PROJECT_ADVEN, MF_GRAYED);
-		EnableMenuItem(hMenu, ID_NEW_PROJECT_NVLEN, MF_GRAYED);
+		EnableMenuItem(hMenu, ID_NEW_PROJECT_JAPANESE_LIGHT, MF_GRAYED);
+		EnableMenuItem(hMenu, ID_NEW_PROJECT_JAPANESE_DARK, MF_GRAYED);
+		EnableMenuItem(hMenu, ID_NEW_PROJECT_JAPANESE_NOVEL, MF_GRAYED);
+		EnableMenuItem(hMenu, ID_NEW_PROJECT_JAPANESE_TATEGAKI, MF_GRAYED);
+		EnableMenuItem(hMenu, ID_NEW_PROJECT_ENGLISH, MF_GRAYED);
+		EnableMenuItem(hMenu, ID_NEW_PROJECT_ENGLISH_NOVEL, MF_GRAYED);
 		EnableMenuItem(hMenu, ID_OPEN_PROJECT, MF_GRAYED);
 		EnableMenuItem(hMenu, ID_OPEN_GAME_FOLDER, MF_ENABLED);
 		EnableMenuItem(hMenu, ID_OPEN, MF_ENABLED);
@@ -2071,20 +2084,23 @@ static void OnCommand(WPARAM wParam, LPARAM lParam)
 	switch(nID)
 	{
 	/* ファイル */
-	case ID_NEW_PROJECT_ADVJP:
-		OnNewProject(L"games\\japanese\\*");
+	case ID_NEW_PROJECT_JAPANESE_LIGHT:
+		OnNewProject(L"games\\japanese-light\\*");
 		break;
-	case ID_NEW_PROJECT_NVLJP:
-		OnNewProject(L"games\\nvl\\*");
+	case ID_NEW_PROJECT_JAPANESE_DARK:
+		OnNewProject(L"games\\japanese-dark\\*");
 		break;
-	case ID_NEW_PROJECT_NVLJPV:
-		OnNewProject(L"games\\nvl-tategaki\\*");
+	case ID_NEW_PROJECT_JAPANESE_NOVEL:
+		OnNewProject(L"games\\japanese-novel\\*");
 		break;
-	case ID_NEW_PROJECT_ADVEN:
+	case ID_NEW_PROJECT_JAPANESE_TATEGAKI:
+		OnNewProject(L"games\\japanese-tategaki\\*");
+		break;
+	case ID_NEW_PROJECT_ENGLISH:
 		OnNewProject(L"games\\english\\*");
 		break;
-	case ID_NEW_PROJECT_NVLEN:
-		OnNewProject(L"games\\nvl-en\\*");
+	case ID_NEW_PROJECT_ENGLISH_NOVEL:
+		OnNewProject(L"games\\english-novel\\*");
 		break;
 	case ID_OPEN_PROJECT:
 		OnOpenProject();

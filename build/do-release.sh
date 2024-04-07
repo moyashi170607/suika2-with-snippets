@@ -172,11 +172,12 @@ cp -v pro-windows/suika-pro.exe installer-windows/suika-pro.exe
 rm -rf installer-windows/games
 find ../games -name '.*' | xargs rm
 mkdir installer-windows/games
-cp -R ../games/japanese installer-windows/games/
+cp -R ../games/japanese-light installer-windows/games/
+cp -R ../games/japanese-dark installer-windows/games/
+cp -R ../games/japanese-novel installer-windows/games/
+cp -R ../games/japanese-tategaki installer-windows/games/
 cp -R ../games/english installer-windows/games/
-cp -R ../games/nvl installer-windows/games/
-cp -R ../games/nvl-tategaki installer-windows/games/
-#cp -R ../games/nvl-en installer-windows/games/
+cp -R ../games/english-novel installer-windows/games/
 
 # /tools
 rm -rf installer-windows/tools
@@ -192,8 +193,6 @@ cp engine-wasm/html/index.js installer-windows/tools/web/index.js
 cp engine-wasm/html/index.wasm installer-windows/tools/web/index.wasm
 cp  ../tools/web-test/web-test.exe installer-windows/tools/web-test.exe
 cp -R ../tools/installer installer-windows/tools/installer
-#cp ../tools/snippets/jp-normal/plaintext.code-snippets installer-windows/plaintext.code-snippets.jp
-#cp ../tools/snippets/en-normal/plaintext.code-snippets installer-windows/plaintext.code-snippets.en
 
 # Make an installer
 cd installer-windows

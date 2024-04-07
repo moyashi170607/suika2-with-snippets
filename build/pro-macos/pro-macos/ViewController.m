@@ -40,12 +40,12 @@ static ViewController *theViewController;
 
 // IBOutlet
 @property (weak) IBOutlet NSView *projectPanel;
-@property (weak) IBOutlet NSButton *buttonJapaneseAdv;
-@property (weak) IBOutlet NSButton *buttonJapaneseAdvDark;
-@property (weak) IBOutlet NSButton *buttonEnglishAdv;
-@property (weak) IBOutlet NSButton *buttonJapaneseNvl;
-@property (weak) IBOutlet NSButton *buttonJapaneseVertical;
-@property (weak) IBOutlet NSButton *buttonEnglishNvl;
+@property (weak) IBOutlet NSButton *buttonJapaneseLight;
+@property (weak) IBOutlet NSButton *buttonJapaneseDark;
+@property (weak) IBOutlet NSButton *buttonJapaneseNovel;
+@property (weak) IBOutlet NSButton *buttonJapaneseTategaki;
+@property (weak) IBOutlet NSButton *buttonEnglish;
+@property (weak) IBOutlet NSButton *buttonEnglishNovel;
 @property (weak) IBOutlet GameView *renderView;
 @property (weak) IBOutlet NSView *editorPanel;
 @property (weak) IBOutlet NSButton *buttonContinue;
@@ -108,12 +108,12 @@ static ViewController *theViewController;
     theViewController = self;
 
     // Set button images.
-    [self.buttonJapaneseAdv setImage:[NSImage imageNamed:@"adv-jp"]];
-    [self.buttonJapaneseAdvDark setImage:[NSImage imageNamed:@"adv-jp"]];
-    [self.buttonEnglishAdv setImage:[NSImage imageNamed:@"adv-en"]];
-    [self.buttonJapaneseNvl setImage:[NSImage imageNamed:@"nvl-jp"]];
-    [self.buttonJapaneseVertical setImage:[NSImage imageNamed:@"nvl-jp-vert"]];
-    [self.buttonEnglishNvl setImage:[NSImage imageNamed:@"nvl-en"]];
+    [self.buttonJapaneseLight setImage:[NSImage imageNamed:@"japanese-light"]];
+    [self.buttonJapaneseDark setImage:[NSImage imageNamed:@"japanese-dark"]];
+    [self.buttonJapaneseNovel setImage:[NSImage imageNamed:@"japanese-novel"]];
+    [self.buttonJapaneseTategaki setImage:[NSImage imageNamed:@"japanese-tategaki"]];
+    [self.buttonEnglish setImage:[NSImage imageNamed:@"english"]];
+    [self.buttonEnglishNovel setImage:[NSImage imageNamed:@"english-novel"]];
 
     // Set the editor panel non-editable.
     [theViewController.buttonContinue setEnabled:NO];
@@ -531,27 +531,32 @@ static ViewController *theViewController;
     [alert runModal];
 }
 
-- (IBAction)onCreateAdvJpGame:(id)sender {
-    if ([self createProject:@"japanese"])
+- (IBAction)onCreateJapaneseLight:(id)sender {
+    if ([self createProject:@"japanese-light"])
         [self setupView];
 }
 
-- (IBAction)onCreateAdvEnGame:(id)sender {
+- (IBAction)onCreateJapaneseDark:(id)sender {
+    if ([self createProject:@"japanese-dark"])
+        [self setupView];
+}
+
+- (IBAction)onCreateJapaneseNovel:(id)sender {
+    if ([self createProject:@"japanese-novel"])
+        [self setupView];
+}
+
+- (IBAction)onCreateJapaneseTategaki:(id)sender {
+    if ([self createProject:@"japanese-tategaki"])
+        [self setupView];
+}
+
+- (IBAction)onCreateEnglish:(id)sender {
     if ([self createProject:@"english"])
         [self setupView];
 }
 
-- (IBAction)onCreateNvlJpGame:(id)sender {
-    if ([self createProject:@"nvl"])
-        [self setupView];
-}
-
-- (IBAction)onCreateNvlJpVerticalGame:(id)sender {
-    if ([self createProject:@"nvl-tategaki"])
-        [self setupView];
-}
-
-- (IBAction)onCreateNvlEnGame:(id)sender {
+- (IBAction)onCreateEnglishNovel:(id)sender {
     if ([self createProject:@"nvl-en"])
         [self setupView];
 }
