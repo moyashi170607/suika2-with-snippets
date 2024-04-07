@@ -64,6 +64,9 @@ bool finish_layer_anime(int layer);
 /* 実行中のアニメーションがあるか調べる */
 bool is_anime_running(void);
 
+/* 実行中のアニメーションがあるか調べる */
+bool is_anime_running_except_eye_blinking(void);
+
 /* 指定したレイヤーのアニメーションが実行中であるか調べる */
 bool is_anime_finished_for_layer(int layer);
 

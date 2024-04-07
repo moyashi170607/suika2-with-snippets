@@ -211,7 +211,7 @@ static void draw(void)
 	/* 同期処理の場合 */
 	if (!opt_async) {
 		/* すべてのアニメーションが完了した場合 */
-		if (!is_anime_running()) {
+		if (!is_anime_running_except_eye_blinking()) {
 			/* 繰り返し動作を終了する */
 			stop_command_repetition();
 		}

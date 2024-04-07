@@ -34,6 +34,8 @@ bool goto_command(bool *cont)
 
 	/* ロード画面への遷移を処理する */
 	if (strcmp(label, LOAD_LABEL) == 0) {
+		log_warn("\"@goto $LOAD:\" is deprecated. Use @gui load.s2sc");
+
 		/* コマンドを連続実行しない */
 		*cont = false;
 
@@ -73,6 +75,8 @@ bool goto_command(bool *cont)
 
 	/* セーブ画面への遷移を処理する */
 	if (strcmp(label, SAVE_LABEL) == 0) {
+		log_warn("\"@goto $LOAD:\" is deprecated. Use @gui load.s2sc");
+
 		/* コマンドを連続実行しない */
 		*cont = false;
 

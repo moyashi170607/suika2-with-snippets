@@ -51,14 +51,19 @@ static struct sequence sequence[STAGE_LAYERS][SEQUENCE_COUNT];
 
 /* レイヤごとのアニメーションの状況 */
 struct layer_context {
+	/* props */
 	int seq_count;
 	bool is_running;
 	bool is_finished;
-	uint64_t sw;
-	float cur_lap;
 	uint64_t loop_len;
 	uint64_t loop_ofs;
+
+	/* prop (deprecated) */
 	char *file;
+
+	/* runtime */
+	uint64_t sw;
+	float cur_lap;
 };
 static struct layer_context context[STAGE_LAYERS];
 
@@ -274,7 +279,8 @@ bool new_anime_sequence(int layer)
 
 	cur_seq_layer = layer;
 
-	s = &sequence[layer][0];
+	s = &sequence[layer][context[layer].seq_count];
+	memset(s, 0, sizeof(sequence[layer]));
 	s->from_scale_x = 1.0f;
 	s->from_scale_y = 1.0f;
 	s->to_scale_x = 1.0f;
@@ -283,6 +289,8 @@ bool new_anime_sequence(int layer)
 	context[layer].seq_count++;
 	context[layer].is_running = false;
 	context[layer].is_finished = false;
+	context[layer].loop_ofs = 0;
+	context[layer].loop_len = 0;
 
 	return true;
 }
@@ -382,6 +390,31 @@ bool is_anime_running(void)
 	int i;
 
 	for (i = 0; i < STAGE_LAYERS; i++) {
+		if (context[i].is_running)
+			return true;
+	}
+	return false;
+}
+
+/*
+ * 実行中のアニメーションがあるか調べる
+ */
+bool is_anime_running_except_eye_blinking(void)
+{
+	int i;
+
+	for (i = 0; i < STAGE_LAYERS; i++) {
+		switch (i) {
+		case LAYER_CHB_EYE:
+		case LAYER_CHL_EYE:
+		case LAYER_CHLC_EYE:
+		case LAYER_CHR_EYE:
+		case LAYER_CHC_EYE:
+		case LAYER_CHF_EYE:
+			continue;
+		default:
+			break;
+		}
 		if (context[i].is_running)
 			return true;
 	}
@@ -644,14 +677,13 @@ static bool on_key_value(const char *key, const char *val)
 				sequence[cur_seq_layer][i].file = NULL;
 			}
 		}
-		memset(&sequence[cur_seq_layer], 0, sizeof(struct sequence) * SEQUENCE_COUNT);
+		memset(&sequence[cur_seq_layer], 0, sizeof(sequence[cur_seq_layer]));
 		for (i = 0; i < SEQUENCE_COUNT; i++) {
 			sequence[cur_seq_layer][i].from_scale_x = 1.0f;
 			sequence[cur_seq_layer][i].from_scale_y = 1.0f;
 			sequence[cur_seq_layer][i].to_scale_x = 1.0f;
 			sequence[cur_seq_layer][i].to_scale_y = 1.0f;
 		}
-
 		return true;
 	}
 

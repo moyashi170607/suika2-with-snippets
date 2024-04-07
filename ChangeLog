@@ -7,6 +7,8 @@ This file is referred by some automatic release scripts.
 <!-- BEGIN-LATEST-JP -->
 <li>Suika2/17.63 2024/4/7
   <ul>
+    <li>フリーでない音源をフリー音源に置き換え完了 (Thanks to 80)</li>
+    <li>目パチ使用中にsyncなアニメが完了しないバグを修正 (Ronronさん)</li>
     <li>Cキーによるクラッシュバグの修正 (Thanks to かめのさん)</li>
     <li>古いgoto loadコマンドのバグ修正 (Thanks to かめのさん)</li>
     <li>テンプレートのタイポを修正 (Thanks to かめのさん)</li>
@@ -2046,6 +2048,8 @@ This file is referred by some automatic release scripts.
 <!-- BEGIN-LATEST-EN -->
 <li>Suika2/17.63 2024/4/7
   <ul>
+    <li>Completed replacing non-free audio tracks (Thanks to 80)</li>
+    <li>Fixed a bug where an anime doesn't finish with eye-blinking (Thanks to Ronron-san)</li>
     <li>Fixed a crash when C key is pressed (Thanks to Kameno-san)</li>
     <li>Fixed a bug of the old goto load command (Thanks to Kameno-san)</li>
     <li>Fixed a typo in templates (Thanks to Kameno-san)</li>
