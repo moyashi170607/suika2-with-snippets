@@ -207,11 +207,12 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen_Project"/>
-    <addaction name="actionNew_Project_English_Adv"/>
-    <addaction name="actionNew_Project_English_Nvl"/>
-    <addaction name="actionNew_Project_Japanese_Adv"/>
-    <addaction name="actionNew_Project_Japanese_Nvl"/>
-    <addaction name="actionNew_Project_Japanese_Nvl_Vertical"/>
+    <addaction name="actionNew_Project_English"/>
+    <addaction name="actionNew_Project_English_Novel"/>
+    <addaction name="actionNew_Project_Japanese_Light"/>
+    <addaction name="actionNew_Project_Japanese_Dark"/>
+    <addaction name="actionNew_Project_Japanese_Novel"/>
+    <addaction name="actionNew_Project_Japanese_Tategaki"/>
    </widget>
    <widget class="QMenu" name="menuExport">
     <property name="title">
@@ -224,29 +225,34 @@
    <addaction name="menuFile"/>
    <addaction name="menuExport"/>
   </widget>
-  <action name="actionNew_Project_English_Adv">
+  <action name="actionNew_Project_English">
    <property name="text">
-    <string>English ADV</string>
+    <string>English</string>
    </property>
   </action>
-  <action name="actionNew_Project_English_Nvl">
+  <action name="actionNew_Project_English_Novel">
    <property name="text">
-    <string>English NVL</string>
+    <string>English Novel</string>
    </property>
   </action>
-  <action name="actionNew_Project_Japanese_Adv">
+  <action name="actionNew_Project_Japanese_Light">
    <property name="text">
-    <string>Japanese ADV</string>
+    <string>Japanese Light</string>
    </property>
   </action>
-  <action name="actionNew_Project_Japanese_Nvl">
+  <action name="actionNew_Project_Japanese_Dark">
    <property name="text">
-    <string>Japanese NVL</string>
+    <string>Japanese Dark</string>
    </property>
   </action>
-  <action name="actionNew_Project_Japanese_Nvl_Vertical">
+  <action name="actionNew_Project_Japanese_Novel">
    <property name="text">
-    <string>Japanese NVL Vertical</string>
+    <string>Japanese Novel</string>
+   </property>
+  </action>
+  <action name="actionNew_Project_Japanese_Tategaki">
+   <property name="text">
+    <string>Japanese Tategaki</string>
    </property>
   </action>
   <action name="actionOpen_Project">
