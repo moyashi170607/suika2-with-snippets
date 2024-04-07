@@ -1,18 +1,20 @@
-Suika2
-======
+Suika2 / Polaris Engine
+=======================
 
-## What is Suika2?
+## What is Suika2 / Polaris Engine?
 
 Suika2 is a first-class development suite for Visual Novels.
-It has an open-source philosophy and is designed with a true cross-platform portablity including iOS and Android.
+Polaris Engine is a code name of Suika2.
+
+Suika2 has an open-source philosophy and is designed with a true cross-platform portablity including iOS and Android.
 It is equipped with features and tools of production-grade quality.
 Suika2 is perfect for both beginners and seasoned creators alike.
 
 Effortlessness and efficiently are key concepts of Suika2.
 It provides that without sacrificing features or usability to enrich both the creator and user experience.
 
-We don't aim for no-code but we achieve low-code using multiple DSLs (Domain Specific Languages).
-Specifically, there are separate languages for scenarios, GUI, and logic.
+Suika2 don't aim for no-code but it achieve low-code using multiple Domain Specific Languages).
+Specifically, there are separate languages for scenarios, user interfaces, and logics.
 We are in the process of adding a little graphical support for each DSL.
 This is quite different from other engines and we call it "Visual Live Scripting" technology.
 The author thinks as a researcher of software engineering that VLS is one shape of RAD, Rapid Application Development.
@@ -27,7 +29,6 @@ The author thinks as a researcher of software engineering that VLS is one shape 
   * **Simple:** Suika2 enables the creation of Visual Novels in an easy and efficient manner.
   * **Fast:** Apps are constructed using native technologies only, ensuring resource efficiency on mobile devices.
   * **Free:** We are an open source project and we make our technology public as pro-bono-publico with respects for intellectual properties of others.
-
 * Vision
   * **Earning:** Game developers can publish their games on stores and earn income.
   * **Prosperity:** Our aim is to create a world where anyone can make a living with just a single computer including mobile devices.
@@ -37,58 +38,46 @@ The author thinks as a researcher of software engineering that VLS is one shape 
   * **Market:** We shall complete the market launch of game subscriptions with world leading platform partners.
   * **Diversity:** Develop, distribute, and publish on all platforms - Suika2 seeks the true portability and we call it diversity.
 
-## Downloads
+## Binary Downloads
 
-Note that releases on stores are older than the latest version on GitHub and the Web site because stores take 2-3 business days for reviews but we do 2-3 releases a day.
 Please visit [the official Web site](https://suika2.com/en/dl/) to obtain the latest release.
 
-* On Windows (Suika2 Pro Desktop):
-  * Open [Microsoft Store](https://apps.microsoft.com/detail/XP99CQV05PR79W)
+Note that we have official store releases but they are very older than the Web site versions.
 
-* On Mac (Suika2 Pro Desktop):
-  * Open [Mac App Store](https://apps.apple.com/us/app/suika2-pro-desktop/id6474658254)
-
-* On iPhone/iPad (Suika2 Pro Mobile):
-  * Open [App Store](https://apps.apple.com/us/app/suika2-pro-mobile/id6474521680)
-
-* On Android/Chromebook (Suika2 Pro Mobile):
+* For iPhone, iPad and Apple Vision Pro:
+  * Open [App Store](https://apps.apple.com/us/app/suika2-pro-mobile/id6474521680).
+* For Android:
   * Open [Google Play](https://play.google.com/store/apps/details?id=jp.luxion.suikapro)
 
-* On Linux including terminal of Chromebook (Suika2 Pro Desktop):
-  * You can build from the souce code:
-  ```
-  sudo apt-get install -y git build-essential libasound2-dev libx11-dev mesa-common-dev qt6-base-dev qt6-multimedia-dev libwebp-dev
-  git clone https://github.com/suika2engine/suika2.git
-  ./configure
-  make
-  sudo make install
-  suika2
-  ```
-  * Or you can use the `apt` command on Ubuntu:
-  ```
-  sudo add-apt-repository ppa:ktabata/ppa
-  sudo apt update
-  sudo apt install suika2
-  suika2
-  ```
+## Build
+
+See also [Build Instructions](https://github.com/ktabata/suika2/raw/master/build/README.md) for more details.
+```
+sudo apt-get install -y git build-essential libasound2-dev libx11-dev mesa-common-dev qt6-base-dev qt6-multimedia-dev libwebp-dev
+git clone https://github.com/suika2engine/suika2.git
+./configure
+make
+sudo make install
+suika2
+```
 
 ## Discord
 
 We have two servers.
 
-### User Community
+### User Community Server
 
-Feel free to ask anything in this server.
+Feel free to ask anything in this server. Any language will do.
 
-<a href="https://discord.gg/EzCxCh3f">Join our user community</a>
+<a href="https://discord.gg/Xh9mFwr4E8">Join our user community</a>
 
 ### Dev Server
 
 The dev server is a cherished and invaluable space that embraces developers, creators, and end-users irrespective of their nationality, language, ethnicity, color, lineage, beliefs, sexuality, gender, education, age, religion, or identity.
 That's why we'd love you to join our community! You're definitely deserved to be a part of it.
-We hold a grand vision for cultural growth and engage in profound discussions, so please try the User Community first.
+The Dev Server holds a grand vision for cultural growth and engage in profound discussions, so please try the User Community Server first.
 
-<a href="https://discord.gg/HZ5zKERq">Join our dev server</a>
+<a href="https://discord.gg/uKr4m2k2nJ">Join our dev server</a>
 
 ## Suika2 Pro series
 
@@ -109,7 +98,7 @@ We are always open to suggestions and ideas.
 
 ## Live Web Demo
 
-<a href="https://suika2.com/run/sample/"><img src="https://github.com/suika2engine/suika2/raw/master/.doc/screenshot.jpg"></a>
+<a href="https://suika2.com/run/sample/"><img src="https://github.com/ktabata/suika2/raw/master/.doc/screenshot.jpg"></a>
 
 ## Documentation
 
@@ -134,7 +123,7 @@ Suika2 does not depend on SDKs or frameworks such as Unity, Godot, Python, or SD
 * However, the author has a release script and thus releases are fully automated on his MacBook Pro.
   * The release script builds all binaries and uploads them to the Web site and GitHub.
   * It also posts a message to the Discord server.
-  * This is generally done in 10 minutes.
+  * This is generally done in 10 minutes via FTTH, or 20 minutes via LTE/5G.
 
 ## Trivia
 
@@ -148,7 +137,7 @@ Did you know that...
 
 ## Sponsors
 
-[Here's where you raise your banner!](https://github.com/ktabata/suika2/raw/master/FUND.md)
+Here's where you raise your banner!
 
 **Come forward**, those who resonate with our vision and are of like mind.
 
