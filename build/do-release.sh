@@ -6,8 +6,7 @@ set -eu
 #
 # Show a welcome message.
 #
-echo ""
-echo "Hello, this is the Suika2 Release Manager."
+echo "Hello, this is the release script."
 
 #
 # Check if we run on a macOS host.
