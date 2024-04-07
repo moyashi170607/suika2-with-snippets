@@ -131,7 +131,7 @@ setup:
 		echo 1 | sudo tee /proc/sys/fs/binfmt_misc/WSLInterop; \
 	fi
 	@# For FreeBSD:
-	@if [ ! -z "`uname | grep Linux`" ]; then \
+	@if [ ! -z "`uname | grep FreeBS`" ]; then \
 		echo 'Installing dependencies...'; \
 		sudo pkg update; \
 		sudo pkg install gmake gsed qt6-6.6.2 xorg git cmake alsa-plugin mesa-devel; \
