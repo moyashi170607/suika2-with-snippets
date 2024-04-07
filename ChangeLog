@@ -5,6 +5,12 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.75 2024/4/8
+  <ul>
+    <li>Linux版の修正</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.74 2024/4/7
   <ul>
     <li>ビルド失敗につきリトライ</li>
@@ -12,7 +18,6 @@ This file is referred by some automatic release scripts.
     <li>テンプレートを整理</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.73 2024/4/7
   <ul>
     <li>ビルド失敗につきリトライ</li>
@@ -2112,6 +2117,12 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.75 2024/4/8
+  <ul>
+    <li>Fixed the Linux version</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.74 2024/4/7
   <ul>
     <li>Retry due to a failure of the previous build</li>
@@ -2119,7 +2130,6 @@ This file is referred by some automatic release scripts.
     <li>Organized the templates</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.73 2024/4/7
   <ul>
     <li>Retry due to a failure of the previous build</li>
