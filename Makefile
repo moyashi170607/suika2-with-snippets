@@ -50,14 +50,6 @@ install: build
 	@install -v build/engine-wasm/html/index.js $(DESTDIR)/share/suika2/export-web
 	@install -v build/engine-wasm/html/index.wasm $(DESTDIR)/share/suika2/export-web
 
-	@install -v -d $(DESTDIR)/share/suika2/english-adv
-	@cd games/english && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english-adv/{}" ';' && cd ../..
-	@cd games/english && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english-adv/{}" ';' && cd ../..
-
-	@install -v -d $(DESTDIR)/share/suika2/english-nvl
-	@cd games/nvl-en && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english-nvl/{}" ';' && cd ../..
-	@cd games/nvl-en && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english-nvl/{}" ';' && cd ../..
-
 	@install -v -d $(DESTDIR)/share/suika2/japanese-adv
 	@cd games/japanese && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-adv/{}" ';' && cd ../..
 	@cd games/japanese && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/japanese-adv/{}" ';' && cd ../..
@@ -69,6 +61,14 @@ install: build
 	@install -v -d $(DESTDIR)/share/suika2/japanese-nvl-vertical
 	@cd games/nvl-tategaki && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-nvl-vertical/{}" ';' && cd ../..
 	@cd games/nvl-tategaki && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/japanese-nvl-vertical/{}" ';' && cd ../..
+
+	@install -v -d $(DESTDIR)/share/suika2/english-adv
+	@cd games/english && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english-adv/{}" ';' && cd ../..
+	@cd games/english && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english-adv/{}" ';' && cd ../..
+
+	@install -v -d $(DESTDIR)/share/suika2/english-nvl
+	@cd games/nvl-en && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/english-nvl/{}" ';' && cd ../..
+	@cd games/nvl-en && find . -type f -exec install -v "{}" "$(DESTDIR)/share/suika2/english-nvl/{}" ';' && cd ../..
 
 clean:
 	rm -f suika-linux suika-pro

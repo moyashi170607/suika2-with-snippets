@@ -5,6 +5,12 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.64 2024/4/7
+  <ul>
+    <li>Cキーによるクラッシュバグの修正(再) (Thanks to かめのさん)</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.63 2024/4/7
   <ul>
     <li>フリーでない音源をフリー音源に置き換え完了 (Thanks to 80)</li>
@@ -14,7 +20,6 @@ This file is referred by some automatic release scripts.
     <li>テンプレートのタイポを修正 (Thanks to かめのさん)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.62 2024/4/6
   <ul>
     <li>suika.exeのアイコンを削除 (Thanks to あさつきさん and ソローさん)</li>
@@ -2046,6 +2051,12 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.64 2024/4/7
+  <ul>
+    <li>Again: Fixed a crash when C key is pressed (Thanks to Kameno-san)</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.63 2024/4/7
   <ul>
     <li>Completed replacing non-free audio tracks (Thanks to 80)</li>
@@ -2055,7 +2066,6 @@ This file is referred by some automatic release scripts.
     <li>Fixed a typo in templates (Thanks to Kameno-san)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.62 2024/4/6
   <ul>
     <li>Removed the icon from suika.exe (Thanks to Asatsuki-san and SOrow-san)</li>

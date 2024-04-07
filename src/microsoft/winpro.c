@@ -2023,8 +2023,6 @@ static int ConvertKeyCode(int nVK)
 		return KEY_RIGHT;
 	case VK_ESCAPE:
 		return KEY_ESCAPE;
-	case 'C':
-		return KEY_C;
 	case 'S':
 		return KEY_S;
 	case 'L':
