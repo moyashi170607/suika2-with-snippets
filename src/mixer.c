@@ -224,9 +224,14 @@ float get_mixer_volume(int n)
  */
 void set_master_volume(float vol)
 {
+	int i;
+
 	assert(vol >= 0 && vol <= 1.0f);
 
 	vol_master = vol;
+
+	for (i = 0; i < MIXER_STREAMS; i++)
+		set_sound_volume(i, vol_global[i] * vol_cur[i] * vol_master);
 }
 
 /*
