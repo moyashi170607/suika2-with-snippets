@@ -149,12 +149,14 @@ cd ..
 #
 # Build "web-test.exe"
 #
-echo ""
-echo "Building web-test.exe"
-say "Windows用のWebテストツールをビルドしています" &
-cd ../tools/web-test
-make
-cd ../../build
+if [ ! -e ../tools/web-test/web-test.exe ]; then
+    echo "";
+    echo "Building web-test.exe";
+    say "Windows用のWebテストツールをビルドしています";
+    cd ../tools/web-test;
+    make;
+    cd ../../build;
+fi
 
 #
 # Make an installer for Windows.
@@ -208,7 +210,7 @@ cd ..
 #
 echo ""
 echo "Building Suika2 Pro.app (suika2.dmg)"
-say "Mac用の開発ツールをビルドしています"
+say "Mac用の開発ツールをビルドしています" &
 cd pro-macos
 rm -f suika2.dmg
 make

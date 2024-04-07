@@ -22,7 +22,7 @@ NOTE_EN=`cat ../ChangeLog | awk '/BEGIN-LATEST-EN/,/END-LATEST-EN/' | tail -n +2
 
 # Update /dl/index.html
 cat dl/index.html | \
-$SED -e "s|.*LATEST-VERSION-AND-DATE.*|<!-- LATEST-VERSION-AND-DATE -->最新版 $VERSION \($DATE\):<br>|" \
+$SED -e "s|.*LATEST-VERSION-AND-DATE.*|<!-- LATEST-VERSION-AND-DATE -->最新版 $VERSION (Polaris Engine 0.99) \($DATE\):<br>|" \
      -e "s|.*LATEST-EXE.*|<!-- LATEST-EXE --><a href=\"/dl/suika2-$VERSION_DIGIT.exe\">Windows版 Suika2</a><br>|" \
      -e "s|.*LATEST-DMG.*|<!-- LATEST-DMG --><a href=\"/dl/suika2-$VERSION_DIGIT.dmg\">Mac版 Suika2</a><br>|" \
  > tmp
@@ -36,7 +36,7 @@ rm -f before after new tmp
 
 # Update /en/dl/index.html
 cat en/dl/index.html | \
-$SED -e "s|.*LATEST-VERSION-AND-DATE.*|<!-- LATEST-VERSION-AND-DATE -->Latest $VERSION \($DATE\):<br>|" \
+$SED -e "s|.*LATEST-VERSION-AND-DATE.*|<!-- LATEST-VERSION-AND-DATE -->Latest $VERSION (Polaris Engine 0.99) \($DATE\):<br>|" \
      -e "s|.*LATEST-EXE.*|<!-- LATEST-EXE --><a href=\"/dl/suika2-$VERSION_DIGIT.exe\">Download Suika2 for Windows</a><br>|" \
      -e "s|.*LATEST-DMG.*|<!-- LATEST-DMG --><a href=\"/dl/suika2-$VERSION_DIGIT.dmg\">Download Suika2 for Mac</a><br>|" \
   > tmp
