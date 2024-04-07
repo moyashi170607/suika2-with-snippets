@@ -14,6 +14,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets OpenGL OpenGLWidgets Gui Multimedia)
 
+find_package(PNG JPEG WebP FreeType2 BROTLI ASOUND)
+
 # We use the following preprocessor macros.
 add_compile_definitions(
   USE_EDITOR
