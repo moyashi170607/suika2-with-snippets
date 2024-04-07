@@ -3,25 +3,43 @@ DESTDIR=/usr/local
 build: suika-linux suika-pro
 
 suika-linux:
+	@# Guard if macOS.
 	@if [ ! -z "`uname | grep Darwin`" ]; then \
-		echo 'Run on Linux.'; \
+		echo 'You cannot run Makefile on macOS.'; \
 		exit 1; \
 	fi;
-	@if [ ! -z "`uname | grep FreeBSD`" ]; then \
-		cd build/engine-linux && \
-		gmake -f Makefile.freebsd -j8 && \
-		gmake -f Makefile.freebsd install && \
-		cd ../..; \
-	else \
+	@# For Linux:
+	@if [ ! -z "`uname | grep Linux`" ]; then \
 		cd build/engine-linux && \
 		make -f Makefile.linux -j8 && \
 		make -f Makefile.linux install && \
 		cd ../..; \
 	fi
+	@# For FreeBSD:
+	@if [ ! -z "`uname | grep FreeBSD`" ]; then \
+		cd build/engine-linux && \
+		gmake -f Makefile.freebsd -j8 && \
+		gmake -f Makefile.freebsd install && \
+		cd ../..; \
+	fi
+	@# For NetBSD:
+	@if [ ! -z "`uname | grep NetBSD`" ]; then \
+		cd build/engine-linux && \
+		gmake -f Makefile.netbsd -j8 && \
+		gmake -f Makefile.netbsd install && \
+		cd ../..; \
+	fi
+	@# For OpenBSD:
+	@if [ ! -z "`uname | grep OpenBSD`" ]; then \
+		cd build/engine-linux && \
+		gmake -f Makefile.openbsd -j8 && \
+		gmake -f Makefile.openbsd install && \
+		cd ../..; \
+	fi
 
 suika-pro:
 	@if [ ! -z "`uname | grep Darwin`" ]; then \
-		echo 'Run on Linux.'; \
+		echo 'You cannot run Makefile on macOS.'; \
 		exit 1; \
 	fi;
 	@cd build/pro-linux && \

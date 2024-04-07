@@ -3,10 +3,10 @@ Suika2 / Polaris Engine
 
 ## What is Suika2 / Polaris Engine?
 
-Suika2 is a first-class development suite for Visual Novels.
+Suika2 is the first-class development software for visual novel creation.
 Polaris Engine is a code name of Suika2.
 
-Suika2 has an open-source philosophy and is designed with a true cross-platform portablity including iOS and Android.
+Suika2 has an open-source philosophy and is designed with a true cross-platform portablity including iOS, Android, even gaming consoles.
 It is equipped with features and tools of production-grade quality.
 Suika2 is perfect for both beginners and seasoned creators alike.
 
@@ -21,7 +21,7 @@ The author thinks as a researcher of software engineering that VLS is one shape 
 
 ## What is the Suika2's Development Goal?
 
-**"The New Standard for Visual Novel Creation"**, in the era of 2020s and beyond, is the goal of the Suika2 development.
+**"The New Standard for Visual Novel Creation"**, in the era of 2020s and beyond, is the current goal of the Suika2 development.
 
 ## What are the Suika2's Mission, Vision and Values (MVV)?
 
@@ -44,7 +44,7 @@ Please visit [the official Web site](https://suika2.com/en/dl/) to obtain the la
 
 Note that we have official store releases but they are very older than the Web site versions.
 
-* For iPhone, iPad and Apple Vision Pro:
+* For iOS:
   * Open [App Store](https://apps.apple.com/us/app/suika2-pro-mobile/id6474521680).
 * For Android:
   * Open [Google Play](https://play.google.com/store/apps/details?id=jp.luxion.suikapro)
@@ -52,6 +52,8 @@ Note that we have official store releases but they are very older than the Web s
 ## Build
 
 See also [Build Instructions](https://github.com/ktabata/suika2/raw/master/build/README.md) for more details.
+
+On Ubuntu:
 ```
 sudo apt-get install -y git build-essential libasound2-dev libx11-dev mesa-common-dev qt6-base-dev qt6-multimedia-dev libwebp-dev
 git clone https://github.com/suika2engine/suika2.git
@@ -98,16 +100,16 @@ We are always open to suggestions and ideas.
 
 ## Live Web Demo
 
-<a href="https://suika2.com/run/sample/"><img src="https://github.com/ktabata/suika2/raw/master/.doc/screenshot.jpg"></a>
+[Click Here](https://suika2.com/run/sample/)
 
 ## Documentation
 
-* [Japanese Documentation](https://suika2.com/wiki/?%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88)
-* [English Documentation](https://suika2.com/en/doc/)
+* [Japanese Documentation](https://suika2.com/wiki/)
+* [English Documentation](https://suika2.com/en/wiki/)
 
 ## Portability
 
-Games made with Suika2 can run on Windows PC, Mac, iPhone, iPad, Android, Web browser, Chromebook, Linux, FreeBSD, NetBSD, OpenBSD, and some commercial consoles.
+Games made with Suika2 can run on Windows PC, Mac, iPhone, iPad, Android, Web browser, Chromebook, Linux, FreeBSD, NetBSD, OpenBSD, and commercial consoles.
 
 Suika2 consists of the platform independent core (CORE) and the hardware abstraction layer (HAL).
 The CORE is written in ANSI C, the most portable programming language in the world, while HAL implementations are currently written in C, C++, Objective-C, Swift and Java.
