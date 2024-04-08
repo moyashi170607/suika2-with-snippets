@@ -5,12 +5,17 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.82 2024/4/8
+  <ul>
+    <li>Linux版の修正</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.81 2024/4/8
   <ul>
     <li>タイトルへ戻るボタンの音が鳴らないバグを修正 (Thanks to MATSUNO-san!)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.80 2024/4/8
   <ul>
     <li>整理した際に壊れたリソースを修復</li>
@@ -2147,12 +2152,17 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.82 2024/4/8
+  <ul>
+    <li>Fixed the Linux version</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.81 2024/4/8
   <ul>
     <li>Fixed a bug where sound feedback is not played on move-to-title button (Thanks to MATSUNO-san!)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.80 2024/4/8
   <ul>
     <li>整理した際に壊れたリソースを修復</li>

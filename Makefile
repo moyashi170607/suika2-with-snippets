@@ -1,6 +1,6 @@
 DESTDIR=/usr/local
 
-build: suika-linux suika-pro
+build: suika-linux suika-pro engine-wasm
 
 suika-linux:
 	@# Guard if macOS.

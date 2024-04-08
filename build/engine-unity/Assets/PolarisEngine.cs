@@ -438,72 +438,87 @@ public class PolarisEngine : MonoBehaviour
 		GC.KeepAlive(this);
 
 		// Setup the rendering pipeline.
-		normalShader = Resources.Load<Shader>("NormalShader");
-		graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Vertex, GraphicsBuffer.UsageFlags.None, 32, 4);
-		material = new Material(normalShader);
+		//normalShader = Resources.Load<Shader>("NormalShader");
+		//graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Vertex, GraphicsBuffer.UsageFlags.None, 32, 4);
+		//material = new Material(normalShader);
 
 		// Set active.
 		this.gameObject.SetActive(true);
-
-		vertices = new float[12 * sizeof(float) * 4]; // (XYZ0,RGBA,UV1,UV2) * 4-vertices
 	}
 
 	unsafe void Update()
 	{
-		if (vertices == null)
-			return;
+		// Create a vertex array.
+		float[] vertices = new float[12 * 4]; // (XYZ0,RGBA,UV1,UV2) * 4-vertices
 
 		// Set the left-top point.
-		vertices[0] = 0;				// X-1
-		vertices[1] = 0;				// Y-1
-		vertices[2] = 0;				// Z-1
-		vertices[3] = 1;				// A-1
-		vertices[4] = 0;				// U1-1
-		vertices[5] = 0;				// V1-1
-		vertices[6] = 0;				// U2-1
-		vertices[7] = 0;				// V2-1
+		vertices[0] = 0;				// X
+		vertices[1] = 0;				// Y
+		vertices[2] = 0;				// Z
+		vertices[3] = 0;				// 0
+		vertices[4] = 0;				// R
+		vertices[5] = 0;				// G
+		vertices[6] = 0;				// B
+		vertices[7] = 1;				// A
+		vertices[8] = 0;				// U1
+		vertices[9] = 0;				// V1
+		vertices[10] = 0;				// U2
+		vertices[11] = 0;				// V2
 
 		// Set the right-top point.
-		vertices[8] = 1279;				// X-2
-		vertices[9] = 0;				// Y-2
-		vertices[10] = 0;				// Z-2
-		vertices[11] = 1;				// A-2
-		vertices[12] = 1;				// U1-2
-		vertices[13] = 1;				// V1-2
-		vertices[14] = 0;				// U2-2
-		vertices[15] = 0;				// V2-2
+		vertices[12] = 1280;   			// X
+		vertices[13] = 0;				// Y
+		vertices[14] = 0;				// Z
+		vertices[15] = 0;				// 0
+		vertices[16] = 0;				// R
+		vertices[17] = 0;				// G
+		vertices[18] = 0;				// B
+		vertices[19] = 1;				// A
+		vertices[20] = 1;				// U1
+		vertices[21] = 0;				// V1
+		vertices[22] = 0;				// U2
+		vertices[23] = 0;				// V2
 
 		// Set the left-bottom point.
-		vertices[16] = 0;				// X-3
-		vertices[17] = 719;				// Y-3
-		vertices[18] = 0;				// Z-3
-		vertices[19] = 1;				// A-3
-		vertices[20] = 0;				// U1-3
-		vertices[21] = 1;				// V1-3
-		vertices[22] = 0;				// U2-3
-		vertices[23] = 0;				// V2-3
+		vertices[24] = 0;   			// X
+		vertices[25] = 720;				// Y
+		vertices[26] = 0;				// Z
+		vertices[27] = 0;				// 0
+		vertices[28] = 0;				// R
+		vertices[29] = 0;				// G
+		vertices[30] = 0;				// B
+		vertices[31] = 1;				// A
+		vertices[32] = 0;				// U1
+		vertices[33] = 1;				// V1
+		vertices[34] = 0;				// U2
+		vertices[35] = 0;				// V2
 
 		// Set the right-bottom point.
-		vertices[24] = 1279;			// X-1
-		vertices[25] = 719;				// Y-1
-		vertices[26] = 0;				// Z-1
-		vertices[27] = 1;				// A-4
-		vertices[28] = 1;				// U1-1
-		vertices[29] = 1;				// V1-1
-		vertices[30] = 0;				// U2-1
-		vertices[31] = 0;				// V2-1
+		vertices[36] = 0;   			// X
+		vertices[37] = 720;				// Y
+		vertices[38] = 0;				// Z
+		vertices[39] = 0;				// 0
+		vertices[40] = 0;				// R
+		vertices[41] = 0;				// G
+		vertices[42] = 0;				// B
+		vertices[43] = 1;				// A
+		vertices[44] = 0;				// U1
+		vertices[45] = 1;				// V1
+		vertices[46] = 0;				// U2
+		vertices[47] = 0;				// V2
+
+		// Create a vertex buffer.
+		ComputeBuffer vertexBuffer = new ComputeBuffer(vertices.Length, sizeof(float));
+		vertexBuffer.SetData(vertices);
 
 		// Setup rendering pipelines.
-		graphicsBuffer.SetData(vertices);
+		Material material = new Material(Shader.Find("Specular"));
 		material.SetPass(0);
-		material.SetBuffer("_Input", graphicsBuffer);
+		material.SetBuffer("_Input", vertexBuffer);
 
-		//int[] indices = new int[4] {0, 1, 2, 3};		
-		//GraphicsBuffer indexBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Index, 4, 4);
-
-		UnityEngine.Rendering.CommandBuffer commandBuffer = new UnityEngine.Rendering.CommandBuffer();
-		commandBuffer.DrawProcedural(Matrix4x4.identity, material, -1, MeshTopology.Triangles, 4, 1, new MaterialPropertyBlock());
-		Graphics.ExecuteCommandBuffer(commandBuffer);
+		// Draw.
+		Bounds bounds = new Bounds(Vector3.zero, Vector3.one * 10000);
+		Graphics.DrawProcedural(material, bounds, MeshTopology.Triangles, 2, 1);
 
 		/*
 		// Create textures for images that are loaded before the first rendering.
