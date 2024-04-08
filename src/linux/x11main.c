@@ -1410,7 +1410,7 @@ const char *get_system_locale(void)
 {
 	const char *locale;
 
-	locale = setlocale(LC_NAME, NULL);
+	locale = setlocale(LC_ALL, NULL);
 	if (locale == NULL)
 		return "en";
 	else if (locale[0] == '\0' || locale[1] == '\0')
