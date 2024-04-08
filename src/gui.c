@@ -1545,8 +1545,10 @@ static bool move_to_title(void)
 	clear_stage();
 
 	/* 音声を停止する */
-	for (i = 0; i < MIXER_STREAMS; i++)
-		set_mixer_input(i, NULL);
+	for (i = 0; i < MIXER_STREAMS; i++) {
+		if (i != SYS_STREAM)
+			set_mixer_input(i, NULL);
+	}
 
 	did_load = true;
 
@@ -1902,6 +1904,7 @@ static void process_button_click(int index)
 		process_history_scroll_click(index);
 		break;
 	case TYPE_TITLE:
+		play_sys_se(b->clickse);
 		result_index = index;
 		break;
 	case TYPE_CHAR:
