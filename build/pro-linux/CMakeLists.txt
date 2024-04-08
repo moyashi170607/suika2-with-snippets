@@ -14,8 +14,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets OpenGL OpenGLWidgets Gui Multimedia)
 
+# For *BSD.
 set(CMAKE_LIBRARY_PATH /usr/local/lib)
 find_library(png jpeg webp freetype2 brotlidec brotlicommon asound)
+link_directories(/usr/local/lib)
 
 # We use the following preprocessor macros.
 add_compile_definitions(
