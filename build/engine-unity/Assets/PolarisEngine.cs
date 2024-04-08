@@ -441,14 +441,18 @@ public class PolarisEngine : MonoBehaviour
 		normalShader = Resources.Load<Shader>("NormalShader");
 		graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Vertex, GraphicsBuffer.UsageFlags.None, 32, 4);
 		material = new Material(normalShader);
-		vertices = new float[12 * sizeof(float) * 4]; // (XYZ0,RGBA,UV1,UV2) * 4-vertices
 
 		// Set active.
 		this.gameObject.SetActive(true);
+
+		vertices = new float[12 * sizeof(float) * 4]; // (XYZ0,RGBA,UV1,UV2) * 4-vertices
 	}
 
 	unsafe void Update()
 	{
+		if (vertices == null)
+			return;
+
 		// Set the left-top point.
 		vertices[0] = 0;				// X-1
 		vertices[1] = 0;				// Y-1
@@ -624,7 +628,6 @@ public class PolarisEngine : MonoBehaviour
 	static unsafe void log_error(byte *s)
 	{
 		string str = BytePtrToString(s);
-		Debug.Log(str);
 	}
 
 	[AOT.MonoPInvokeCallback(typeof(delegate_make_sav_dir))]
@@ -921,8 +924,6 @@ public class PolarisEngine : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log(Application.streamingAssetsPath);
-			Debug.Log(FileName);
 			byte[] fileBody = System.IO.File.ReadAllBytes(Application.streamingAssetsPath + "/" + FileName);
 			if (fileBody == null)
 				return IntPtr.Zero;

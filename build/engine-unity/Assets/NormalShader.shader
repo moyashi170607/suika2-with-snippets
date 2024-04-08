@@ -1,4 +1,4 @@
-Shader "Unlit/SimpleUnlitTexturedShader"
+Shader "NormalShader"
 {
 	Properties
 	{

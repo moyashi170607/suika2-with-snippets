@@ -108,34 +108,18 @@ LIBS_MACOS = \
 	../engine-macos/libroot/lib/libbz2.a \
 	../engine-macos/libroot/lib/libz.a
 
-all: macos
+all: macos win64
 
 macos: ../engine-macos/libroot $(SRCS) $(LIBS_MACOS)
 	rm -rf Assets/libpolaris.bundle
 	clang -O0 -g3 -arch arm64 -arch x86_64 -dynamiclib -undefined dynamic_lookup -o Assets/libpolaris.dylib $(CPPFLAGS) -I../engine-macos/libroot/include -I../engine-macos/libroot/include/freetype2 $(SRCS) $(LIBS_MACOS)
 	rm -rf Assets/libpolaris.dylib.dSYM
-	#/Applications/Unity/Hub/Editor/2022.3.23f1/Unity.app/Contents/MacOS/Unity -batchmode -logFile build.log -projectPath ../engine-unity -executeMethod Build.BuildMacOS
-
-win32: ../engine-windows-64/libroot $(SRCS) $(LIBS_WIN32)
-	i686-w64-mingw32-gcc -O0 -g3 -shared -o Assets/libpolaris.dll $(CPPFLAGS) -I../engine-windows/libroot/include -I../engine-windows/libroot/include/freetype2 $(SRCS) $(LIBS_WIN32)
 
 win64: ../engine-windows-64/libroot $(SRCS) $(LIBS_WIN64)
 	x86_64-w64-mingw32-gcc -O0 -g3 -shared -o Assets/libpolaris.dll $(CPPFLAGS) -I../engine-windows-64/libroot/include -I../engine-windows-64/libroot/include/freetype2 $(SRCS) $(LIBS_WIN64)
 
+win32: ../engine-windows-64/libroot $(SRCS) $(LIBS_WIN32)
+	i686-w64-mingw32-gcc -O0 -g3 -shared -o Assets/libpolaris.dll $(CPPFLAGS) -I../engine-windows/libroot/include -I../engine-windows/libroot/include/freetype2 $(SRCS) $(LIBS_WIN32)
+
 clean:
 	@rm -rf Assets/libpolaris.dylib* Assets/libpolaris.so* Assets/libpolaris.dll*
-LIBS_WIN64 = \
-	../engine-windows-64/libroot/lib/libwebp.a \
-	../engine-windows-64/libroot/lib/libwebpdemux.a \
-	../engine-windows-64/libroot/lib/libbrotlicommon.a \
-	../engine-windows-64/libroot/lib/libsharpyuv.a \
-	../engine-windows-64/libroot/lib/libfreetype.a \
-	../engine-windows-64/libroot/lib/libbrotlidec.a \
-	../engine-windows-64/libroot/lib/libpng16.a \
-	../engine-windows-64/libroot/lib/libjpeg.a \
-	../engine-windows-64/libroot/lib/libvorbisfile.a \
-	../engine-windows-64/libroot/lib/libvorbisenc.a \
-	../engine-windows-64/libroot/lib/libvorbis.a \
-	../engine-windows-64/libroot/lib/libogg.a \
-	../engine-windows-64/libroot/lib/libbz2.a \
-	../engine-windows-64/libroot/lib/libz.a
