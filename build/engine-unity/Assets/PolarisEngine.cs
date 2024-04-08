@@ -1,5 +1,14 @@
 /* -*- coding: utf-8; tab-width: 4; c-basic-offset: 4; indent-tabs-mode: t; -*- */
 
+/*
+ * Suika2 / Polaris Engine
+ * Copyright (C) 2001-2024, Keiichi Tabata. All rights reserved.
+ */
+
+/*
+ * The Suika2 HAL for Unity.
+ */
+
 using System;
 using System.Text;
 using System.Collections;
@@ -196,10 +205,10 @@ public class PolarisEngine : MonoBehaviour
 	//private static bool isInitialUpdateFinished = false;
 
 	// Rendering pipeline.
-	private static Shader normalShader = Resources.Load<Shader>("NormalShader");
-	private static GraphicsBuffer graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Vertex, GraphicsBuffer.UsageFlags.None, 32, 4);
-	private static Material material = new Material(normalShader);
-	private static float[] vertices = new float[12 * sizeof(float) * 4]; // (XYZ0,RGBA,UV1,UV2) * 4-vertices
+	private static Shader normalShader;
+	private static GraphicsBuffer graphicsBuffer;
+	private static Material material;
+	private static float[] vertices;
 
 	unsafe void Start()
 	{
@@ -286,6 +295,12 @@ public class PolarisEngine : MonoBehaviour
 		p_open_save_file = Marshal.GetFunctionPointerForDelegate(d_open_save_file);
 		p_write_save_file = Marshal.GetFunctionPointerForDelegate(d_write_save_file);
 		p_close_save_file = Marshal.GetFunctionPointerForDelegate(d_close_save_file);
+		p_init_hal_func_table = Marshal.GetFunctionPointerForDelegate(d_init_hal_func_table);
+		p_init_conf = Marshal.GetFunctionPointerForDelegate(d_init_conf);
+		p_init_locale_code = Marshal.GetFunctionPointerForDelegate(d_init_locale_code);
+		p_on_event_init = Marshal.GetFunctionPointerForDelegate(d_on_event_init);
+		p_on_event_cleanup = Marshal.GetFunctionPointerForDelegate(d_on_event_cleanup);
+		p_on_event_frame = Marshal.GetFunctionPointerForDelegate(d_on_event_frame);
 
 		// Lock function pointers by Alloc().
 		GCHandle.Alloc(p_log_info, GCHandleType.Pinned);
@@ -421,9 +436,18 @@ public class PolarisEngine : MonoBehaviour
 		// Initialize the event subsystem.
 		d_on_event_init();
 		GC.KeepAlive(this);
+
+		// Setup the rendering pipeline.
+		normalShader = Resources.Load<Shader>("NormalShader");
+		graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Vertex, GraphicsBuffer.UsageFlags.None, 32, 4);
+		material = new Material(normalShader);
+		vertices = new float[12 * sizeof(float) * 4]; // (XYZ0,RGBA,UV1,UV2) * 4-vertices
+
+		// Set active.
+		this.gameObject.SetActive(true);
 	}
 
-	unsafe void OnRenderObject()
+	unsafe void Update()
 	{
 		// Set the left-top point.
 		vertices[0] = 0;				// X-1
