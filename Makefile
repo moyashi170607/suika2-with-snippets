@@ -64,9 +64,9 @@ install: build
 	@install -v suika-linux $(DESTDIR)/share/suika2/export-linux/suika-runtime
 
 	@if [ ! -z "`uname | grep BSD`" ]; then install -v -d $(DESTDIR)/share/suika2/export-web; fi
-	@if [ ! -z "`uname | grep BSD`" ]; then install -v build/engine-wasm/html/index.html $(DESTDIR)/share/suika2/export-web
-	@if [ ! -z "`uname | grep BSD`" ]; then install -v build/engine-wasm/html/index.js $(DESTDIR)/share/suika2/export-web
-	@if [ ! -z "`uname | grep BSD`" ]; then install -v build/engine-wasm/html/index.wasm $(DESTDIR)/share/suika2/export-web
+	@if [ ! -z "`uname | grep BSD`" ]; then install -v build/engine-wasm/html/index.html $(DESTDIR)/share/suika2/export-web; fi
+	@if [ ! -z "`uname | grep BSD`" ]; then install -v build/engine-wasm/html/index.js $(DESTDIR)/share/suika2/export-web; fi
+	@if [ ! -z "`uname | grep BSD`" ]; then install -v build/engine-wasm/html/index.wasm $(DESTDIR)/share/suika2/export-web; fi
 
 	@install -v -d $(DESTDIR)/share/suika2/japanese-light
 	@cd games/japanese-light && find . -type d -exec install -v -d "$(DESTDIR)/share/suika2/japanese-light/{}" ';' && cd ../..
