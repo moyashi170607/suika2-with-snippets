@@ -1031,9 +1031,11 @@ static bool init_msg_top(void)
 	}
 
 	/* セーブ用にメッセージを保存する */
-	if (!set_last_message(exp_msg, is_continue_mode)) {
-		free(exp_msg);
-		return false;
+	if (!load_flag) {
+		if (!set_last_message(exp_msg, is_continue_mode)) {
+			free(exp_msg);
+			return false;
+		}
 	}
 
 	/* セリフの場合、実際に表示するメッセージを修飾する */

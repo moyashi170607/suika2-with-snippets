@@ -205,13 +205,15 @@ public class PolarisEngine : MonoBehaviour
 	//private static bool isInitialUpdateFinished = false;
 
 	// Rendering pipeline.
-	private static Shader normalShader;
-	private static GraphicsBuffer graphicsBuffer;
+	private static Shader shader;
+	private static ComputeBuffer vertexBuffer;
 	private static Material material;
 	private static float[] vertices;
+	private static Bounds bounds;
 
 	unsafe void Start()
 	{
+/*
 		GC.KeepAlive(this);
 
 		// Set delegate objects.
@@ -441,100 +443,71 @@ public class PolarisEngine : MonoBehaviour
 		//normalShader = Resources.Load<Shader>("NormalShader");
 		//graphicsBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Vertex, GraphicsBuffer.UsageFlags.None, 32, 4);
 		//material = new Material(normalShader);
-
+*/
 		// Set active.
 		this.gameObject.SetActive(true);
+
+		vertices = new float[6 * 4]; // (XYZ0,UV) * 4-vertices
+
+		vertexBuffer = new ComputeBuffer(4, sizeof(float) * 6);
+		vertexBuffer.SetData(vertices);
+
+		shader = Shader.Find("Unlit/sampleUnit");
+		material = new Material(shader);
+		material.SetBuffer(0, vertexBuffer);
+
+		bounds = new Bounds(Vector3.one * -10000, Vector3.one * 10000);
 	}
 
 	unsafe void Update()
 	{
-		// Create a vertex array.
-		float[] vertices = new float[12 * 4]; // (XYZ0,RGBA,UV1,UV2) * 4-vertices
-
 		// Set the left-top point.
 		vertices[0] = 0;				// X
 		vertices[1] = 0;				// Y
-		vertices[2] = 0;				// Z
+		vertices[2] = 1;				// Z
 		vertices[3] = 0;				// 0
-		vertices[4] = 0;				// R
-		vertices[5] = 0;				// G
-		vertices[6] = 0;				// B
-		vertices[7] = 1;				// A
-		vertices[8] = 0;				// U1
-		vertices[9] = 0;				// V1
-		vertices[10] = 0;				// U2
-		vertices[11] = 0;				// V2
+		vertices[4] = 0;				// U
+		vertices[5] = 0;				// V
 
 		// Set the right-top point.
-		vertices[12] = 1280;   			// X
-		vertices[13] = 0;				// Y
-		vertices[14] = 0;				// Z
-		vertices[15] = 0;				// 0
-		vertices[16] = 0;				// R
-		vertices[17] = 0;				// G
-		vertices[18] = 0;				// B
-		vertices[19] = 1;				// A
-		vertices[20] = 1;				// U1
-		vertices[21] = 0;				// V1
-		vertices[22] = 0;				// U2
-		vertices[23] = 0;				// V2
+		vertices[6] = 1280;   			// X
+		vertices[7] = 0;				// Y
+		vertices[8] = 1;				// Z
+		vertices[9] = 0;				// 0
+		vertices[10] = 1;				// U
+		vertices[11] = 0;				// V 
 
 		// Set the left-bottom point.
-		vertices[24] = 0;   			// X
-		vertices[25] = 720;				// Y
-		vertices[26] = 0;				// Z
-		vertices[27] = 0;				// 0
-		vertices[28] = 0;				// R
-		vertices[29] = 0;				// G
-		vertices[30] = 0;				// B
-		vertices[31] = 1;				// A
-		vertices[32] = 0;				// U1
-		vertices[33] = 1;				// V1
-		vertices[34] = 0;				// U2
-		vertices[35] = 0;				// V2
+		vertices[12] = 0;   			// X
+		vertices[13] = 720;				// Y
+		vertices[14] = 1;				// Z
+		vertices[15] = 0;				// 0
+		vertices[16] = 0;				// U
+		vertices[17] = 1;				// V
 
 		// Set the right-bottom point.
-		vertices[36] = 0;   			// X
-		vertices[37] = 720;				// Y
-		vertices[38] = 0;				// Z
-		vertices[39] = 0;				// 0
-		vertices[40] = 0;				// R
-		vertices[41] = 0;				// G
-		vertices[42] = 0;				// B
-		vertices[43] = 1;				// A
-		vertices[44] = 0;				// U1
-		vertices[45] = 1;				// V1
-		vertices[46] = 0;				// U2
-		vertices[47] = 0;				// V2
+		vertices[18] = 1280;   			// X
+		vertices[19] = 720;				// Y
+		vertices[20] = 1;				// Z
+		vertices[21] = 0;				// 0
+		vertices[22] = 1;				// U
+		vertices[23] = 1;				// V
 
-		// Create a vertex buffer.
-		ComputeBuffer vertexBuffer = new ComputeBuffer(vertices.Length, sizeof(float));
 		vertexBuffer.SetData(vertices);
-
-		// Setup rendering pipelines.
-		Material material = new Material(Shader.Find("Specular"));
-		material.SetPass(0);
-		material.SetBuffer("_Input", vertexBuffer);
-
-		// Draw.
-		Bounds bounds = new Bounds(Vector3.zero, Vector3.one * 10000);
+		material.SetBuffer(0, vertexBuffer);
 		Graphics.DrawProcedural(material, bounds, MeshTopology.Triangles, 2, 1);
 
-		/*
 		// Create textures for images that are loaded before the first rendering.
-		if (!isInitialUpdateFinished)
-		{
-			foreach (Image image in initialImageList)
-				Marshal.PtrToStructure<Texture>(image.texture).SetPixelData(image.pixels, 0);
-			isInitialUpdateFinished = true;
-		}
-		*/
-		/*
-		if (on_event_frame() == 0)
-		{
-			exit(0);
-		}
-		*/
+		//if (!isInitialUpdateFinished)
+		//{
+		//	foreach (Image image in initialImageList)
+		//		Marshal.PtrToStructure<Texture>(image.texture).SetPixelData(image.pixels, 0);
+		//	isInitialUpdateFinished = true;
+		//}
+		//if (on_event_frame() == 0)
+		//{
+		//	exit(0);
+		//}
 	}
 
 	//

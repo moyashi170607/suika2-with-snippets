@@ -543,7 +543,7 @@ static bool serialize_message(struct wfile *wf, int index)
 	}
 
 	/* 継続行用のメッセージを書き出す */
-	t = prev_last_message != NULL ? last_message : "";
+	t = prev_last_message != NULL ? prev_last_message : "";
 	len = strlen(t) + 1;
 	if (write_wfile(wf, t, len) < len)
 		return false;
@@ -1702,6 +1702,8 @@ bool set_last_message(const char *msg, bool is_append)
 		log_memory();
 		return false;
 	}
+	free(prev_last_message);
+	prev_last_message = NULL;
 
 	return true;
 }

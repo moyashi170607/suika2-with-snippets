@@ -1,55 +1,52 @@
-Shader "NormalShader"
+Shader "Unlit/sampleUnit"
 {
-	Properties
-	{
-		[NoScaleOffset] _MainTex ("Texture", 2D) = "white" {}
-	}
-	SubShader
-	{
-		Pass
-		{
-			CGPROGRAM
+    Properties
+    {
+        _MainTex ("Texture", 2D) = "white" {}
+    }
 
-			#pragma vertex vert
-			#pragma fragment frag
+    SubShader
+    {
+        // 基本Opaque、半透明ならTransparent(?)
+        Tags { "RenderType"="Opaque" }
 
-			// vertex shader inputs
-			struct appdata
-			{
-				float4 vertex : POSITION;
-				float4 color : COLOR;
-				float2 uv : TEXCOORD0;
-				float2 unused_uv2 : TEXCOORD1;
-			};
+        LOD 100
 
-			// vertex shader outputs ("vertex to fragment")
-			struct v2f
-			{
-				float4 vertex : SV_POSITION;
-				float2 uv : TEXCOORD0;
-				float4 color : COLOR;
-			};
+        Pass
+        {
+            CGPROGRAM
 
-			StructuredBuffer<appdata> _Input;
+            #pragma vertex vert 
+            #pragma fragment frag
 
-			v2f vert (uint id : SV_VertexID, uint inst : SV_InstanceID)
-			{
-				v2f o;
-				o.vertex = _Input[id].vertex;
-				o.color = _Input[id].color;
-				o.uv = _Input[id].uv;
-				return o;
-			}
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-			sampler2D _MainTex;
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
+            };
 
-			fixed4 frag (v2f i) : SV_Target
-			{
-				fixed4 col = tex2D(_MainTex, i.uv);
-				return col;
-			}
+            sampler2D _MainTex;
 
-			ENDCG
-		}
-	}
+            v2f vert(appdata v)
+            {
+                v2f o;
+                o.vertex = v.vertex;
+                o.uv = v.uv;
+                return o;
+            }
+
+            fixed4 frag (v2f i) : SV_Target
+            {
+                fixed4 col = fixed4(1.0, 1.0, 1.0, 1.0);
+                return col;
+            }
+            ENDCG
+        }
+    }
 }

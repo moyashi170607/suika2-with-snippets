@@ -424,8 +424,6 @@ struct rfile *open_rfile(const char *dir, const char *file, bool save_data)
 		return NULL;
 	}
 
-	log_info("OK1");
-
 	rf->data = (char *)p;
 	rf->size = len;
 	rf->cur = 0;
