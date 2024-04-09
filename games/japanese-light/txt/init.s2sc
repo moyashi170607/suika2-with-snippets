@@ -334,6 +334,9 @@ using effect.s2sc
 
 :END
 
+# BGMを停止する
+@bgm stop
+
 # init.s2scを読み込み直して、先頭から実行する
 @load init.s2sc
 

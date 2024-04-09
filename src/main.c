@@ -2,7 +2,7 @@
 
 /*
  * Suika2 / Polaris Engine
- * Copyright (C) 2001-2022, Keiichi Tabata. All rights reserved.
+ * Copyright (C) 2001-2024, Keiichi Tabata. All rights reserved.
  */
 
 /*

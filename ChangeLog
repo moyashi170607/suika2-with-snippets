@@ -5,12 +5,18 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.88 2024/4/9
+  <ul>
+    <li>継続行のロードのバグを修正 (Thanks to あさつき-san!)</li>
+    <li>テンプレートゲームの改善 (Thanks to 松野-san!)</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.87 2024/4/9
   <ul>
     <li>継続行のロードのバグを修正 (Thanks to あさつき-san!)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.86 2024/4/9
   <ul>
     <li>継続行のロードのバグを修正 (Thanks to あさつき-san!)</li>
@@ -2177,12 +2183,18 @@ This file is referred by some automatic release scripts.
 [Release History (English)]
 
 <!-- BEGIN-LATEST-EN -->
+<li>Suika2/17.88 2024/4/9
+  <ul>
+    <li>継続行のロードのバグを修正 (Thanks to あさつき-san!)</li>
+    <li>テンプレートゲームの改善 (Thanks to 松野-san!)</li>
+  </ul>
+</li>
+<!-- END-LATEST-EN -->
 <li>Suika2/17.87 2024/4/9
   <ul>
     <li>Fixed a bug of load of continued lines (Thanks to Asatsuki-san!)</li>
   </ul>
 </li>
-<!-- END-LATEST-EN -->
 <li>Suika2/17.86 2024/4/9
   <ul>
     <li>Fixed a bug of load of continued lines (Thanks to Asatsuki-san!)</li>
