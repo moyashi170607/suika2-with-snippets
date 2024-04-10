@@ -452,10 +452,10 @@ public class PolarisEngine : MonoBehaviour
 		vertexBuffer = new ComputeBuffer(4, sizeof(float) * 6);
 		vertexBuffer.SetData(vertices);
 
-		shader = Shader.Find("Unlit/sampleUnit");
+		shader = Shader.Find("PolarisEngine/NormalShader");
+		if (shader == null)
+			Debug.Log("Shader not found");
 		material = new Material(shader);
-		material.SetBuffer(0, vertexBuffer);
-
 		bounds = new Bounds(Vector3.one * -10000, Vector3.one * 10000);
 	}
 
@@ -470,7 +470,7 @@ public class PolarisEngine : MonoBehaviour
 		vertices[5] = 0;				// V
 
 		// Set the right-top point.
-		vertices[6] = 1280;   			// X
+		vertices[6] = 100;   			// X
 		vertices[7] = 0;				// Y
 		vertices[8] = 1;				// Z
 		vertices[9] = 0;				// 0
@@ -479,22 +479,26 @@ public class PolarisEngine : MonoBehaviour
 
 		// Set the left-bottom point.
 		vertices[12] = 0;   			// X
-		vertices[13] = 720;				// Y
+		vertices[13] = 100;				// Y
 		vertices[14] = 1;				// Z
 		vertices[15] = 0;				// 0
 		vertices[16] = 0;				// U
 		vertices[17] = 1;				// V
 
 		// Set the right-bottom point.
-		vertices[18] = 1280;   			// X
-		vertices[19] = 720;				// Y
+		vertices[18] = 100;   			// X
+		vertices[19] = 100;				// Y
 		vertices[20] = 1;				// Z
 		vertices[21] = 0;				// 0
 		vertices[22] = 1;				// U
 		vertices[23] = 1;				// V
 
+		if (vertexBuffer == null)
+			Debug.Log("vertexBuffer == null");
 		vertexBuffer.SetData(vertices);
-		material.SetBuffer(0, vertexBuffer);
+		if (material == null)
+			Debug.Log("material == null");
+		material.SetBuffer("_Input", vertexBuffer);
 		Graphics.DrawProcedural(material, bounds, MeshTopology.Triangles, 2, 1);
 
 		// Create textures for images that are loaded before the first rendering.

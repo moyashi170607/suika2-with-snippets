@@ -118,6 +118,7 @@ static char *reg_anime_file[REG_ANIME_COUNT];
 /* ロード中の情報 */
 static int cur_seq_layer;
 static uint64_t cur_sw;
+static bool *used_layer_tbl;
 
 /*
  * 前方参照
@@ -180,11 +181,14 @@ void cleanup_anime(void)
 /*
  * アニメーションファイルを読み込む
  */
-bool load_anime_from_file(const char *fname, int reg_index)
+bool load_anime_from_file(const char *fname, int reg_index, bool *used_layer)
 {
 	/* Load the anime file. */
 	cur_seq_layer = -1;
 	reset_lap_timer(&cur_sw);
+	used_layer_tbl = used_layer;
+	if (used_layer_tbl != NULL)
+		memset(used_layer_tbl, 0, sizeof(bool) * STAGE_LAYERS);
 	if (!load_anime_file(fname))
 		return false;
 
@@ -415,6 +419,22 @@ bool is_anime_running_except_eye_blinking(void)
 		default:
 			break;
 		}
+		if (context[i].is_running)
+			return true;
+	}
+	return false;
+}
+
+/*
+ * 指定したレイヤーの中にアニメが実行中のものがあるか調べる
+ */
+bool is_anime_running_with_layer_mask(bool *used_layers)
+{
+	int i;
+
+	for (i = 0; i < STAGE_LAYERS; i++) {
+		if (!used_layers[i])
+			continue;
 		if (context[i].is_running)
 			return true;
 	}
@@ -660,6 +680,9 @@ static bool on_key_value(const char *key, const char *val)
 		context[cur_seq_layer].is_finished = false;
 		context[cur_seq_layer].loop_len = 0;
 		context[cur_seq_layer].loop_ofs = 0;
+
+		if (used_layer_tbl != NULL)
+			used_layer_tbl[cur_seq_layer] = true;
 
 		return true;
 	}

@@ -5,13 +5,18 @@ This file is referred by some automatic release scripts.
 [Release History (Japanese)]
 
 <!-- BEGIN-LATEST-JP -->
+<li>Suika2/17.91 2024/4/10
+  <ul>
+    <li>アニメファイルでasyncを付けない場合に、全レイヤーのアニメ完了ではなく、アニメファイル内で指定されたレイヤーのアニメ完了を待つように修正 (Thanks to nakamura-san!)</li>
+  </ul>
+</li>
+<!-- END-LATEST-JP -->
 <li>Suika2/17.90 2024/4/9
   <ul>
     <li>継続行のロードのバグを修正 (Thanks to あさつき-san!)</li>
     <li>テンプレートゲームの改善 (Thanks to 松野-san!)</li>
   </ul>
 </li>
-<!-- END-LATEST-JP -->
 <li>Suika2/17.89 2024/4/9
   <ul>
     <li>継続行のロードのバグを修正 (Thanks to あさつき-san!)</li>

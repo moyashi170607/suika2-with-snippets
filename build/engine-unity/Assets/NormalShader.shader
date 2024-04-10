@@ -1,4 +1,4 @@
-Shader "Unlit/sampleUnit"
+Shader "PolarisEngine/NormalShader"
 {
     Properties
     {
@@ -25,27 +25,30 @@ Shader "Unlit/sampleUnit"
                 float2 uv : TEXCOORD0;
             };
 
+	    StructuredBuffer<appdata> _Input;
+
             struct v2f
             {
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
             };
 
-            sampler2D _MainTex;
-
-            v2f vert(appdata v)
+            v2f vert (uint id : SV_VertexID, uint inst : SV_InstanceID)
             {
                 v2f o;
-                o.vertex = v.vertex;
-                o.uv = v.uv;
+                o.vertex = _Input[id].vertex;
+                o.uv = _Input[id].uv;
                 return o;
             }
+
+            sampler2D _MainTex;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = fixed4(1.0, 1.0, 1.0, 1.0);
                 return col;
             }
+
             ENDCG
         }
     }

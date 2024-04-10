@@ -28,6 +28,8 @@ static bool opt_rotate;
 static bool opt_scale;
 static bool opt_reg[REG_SIZE];
 
+static bool used_layer[STAGE_LAYERS];
+
 struct option_table {
 	const char *name;
 	bool *flag;
@@ -167,7 +169,8 @@ static bool init(void)
 		unregister_anime(reg_index);
 	} else {
 		/* アニメファイルをロードする */
-		if (!load_anime_from_file(file, reg_index)) {
+		memset(used_layer, 0, sizeof(bool) * STAGE_LAYERS);
+		if (!load_anime_from_file(file, reg_index, used_layer)) {
 			log_script_exec_footer();
 			return false;
 		}
@@ -210,8 +213,8 @@ static void draw(void)
 
 	/* 同期処理の場合 */
 	if (!opt_async) {
-		/* すべてのアニメーションが完了した場合 */
-		if (!is_anime_running_except_eye_blinking()) {
+		/* アニメファイルに記載されたすべてのレイヤーのアニメーションが完了した場合 */
+		if (!is_anime_running_with_layer_mask(used_layer)) {
 			/* 繰り返し動作を終了する */
 			stop_command_repetition();
 		}

@@ -42,7 +42,7 @@ bool init_anime(void);
 void cleanup_anime(void);
 
 /* アニメーションファイルを読み込む */
-bool load_anime_from_file(const char *fname, int reg_index);
+bool load_anime_from_file(const char *fname, int reg_index, bool *used_layer);
 
 /* アニメーションシーケンスをクリアする */
 void clear_layer_anime_sequence(int layer);
@@ -66,6 +66,9 @@ bool is_anime_running(void);
 
 /* 実行中のアニメーションがあるか調べる */
 bool is_anime_running_except_eye_blinking(void);
+
+/* 指定したレイヤーの中にアニメが実行中のものがあるか調べる */
+bool is_anime_running_with_layer_mask(bool *used_layers);
 
 /* 指定したレイヤーのアニメーションが実行中であるか調べる */
 bool is_anime_finished_for_layer(int layer);

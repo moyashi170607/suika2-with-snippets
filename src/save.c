@@ -1245,7 +1245,7 @@ static bool deserialize_anime(struct rfile *rf)
 			continue;
 		if (strcmp(text, "none") == 0)
 			continue;
-		if (!load_anime_from_file(text, i))
+		if (!load_anime_from_file(text, i, NULL))
 			return false;
 	}
 
